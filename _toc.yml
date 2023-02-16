@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: chapters/intro
+chapters:
+- file: chapters/installation.md
+- file: examples/examples.md
+  sections:
+  - file: examples/aircraft.md
+  - file: examples/vlm.md
+- file: chapters/markdown
+- file: chapters/notebooks
+- file: chapters/markdown-notebooks
+
