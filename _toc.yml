@@ -5,6 +5,8 @@ format: jb-book
 root: chapters/intro
 chapters:
 - file: chapters/installation.md
+  sections:
+    -file: chapters/for_developers.md
 - file: examples/examples.md
   sections:
   - file: examples/aircraft.md

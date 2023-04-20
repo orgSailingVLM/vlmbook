@@ -2,7 +2,7 @@
 Jak tylko bedzie zrobiona paczaka na PyPi to tutaj pojawi sie szczeoglowy opis co i jak
 
 ```
-pip install sailing_vlm
+pip install pySailingVLM
 ```
 
 :::{note}
