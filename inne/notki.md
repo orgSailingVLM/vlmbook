@@ -1,0 +1,1 @@
+http://repositori.lapan.go.id/94/1/Prosiding_M.Luthfi%20R_Pustekbang_2020.pdf dostep (20.04.2023)

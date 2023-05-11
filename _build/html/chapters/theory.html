@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Theory &#8212; pySailingVLm Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"equationNumbers": {"autoNumber": "all"}}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/theory';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technology" href="technology.html" />
+    <link rel="prev" title="Abstract" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Abstract
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Theory</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="example1.html">Example 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example2.html">Example 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Flat_plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sweep.html">Sweep</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/theory.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/theory.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow-theory">Potential flow theory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortices">Vortices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-element">Vortex element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-segment">Vortex segment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="theory">
+<h1>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>Vortex Lattice Method is build on the theory of ideal flow, known as Potential flow. Ideal flow is a simplication of the real flow which can be seen in nature. This  approximation is suffiecient from the engineering point of view. VLM do not take into account any turbulence, dissipation and viscous effects.</p>
+</section>
+<section id="potential-flow-theory">
+<h2>Potential flow theory<a class="headerlink" href="#potential-flow-theory" title="Permalink to this heading">#</a></h2>
+<p>Potenttial Flow Theory treats external flows around bodies as invicid and irrational <span id="id1">[<a class="reference internal" href="bibliography.html#id5" title="Prof. A.H. Techet. Potential flow theory. In Lecture: 2.016 Hydrodynamics. Massachusetts Institute of Technology, 2005. MIT. URL: https://web.mit.edu/2.016/www/handouts/2005Reading4.pdf.">Tec05</a>]</span> .The viscous effects are limitted to a thin layer next to the body (boundary layer). Becouse of this and separation phenomena such fluid can be modelled only with small angle of attack. In irrational flow fluid particles are not rotating.</p>
+<p>In Potential Flow Theory, because velocity must satisfy the conservation of mass equation, the Laplace Equation is qoverning:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-988d978f-043c-4edb-90a0-e5afe9a966b7">
+<span class="eqno">(1)<a class="headerlink" href="#equation-988d978f-043c-4edb-90a0-e5afe9a966b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\label{nabla}
+\nabla^{2} \phi = 0
+\end{equation}\]</div>
+<p>where $\phi$ is a potentinal function defined as continous function which satisfies the conservation of mass and momentum (incompressible, inviscid and irrational flow).</p>
+</section>
+</section>
+<section id="vortex-lattice-method">
+<h1>Vortex Lattice method<a class="headerlink" href="#vortex-lattice-method" title="Permalink to this heading">#</a></h1>
+<p>The Vortex Lattice Method is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. Sources, vortices and doublets are attached to each panel. Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters. Such parameters are known after solving appropriate boundary condition equations. When singularity strengts are determinated, the pressure, velocity can be computed<span id="id2">[<a class="reference internal" href="bibliography.html#id4" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
+<figure class="align-default" id="panel-method">
+<a class="reference internal image-reference" href="../_images/panels.png"><img alt="../_images/panels.png" src="../_images/panels.png" style="height: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representation of an airplane flowfield by panel (or singularity) methods. Figure taken from <span id="id3">[<a class="reference internal" href="bibliography.html#id4" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> (Fig. 7.22 page 350).</span><a class="headerlink" href="#panel-method" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="vortices">
+<h2>Vortices<a class="headerlink" href="#vortices" title="Permalink to this heading">#</a></h2>
+<p>Element which creates circulation around its origin is called a vortex. According to German scientist Hermann von Helmholtz who developed vortex theorems for inviscid incompressible flows <span id="id4">[<a class="reference internal" href="bibliography.html#id3" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>:</p>
+<ul class="simple">
+<li><p>The strength of vortex filament is constant along its length</p></li>
+<li><p>A vortex filament cannot start or end in a fluid (it must form or closed path or extend to infinity)</p></li>
+<li><p>The fluid that forms a vortex tube continues to form a vortex tube and the strength of the vortex tube remains constant as the tube moves about.</p></li>
+</ul>
+<section id="vortex-element">
+<h3>Vortex element<a class="headerlink" href="#vortex-element" title="Permalink to this heading">#</a></h3>
+<p>Vortex element in 2D is presented on figure <a class="reference internal" href="#vortex"><span class="std std-numref">2</span></a>. It is created by placing a rotating cylindrical core in two dimentional flowfield. If the cylinder has a radius $R$ and a constant angular velocity of $\omega_y$, then its motion results in a flow with circular streamlines <span id="id5">[<a class="reference internal" href="bibliography.html#id3" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.</p>
+<figure class="align-default" id="vortex">
+<a class="reference internal image-reference" href="../_images/vort.png"><img alt="../_images/vort.png" src="../_images/vort.png" style="width: 584.0px; height: 774.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from <span id="id6">[<a class="reference internal" href="bibliography.html#id3" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.11 page 34).</span><a class="headerlink" href="#vortex" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The tangential velocity induced is describe by equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5bd6e619-2e63-4dbe-bca3-dbf9861e1732">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5bd6e619-2e63-4dbe-bca3-dbf9861e1732" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\label{q_theta}
+q_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
+\end{equation}\]</div>
+<p>where $r$ is described as distance from the vortex.</p>
+<p>If a vortex is located in free-strem with uniform velocity $u_\infty$ then the total velocity at the distance $r$ can be writtes as $u_\infty + q_\theta(r)$ <span id="id7">[<a class="reference internal" href="bibliography.html#id2" title="T.Larsson A. Helmstad. An Aeroelastic Implementation for Yacht Sails and Rigs, Degree project in Naval Architecture. KTH Engeneering Sciences, 2013.">AH13</a>]</span>.</p>
+</section>
+<section id="vortex-segment">
+<h3>Vortex segment<a class="headerlink" href="#vortex-segment" title="Permalink to this heading">#</a></h3>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/vor_seg.png"><img alt="../_images/vor_seg.png" src="../_images/vor_seg.png" style="width: 358.0px; height: 421.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Vortex segment in three dimentions. Figure taken from <span id="id8">[<a class="reference internal" href="bibliography.html#id3" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.16 page 40).</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The velocity induced by a straight vortex segement (figure <a class="reference internal" href="#id9"><span class="std std-numref">3</span></a>) in three dimentions with given vortex strength $\Gamma$ at point $P(x,y,z)$ is qiven by equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d5e371bd-d4c0-4c4b-bece-1804c55c9453">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d5e371bd-d4c0-4c4b-bece-1804c55c9453" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\label{eq:q12}
+q_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r_1} \times \overrightarrow{r_2}}{|\overrightarrow{r_1} \times \overrightarrow{r_2}|^2} \left(\frac{\overrightarrow{r_1}}{||\overrightarrow{r_1}||} - \frac{\overrightarrow{r_2}}{||\overrightarrow{r_2}||}\right) \cdot\overrightarrow{r_0}
+\end{equation}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d060d5e4-162a-4869-8caf-54946b9bcb30">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d060d5e4-162a-4869-8caf-54946b9bcb30" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\overrightarrow{r_{0}} = \overrightarrow{r_1} - \overrightarrow{r_2}
+\end{equation}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight" id="equation-28e3b8c5-bf24-4179-96b2-9c475adcdc3e">
+<span class="eqno">(5)<a class="headerlink" href="#equation-28e3b8c5-bf24-4179-96b2-9c475adcdc3e" title="Permalink to this equation">#</a></span>\[\begin{gather}
+\overrightarrow{r_{0}} = (x_2, y_2, z_2) - (x_1, y_1, z_1) \\
+\overrightarrow{r_{1}} = P - (x_1, y_1, z_1)\\
+\overrightarrow{r_{2}} = P - (x_2, y_2, z_2)
+\end{gather}\]</div>
+<p>In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula reads <span id="id10">[<a class="reference internal" href="bibliography.html#id6" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org, doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e0395670-9552-4894-a025-6dbaa7659f68">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e0395670-9552-4894-a025-6dbaa7659f68" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\label{q12_inf}
+q_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u_\infty} \times \overrightarrow{r_1}}{||\overrightarrow{r_1}||(||\overrightarrow{r_1}|| - \overrightarrow{u_\infty} \cdot \overrightarrow{r_1})} 
+\end{equation}\]</div>
+<p>Referencing do wyrazen matematycznych dziala w latexie, w htmlu nie, wiec rzeba tak pisac zdania zeby w latxie byly odnosniki a w html nie bylo to widoczne np tak jak w ostatnim wyrazeniu matematycznym.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Abstract</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="technology.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Technology</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow-theory">Potential flow theory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortices">Vortices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-element">Vortex element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-segment">Vortex segment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Grzegorz Gruszczyński, Zuzanna Wieczorek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

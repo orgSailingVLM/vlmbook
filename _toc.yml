@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: chapters/intro
+#chapters:
+parts:
+- caption: Description
+  chapters:
+  - file: chapters/theory
+  - file: chapters/technology
+  
+- caption: Getting Started
+  chapters:
+  - file: chapters/installation
+  - file: chapters/usage
+  - file: chapters/examples/examples
+    sections:
+    - file: chapters/examples/example1
+    - file: chapters/examples/example2
+  - file: chapters/validation/validation
+    sections:
+    - file: chapters/validation/flat_plate
+    - file: chapters/validation/sweep
+  - file: chapters/sailingvlm_example.ipynb
+  - file: chapters/bibliography
