@@ -1,36 +1,17 @@
-# Project goals
+% for inserting raw code
+```{role} raw-latex(raw)
+:format: latex
+```
+# Abstract 
 
-## Sailing Vlm: Vortex Lattice Method for yacht geometry 
+The Vortex lattice method, also called VLM, is a numerical method used in computational fluid dynamics. VLM models a surface on aircraft as infinite vortices to estimate the lift curve slope, induced drag, and force distribution. The VLM is the extension of Prandtl's lifting-line theory that is capable of computing swept and low aspect ratio wings. {cite}`aac`. 
 
-Sailing Vlm Project can help yacht hobbists to determinate optimal sail set geometry. Optimization of a set of sails, an inclined or bended mast as well as the heel or leeway of the boat is available.
-User has to specify wind parameters and yacht geometry to allow computation. 
+In this thesis, the method was used to determinate aerodynamic parameters such as CL, CD  and lift-to-drag ratio for modeling behaviour of sailing yacht with different initial wind conditions. 
+The main purpose of this work was to update existing VLM code to be faster and more efficient. To achieve this goal authors have changed the structure of data and applied some compilations for specific functions in Python code using Numba which translates a subset of Python and NumPy code into fast machine code. Apart from this, the code has gained some bug fixes and new features such as cambered sail, pressure coefficient colormap, validation tests, command line script and jupyter notebook examples. Moreover, code has been packaged and now is available at The Python Package Index (PyPI) as a first open source python software designed for initial aerodynamic analysis of upwind sails. Thanks to its light weight requirements, the software can be immediately installed and executed locally or accessed through the web browser using cloud environment such as Google Collab. [#TODO pySailingVLM at PyPI](https://jupyterbook.org)
 
-A vortex-lattice method (VLM) is used in this project.....
+Keywords: Vortex Lattice Method, VLM, sailing, yacht, Python, code, visualisation, yacht engineering 
 
-ten tekst pod spodem nie ma sensu, do przerobienia
-An aeroelastic model has been developed to determine the elastic response of sailing yachts’ rigs and
-sails due to the aerodynamic pressure induced on the sails by the wind. 
-In the aeroelastic model, pressures are calculated using the VLM module and applied to the finite
-element representation of the sail. Displacements are calculated and the new shape is used to
-determine a new pressure distribution. The procedure is iterated until the pressure distribution has
-converged. A comparison of a fixed and elastic rig is presented which shows the importance of using a
-fully aeroelastic model when studying the behavior of yacht sails.
-The VLM-implementation uses vortex ring elements with two different wake models: a fixed wake
-aligned with the free-stream and a force free wake. The VLM-implementation shows good correlation
-to commercial VLM-codes as well as with model tests. Results show minor differences between the
-fixed- and the free wake model.
-Three types of finite elements have been implemented to model the various parts of the rig: nonlinear
-bar elements for stays and boom, nonlinear triangular membrane elements for sails and linear beam
-elements for mast and spreaders. The Newton-Raphson method is used to solve the non-linear
-structural problem for displacements. The structural implementation show good correlation to other
-FEM-implementations and analytical solutions.
-
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+Inside documentation:
 
 ```{tableofcontents}
 ```
