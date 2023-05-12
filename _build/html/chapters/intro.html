@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -64,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Theory" href="theory.html" />
+    <link rel="next" title="Theory" href="description/theory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -140,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/yacht.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/yacht.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -157,25 +158,26 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/benchmarks.html">Benchmarks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="example1.html">Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example2.html">Example 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/example1.html">Example 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/example2.html">Example 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Flat_plate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sweep.html">Sweep</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Flat_plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sailingvlm_example.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">bibliography</a></li>
 </ul>
 
@@ -372,29 +374,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="abstract">
+  <section class="tex2jax_ignore mathjax_ignore" id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h1>
 <p>The Vortex lattice method, also called VLM, is a numerical method used in computational fluid dynamics. VLM models a surface on aircraft as infinite vortices to estimate the lift curve slope, induced drag, and force distribution. The VLM is the extension of Prandtl’s lifting-line theory that is capable of computing swept and low aspect ratio wings. <span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="A. Septiyana, K. Hidayat, A. Rizaldi, M. L. Ramadiansyah, R. A. Ramadhan, P. A. P. Suseno, E. B. Jayanti, N. Atmasari, and A. Rasyadi. Analysis of aerodynamic characteristics using the vortex lattice method on twin tail boom unmanned aircraft. 7TH INTERNATIONAL SEMINAR ON AEROSPACE SCIENCE AND TECHNOLOGY - ISAST 2019, 2226(April):536, 24-25 September 2019. URL: https://pubs.aip.org/aip/acp/article/2226/1/020003/814546/Analysis-of-aerodynamic-characteristics-using-the, doi:10.1063/5.0002337.">SHR+19</a>]</span>.</p>
 <p>In this thesis, the method was used to determinate aerodynamic parameters such as CL, CD  and lift-to-drag ratio for modeling behaviour of sailing yacht with different initial wind conditions.
-The main purpose of this work was to update existing VLM code to be faster and more efficient. To achieve this goal authors have changed the structure of data and applied some compilations for specific functions in Python code using Numba which translates a subset of Python and NumPy code into fast machine code. Apart from this, the code has gained some bug fixes and new features such as cambered sail, pressure coefficient colormap, validation tests, command line script and jupyter notebook examples. Moreover, code has been packaged and now is available at The Python Package Index (PyPI) - a repository of software for the Python programming language. <a class="reference external" href="https://jupyterbook.org">#TODO pySailingVLM at PyPI</a></p>
+The main purpose of this work was to update existing VLM code to be faster and more efficient. To achieve this goal authors have changed the structure of data and applied some compilations for specific functions in Python code using Numba which translates a subset of Python and NumPy code into fast machine code. Apart from this, the code has gained some bug fixes and new features such as cambered sail, pressure coefficient colormap, validation tests, command line script and jupyter notebook examples. Moreover, code has been packaged and now is available at The Python Package Index (PyPI) as a first open source python software designed for initial aerodynamic analysis of upwind sails. Thanks to its light weight requirements, the software can be immediately installed and executed locally or accessed through the web browser using cloud environment such as Google Collab. <a class="reference external" href="https://jupyterbook.org">#TODO pySailingVLM at PyPI</a></p>
 <p>Keywords: Vortex Lattice Method, VLM, sailing, yacht, Python, code, visualisation, yacht engineering</p>
 <p>Inside documentation:</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory.html#vortex-lattice-method">Vortex Lattice method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/theory.html#vortex-lattice-method">Vortex Lattice method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description/benchmarks.html">Benchmarks</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validation.html">Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sailingvlm_example.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation/validation.html">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">bibliography</a></li>
 </ul>
 </div>
@@ -432,7 +433,7 @@ The main purpose of this work was to update existing VLM code to be faster and m
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="theory.html"
+       href="description/theory.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

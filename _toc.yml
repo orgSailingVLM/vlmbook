@@ -7,20 +7,21 @@ root: chapters/intro
 parts:
 - caption: Description
   chapters:
-  - file: chapters/theory
-  - file: chapters/technology
+  - file: chapters/description/theory
+  - file: chapters/description/technology
+  - file: chapters/description/benchmarks
   
 - caption: Getting Started
   chapters:
-  - file: chapters/installation
-  - file: chapters/usage
-  - file: chapters/examples/examples
+  - file: chapters/start/installation
+  - file: chapters/usage/usage
     sections:
-    - file: chapters/examples/example1
-    - file: chapters/examples/example2
+      - file: chapters/examples/example1
+      - file: chapters/examples/example2
+      - file: chapters/examples/sailingvlm_example.ipynb
+      - file: chapters/examples/markdown-notebooks.md
   - file: chapters/validation/validation
     sections:
     - file: chapters/validation/flat_plate
     - file: chapters/validation/sweep
-  - file: chapters/sailingvlm_example.ipynb
   - file: chapters/bibliography

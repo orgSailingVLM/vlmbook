@@ -3,8 +3,8 @@
 
 title: pySailingVLm Documentation
 author: Grzegorz Gruszczyński, Zuzanna Wieczorek
-logo: logo.png
-exclude_patterns: [_build, inne, chapters/results_example_jib_and_mainsail_vlm]
+logo: figures/yacht.png
+exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -33,16 +33,26 @@ html:
   use_repository_button: true
   include-in-header: mathjax.html
 parse:
-  myst_amsmath_enable: true
-  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+ # myst_amsmath_enable: true
+  myst_dmath_double_inline: true
+  myst_enable_extensions:
     - amsmath
+    - dollarmath
 
 sphinx:
   config:
-    #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-    mathjax3_config:
-      tex:
-      #tags: all
-        equationNumbers: 
-          autoNumber: "all"
+    latex_elements:
+      extrapackages: |
+        \usepackage{nicefrac, xfrac}
+      maketitle: |
+          \sphinxmaketitle
+           
+          \clearpage
+
+
+
+
+
+
+
 
