@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>bibliography &#8212; pySailingVLm Documentation</title>
+    <title>bibliography &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -35,7 +35,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/bibliography';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Sweep" href="validation/sweep.html" />
+    <link rel="prev" title="Conclusions" href="conclusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,23 +160,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="description/benchmarks.html">Benchmarks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/example1.html">Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/example2.html">Example 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Cambered jib and main example</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="examples/sweep_example.html">Sweep cambered main sail</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Flat_plate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
+
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">bibliography</a></li>
 </ul>
 
@@ -233,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -250,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/bibliography.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/bibliography.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -389,11 +388,15 @@ document.write(`
 <span class="label"><span class="fn-bracket">[</span>JJB09<span class="fn-bracket">]</span></span>
 <p>Russell M. Cummings John J. Bertin. <em>Aerodynamics for engineers, Fifth Edition</em>. Pearson Education International, 2009.</p>
 </div>
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NJS+21<span class="fn-bracket">]</span></span>
+<p>Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. <em>Pakistan Journal of Engineering and Technology, PakJET</em>, 04(01):207– 211, 2021. URL: <a class="reference external" href="https://www.hpej.net/journals/pakjet/article/view/754/564">https://www.hpej.net/journals/pakjet/article/view/754/564</a>, <a class="reference external" href="https://doi.org/DOI: 10.51846/vol4iss1pp207-211">doi:DOI: 10.51846/vol4iss1pp207-211</a>.</p>
+</div>
 <div class="citation" id="id6" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>PS00<span class="fn-bracket">]</span></span>
 <p>W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. <em>JOURNAL OF AIRCRAFT</em>, 37(4):662–670, July - August 2000. URL: <a class="reference external" href="http://arc.aiaa.org">http://arc.aiaa.org</a>, <a class="reference external" href="https://doi.org/DOI: 10.2514/2.2649">doi:DOI: 10.2514/2.2649</a>.</p>
 </div>
-<div class="citation" id="id7" role="doc-biblioentry">
+<div class="citation" id="id8" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>SHR+19<span class="fn-bracket">]</span></span>
 <p>A. Septiyana, K. Hidayat, A. Rizaldi, M. L. Ramadiansyah, R. A. Ramadhan, P. A. P. Suseno, E. B. Jayanti, N. Atmasari, and A. Rasyadi. Analysis of aerodynamic characteristics using the vortex lattice method on twin tail boom unmanned aircraft. <em>7TH INTERNATIONAL SEMINAR ON AEROSPACE SCIENCE AND TECHNOLOGY - ISAST 2019</em>, 2226(April):536, 24-25 September 2019. URL: <a class="reference external" href="https://pubs.aip.org/aip/acp/article/2226/1/020003/814546/Analysis-of-aerodynamic-characteristics-using-the">https://pubs.aip.org/aip/acp/article/2226/1/020003/814546/Analysis-of-aerodynamic-characteristics-using-the</a>, <a class="reference external" href="https://doi.org/10.1063/5.0002337">doi:10.1063/5.0002337</a>.</p>
 </div>
@@ -437,12 +440,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="validation/sweep.html"
+       href="conclusion.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sweep</p>
+        <p class="prev-next-title">Conclusions</p>
       </div>
     </a>
 </div></div>
@@ -464,7 +467,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Grzegorz Gruszczyński, Zuzanna Wieczorek
+By Zuzanna Wieczorek, Grzegorz Gruszczyński
 </p>
 
   </div>
@@ -473,7 +476,7 @@ By Grzegorz Gruszczyński, Zuzanna Wieczorek
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Technology &#8212; pySailingVLm Documentation</title>
+    <title>Technology &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -35,7 +35,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,10 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/description/technology';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Benchmarks" href="benchmarks.html" />
+    <link rel="next" title="Installation" href="../start/installation.html" />
     <link rel="prev" title="Theory" href="theory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -162,23 +163,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Technology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/example1.html">Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/example2.html">Example 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Flat_plate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
+
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">bibliography</a></li>
 </ul>
 
@@ -234,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -251,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/description/technology.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/description/technology.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,15 +378,64 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="technology">
 <h1>Technology<a class="headerlink" href="#technology" title="Permalink to this heading">#</a></h1>
-<p>Tu będzie tekst opisujący:</p>
-<ul class="simple">
-<li><p>dlaczego zrobiono wersję praktycznie nieobiektową</p></li>
-<li><p>opis AoS i SoA</p></li>
-<li><p>jak ułozone są panele w postaci tablic w programie</p></li>
-<li><p>why numba</p></li>
-<li></li>
-</ul>
-<p>…</p>
+<p>The main purpose of the thesis was to optimize the existing code for initial sail analysis. The surface of the geometry used is defined with coordinates in three dimensions (figure <a class="reference internal" href="#geom"><span class="std std-numref">8</span></a>)  with the x-axis in the yachts longitudinal (chordwise) direction positivevbackwards, the y-axis in the transverse direction positive to starboard and the z-axis in spanwise direction positive upwards.</p>
+<figure class="align-default" id="geom">
+<a class="reference internal image-reference" href="../../_images/geom.png"><img alt="../../_images/geom.png" src="../../_images/geom.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Discretization of jib sail into 3 chordwise and 7 spanwise panels each. Figure created by author.</span><a class="headerlink" href="#geom" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Orginally the code was written in pure OPP (Object Oriented Programming) Python which led to time consuming computations. To solve this problem, the code was rewritten in a non-objective way. Figure <a class="reference internal" href="#uklad"><span class="std std-numref">9</span></a> shows data layout implemented. Insted of creating many Python objects, data such as coordinates of panels, pressure coefficients were arranged into sets of arrays. Thanks to this, the code has become less complicated and the  Numba (a JIT compiler that translates Python code and NumPy into machine code) enabled parallel coalcuations.</p>
+<figure class="align-default" id="uklad">
+<a class="reference internal image-reference" href="../../_images/panele.drawio.png"><img alt="../../_images/panele.drawio.png" src="../../_images/panele.drawio.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Data layout implemented in pySailingVLM. Figure created by author.</span><a class="headerlink" href="#uklad" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table <a class="reference internal" href="#benchs"><span class="std std-numref">1</span></a>: objective code, objective code with Numba and non-objective compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with Radeon, 2.9 GHz, 32 GB RAM, Nvidia GeForce graphics card GTX 1650. For 20x20 shape more then thirty times acceleration was obtained.</p>
+<table class="table" id="benchs">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Time execution comparison between different approaches of implementing pySailingVLM depending on sail shape.</span><a class="headerlink" href="#benchs" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n_{spanwise}\times\,n_{chordwise}\)</span></p></th>
+<th class="head"><p>objective [s]</p></th>
+<th class="head"><p>objective + numba [s]</p></th>
+<th class="head"><p>non-objective + numba [s]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5x5</p></td>
+<td><p>16.51</p></td>
+<td><p>1.71</p></td>
+<td><p>1.04</p></td>
+</tr>
+<tr class="row-odd"><td><p>10x10</p></td>
+<td><p>269.13</p></td>
+<td><p>21.81</p></td>
+<td><p>10.41</p></td>
+</tr>
+<tr class="row-even"><td><p>15x10</p></td>
+<td><p>593.85</p></td>
+<td><p>48.44</p></td>
+<td><p>22.51</p></td>
+</tr>
+<tr class="row-odd"><td><p>20x20</p></td>
+<td><p>4325.78</p></td>
+<td><p>320.54</p></td>
+<td><p>143.69</p></td>
+</tr>
+<tr class="row-even"><td><p>30x20</p></td>
+<td><p>no data</p></td>
+<td><p>724.70</p></td>
+<td><p>320.12</p></td>
+</tr>
+<tr class="row-odd"><td><p>30x30</p></td>
+<td><p>no data</p></td>
+<td><p>1653.52</p></td>
+<td><p>706.62</p></td>
+</tr>
+</tbody>
+</table>
+<p>Moreover, the Vortex Lattice Method implementation was improved: the horseshoe vortex was introduced and is used at trailing edge (insted of vortex ring). New approach has added possibility to calculate cambered sailis and visualize pressure coefficients on colormap. Code has been packaged and now is available at PyPi. It can be run locally from command line or in a cloud using Jupyter Notebook. pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -429,11 +479,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="benchmarks.html"
+       href="../start/installation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Benchmarks</p>
+        <p class="prev-next-title">Installation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -456,7 +506,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Grzegorz Gruszczyński, Zuzanna Wieczorek
+By Zuzanna Wieczorek, Grzegorz Gruszczyński
 </p>
 
   </div>
@@ -465,7 +515,7 @@ By Grzegorz Gruszczyński, Zuzanna Wieczorek
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

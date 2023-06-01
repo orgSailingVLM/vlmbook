@@ -8,38 +8,36 @@ Example warning:
 /home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: <function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40>. Debug line information may be inaccurate.
 ```
 
-## jupyter notebook
-See section #TODO
-DODAĆ LINKA DO EXAMPLA JAKIEGOS!
+## Jupyter Notebook
+For Jupyter Notebook examples see Usage subsection.
 
-## Run from command line
-### input file
+## Command line
+### Input file
 In order to run pySailingVLM from command line you must provide a variable.py file. Example file is shown below. Modify it for your needs.
-```
 
+```
 import os
 import numpy as np
 import time
 
-# OUTPUT DIR
-output_dir = {
-    'case_name':  os.path.basename(__file__),  # get name of the current file
-    'case_dir' : os.path.dirname(os.path.realpath(__file__)),  # get dir of the current file
+mgirths =  np.array([0.00, 1./8, 1./4, 1./2, 3./4, 7./8, 1.00])
+jgirths = np.array([0.00, 1./4, 1./2, 3./4, 1.00])
+
+output_args = {
+    'case_name': os.path.basename(__file__),  # get name of the current file
+    'case_dir': os.path.abspath(''), # get dir of the current file
     'name': os.path.join("results_example_jib_and_mainsail_vlm", time.strftime("%Y-%m-%d_%Hh%Mm%Ss")),
     'file_name': 'my_fancy_results', # name of xlsx excel file
 }
 
-# SOLVER SETTINGS
-solver = {
-    'n_spanwise':  4,  # No of control points (above the water) per sail, recommended: 50
-    'n_chordwise': 4, # No of control points (above the water) per sail, recommended: 50
+solver_args = {
+    'n_spanwise':  15,  # No of control points (above the water) per sail, recommended: 50
+    'n_chordwise': 10, # No of control points (above the water) per sail, recommended: 50
     'interpolation_type': "spline",  # either "spline" or "linear"
     'LLT_twist': "real_twist",  # defines how the Lifting Line discretize the sail twist.
-    # It can be "sheeting_angle_const" or "average_const" or "real_twist"
 }
 
-# SAILING CONDITIONS
-conditions = {
+conditions_args = {
     'leeway_deg': 5.,    # [deg]
     'heel_deg': 10.,     # [deg]
     'SOG_yacht': 4.63,   # [m/s] yacht speed - speed over ground (leeway is a separate variable)
@@ -56,41 +54,35 @@ conditions = {
     'roughness': 0.05, # for logarithmic profile only 
 }
 
-
-# GEOMETRY OF THE RIG
-rig = {
+rig_args = {
     'main_sail_luff': 12.4,  # [m]
     'jib_luff': 10.0,  # [m]
     'foretriangle_height': 11.50,  # [m]
     'foretriangle_base': 3.90,  # [m]
     'sheer_above_waterline': 1.2,#[m]
     'boom_above_sheer': 1.3, # [m],
-    'rake_deg': 92.,  # rake angle [deg]
+    'rake_deg': 92. ,  # rake angle [deg]
     'mast_LOA': 0.15,  # [m]
     'sails_def': 'jib_and_main', # definition of sail set, possible: 'jib' or 'main' or 'jib_and_main'
-    'main_sail_girths': np.array([0.00, 1./8, 1./4, 1./2, 3./4, 7./8, 1.00]),
-    'jib_girths': np.array([0.00, 1./4, 1./2, 3./4, 1.00]),
 }
-
-# INPUT - GEOMETRY OF THE SAIL
 # INFO for camber:
 # First digit describing maximum camber as percentage of the chord.
 # Second digit describing the distance of maximum camber from the airfoil leading edge in tenths of the chord.
-
-main_sail = {
-    'main_sail_chords': np.array([4.00, 3.82, 3.64, 3.20, 2.64, 2.32, 2.00]),
-    'main_sail_centerline_twist_deg': 12. * rig['main_sail_girths'] + 5., 
-    'main_sail_camber': 5*np.array([0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]),
-    'main_sail_camber_distance_from_luff': np.array([0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]), # starting from leading edge
+main_sail_args = {
+    'girths' : mgirths,
+    'chords': np.array([4.00, 3.82, 3.64, 3.20, 2.64, 2.32, 2.00]),
+    'centerline_twist_deg': 12 * mgirths + 5,
+    'camber': 5*np.array([0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]),
+    'camber_distance_from_luff': np.array([0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]),
 }
-
-
-jib_sail = {
-    'jib_chords': np.array([3.80, 2.98, 2.15, 1.33, 0.5]),
-    'jib_centerline_twist_deg': 15. * rig['jib_girths'] + 7, 
-    'jib_sail_camber': 0*np.array([0.01, 0.01, 0.01, 0.01, 0.01]),
-    'jib_sail_camber_distance_from_luff': np.array([0.5, 0.5, 0.5, 0.5, 0.5]), # starting from leading edge   
-}
+ 
+jib_sail_args = {
+    'centerline_twist_deg': 15. * jgirths + 7,
+    'girths': jgirths,
+    'chords': np.array([3.80, 2.98, 2.15, 1.33, 0.5]),
+    'camber': 5*np.array([0.01, 0.01, 0.01, 0.01, 0.01]),
+    'camber_distance_from_luff': np.array([0.5, 0.5, 0.5, 0.5, 0.5]), # starting from leading edge   
+}        
 
 # REFERENCE CSYS
 # The origin of the default CSYS is located @ waterline level and aft face of the mast
@@ -104,20 +96,20 @@ jib_sail = {
 # yaw_reference [m] - distance from the aft of the mast towards stern, at which the yawing moment is calculated.
 # sway_reference [m] - distance from the aft of the mast towards leeward side. 0 for symmetric yachts ;)
 # heeling_reference [m] - distance from the water level,  at which the heeling moment is calculated.
-csys = {
+csys_args = {
     'reference_level_for_moments': np.array([0, 0, 0]),  # [yaw_reference, sway_reference, heeling_reference]
 }
 
 # GEOMETRY OF THE KEEL
 # to estimate heeling moment from keel, does not influence the optimizer.
 # reminder: the z coord shall be negative (under the water)
-keel = {
+keel_args={
     'center_of_lateral_resistance_upright': np.array([0, 0, -1.0]),  # [m] the coordinates for a yacht standing in upright position
-}
+}  
 ```
 
 ### Run script
-To run script with variables.py located in working directory:
+To run script with variables.py located in working directory do:
 ```
 pySailingVLM
 ```
@@ -133,29 +125,6 @@ pySailingVLM --help
 ```
 ### Output
 pySailingVLM produces output files: data in xlsx file, matplotlib figures and pressure coefficient colormap in html extention (interactive plot). It is saved in the location specified in varaibles.py.
-
-
-
-
-
-## Run from python
-```
-from sailing_vlm.runner import aircraft as a
-import numpy as np
-chord_length = 1.0             
-half_wing_span = 5.0 
-AoA_deg = 10.
-sweep_angle_deg = 0.
-tws_ref = 1.0
-V = np.array([tws_ref, 0., 0.])
-rho = 1.225
-gamma_orientation = -1.0
-n_spanwise = 32  # No of control points (above the water) per sail, recommended: 50
-n_chordwise = 8 #?
-b = a.Aircraft(chord_length, half_wing_span, AoA_deg, n_spanwise, n_chordwise, V, rho, gamma_orientation)
-b.Cxyz
->>> (0.023472780216173314, 0.8546846987984326, 0.0) 
-```
 
 
 
