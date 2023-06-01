@@ -9,19 +9,17 @@ parts:
   chapters:
   - file: chapters/description/theory
   - file: chapters/description/technology
-  - file: chapters/description/benchmarks
   
 - caption: Getting Started
   chapters:
   - file: chapters/start/installation
   - file: chapters/usage/usage
     sections:
-      - file: chapters/examples/example1
-      - file: chapters/examples/example2
       - file: chapters/examples/sailingvlm_example.ipynb
-      - file: chapters/examples/markdown-notebooks.md
+      - file: chapters/examples/sweep_example.ipynb
   - file: chapters/validation/validation
     sections:
     - file: chapters/validation/flat_plate
     - file: chapters/validation/sweep
+  - file: chapters/conclusion
   - file: chapters/bibliography

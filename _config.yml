@@ -1,8 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: pySailingVLm Documentation
-author: Grzegorz Gruszczyński, Zuzanna Wieczorek
+title: pySailingVLM Documentation
+author: Zuzanna Wieczorek, Grzegorz Gruszczyński
+copyright: "2023"
 logo: figures/yacht.png
 exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm]
 

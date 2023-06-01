@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sweep &#8212; pySailingVLm Documentation</title>
+    <title>Sweep wing &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -35,7 +35,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -62,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/validation/sweep';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="bibliography" href="../bibliography.html" />
-    <link rel="prev" title="Flat_plate" href="flat_plate.html" />
+    <link rel="next" title="Conclusions" href="../conclusion.html" />
+    <link rel="prev" title="Rectangular flat plate" href="flat_plate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,23 +163,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../description/theory.html">Theory</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../description/technology.html">Technology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../description/benchmarks.html">Benchmarks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/example1.html">Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/example2.html">Example 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="validation.html">Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Flat_plate</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Rectangular flat plate</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sweep wing</a></li>
+
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">bibliography</a></li>
 </ul>
 
@@ -234,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -251,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/validation/sweep.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/validation/sweep.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +351,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -361,11 +364,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sweep</h1>
+    <h1>Sweep wing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sweep wing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">results</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -375,8 +388,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sweep">
-<h1>Sweep<a class="headerlink" href="#sweep" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sweep-wing">
+<h1>Sweep wing<a class="headerlink" href="#sweep-wing" title="Permalink to this heading">#</a></h1>
+<p>Swept wing by Bertin <span id="id1">[<a class="reference internal" href="../bibliography.html#id4" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> is a flat plate with a <span class="math notranslate nohighlight">\(45^\circ\)</span> leading edge sweeping angle. The span of wing is 1 unit and a chord of 0.2 units. Model was discretized into 4 spanwise panels and 1 chordwise panel. The free stream is aligned with the x-axis and has a magnitude of 1 units.</p>
+<table class="table" id="comp-sweep">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Comparison between swept wing by Bertin and pySailingVLM results.</span><a class="headerlink" href="#comp-sweep" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Bertin</p></th>
+<th class="head"><p>pySailingVLM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C_{L,\alpha}\)</span></p></td>
+<td><p>3.443</p></td>
+<td><p>3.434</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="bertin-1">
+<img alt="../../_images/bertin_1.png" src="../../_images/bertin_1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Lift coefficient versus angle of attack. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="bertin-2">
+<img alt="../../_images/bertin_2.png" src="../../_images/bertin_2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Comparison of spanwise lift distributionfor the Bertin wing. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>TODO
+Dodatkowy wykres za Katzem: https://www.researchgate.net/publication/245355607_Calculation_of_the_Aerodynamic_Forces_on_Automotive_Lifting_Surfaces
+Fig4</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="results">
+<h1>results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h1>
+<p>Results obtained by pySailingVLM are close to teoretical results taken from <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -416,15 +464,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Flat_plate</p>
+        <p class="prev-next-title">Rectangular flat plate</p>
       </div>
     </a>
     <a class="right-next"
-       href="../bibliography.html"
+       href="../conclusion.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">bibliography</p>
+        <p class="prev-next-title">Conclusions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -438,6 +486,22 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sweep wing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">results</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -447,7 +511,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Grzegorz Gruszczyński, Zuzanna Wieczorek
+By Zuzanna Wieczorek, Grzegorz Gruszczyński
 </p>
 
   </div>
@@ -456,7 +520,7 @@ By Grzegorz Gruszczyński, Zuzanna Wieczorek
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

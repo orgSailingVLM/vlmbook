@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Abstract &#8212; pySailingVLm Documentation</title>
+    <title>Abstract &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -35,7 +35,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -161,23 +160,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="description/benchmarks.html">Benchmarks</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/example1.html">Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/example2.html">Example 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Cambered jib and main example</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="examples/sweep_example.html">Sweep cambered main sail</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Flat_plate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
+
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">bibliography</a></li>
 </ul>
 
@@ -233,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -250,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -376,10 +375,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h1>
-<p>The Vortex lattice method, also called VLM, is a numerical method used in computational fluid dynamics. VLM models a surface on aircraft as infinite vortices to estimate the lift curve slope, induced drag, and force distribution. The VLM is the extension of Prandtl’s lifting-line theory that is capable of computing swept and low aspect ratio wings. <span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="A. Septiyana, K. Hidayat, A. Rizaldi, M. L. Ramadiansyah, R. A. Ramadhan, P. A. P. Suseno, E. B. Jayanti, N. Atmasari, and A. Rasyadi. Analysis of aerodynamic characteristics using the vortex lattice method on twin tail boom unmanned aircraft. 7TH INTERNATIONAL SEMINAR ON AEROSPACE SCIENCE AND TECHNOLOGY - ISAST 2019, 2226(April):536, 24-25 September 2019. URL: https://pubs.aip.org/aip/acp/article/2226/1/020003/814546/Analysis-of-aerodynamic-characteristics-using-the, doi:10.1063/5.0002337.">SHR+19</a>]</span>.</p>
-<p>In this thesis, the method was used to determinate aerodynamic parameters such as CL, CD  and lift-to-drag ratio for modeling behaviour of sailing yacht with different initial wind conditions.
-The main purpose of this work was to update existing VLM code to be faster and more efficient. To achieve this goal authors have changed the structure of data and applied some compilations for specific functions in Python code using Numba which translates a subset of Python and NumPy code into fast machine code. Apart from this, the code has gained some bug fixes and new features such as cambered sail, pressure coefficient colormap, validation tests, command line script and jupyter notebook examples. Moreover, code has been packaged and now is available at The Python Package Index (PyPI) as a first open source python software designed for initial aerodynamic analysis of upwind sails. Thanks to its light weight requirements, the software can be immediately installed and executed locally or accessed through the web browser using cloud environment such as Google Collab. <a class="reference external" href="https://jupyterbook.org">#TODO pySailingVLM at PyPI</a></p>
-<p>Keywords: Vortex Lattice Method, VLM, sailing, yacht, Python, code, visualisation, yacht engineering</p>
+<p>The beginning of fluid dynamics has started in acient Greece, when Archimedes investigated the fluid statics and bouancy. From that time, many well-konwn mathematicians and engineers have contributed to defining how air and gases behave. The equations they have constructed are extremely complex and difficult to calculate by hand when the geometry of airfoil is complicated. The rapid improvement of computers’ power in 1970s has led to developing complex flow desings. Over the past few decades Computational Fluid Dynamics (CFD) has been improved dramatically.</p>
+<p>There are many methods, that are used in Computational Fluid Dynamics. Some of them are Finite Element Method (FEM), Volume of Fluid (VOF) and Lattice Boltzmann Method (LBM). They provide good and accurate results but require high amount of computational resources. To overcome this problem, low fidelity tools can be used, like Vortex Lattice Method (VLM). Using VLM is benefical in the early conceptual design phase <span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. Pakistan Journal of Engineering and Technology, PakJET, 04(01):207- 211, 2021. URL: https://www.hpej.net/journals/pakjet/article/view/754/564, doi:DOI: 10.51846/vol4iss1pp207-211.">NJS+21</a>]</span>, when many different desings should be tested. Thanks to fast computations of aerodynamics forces and pressures, engineers can quickly overview modelled design performance.</p>
+<p>In this work, we present the first open source Python package which implements Vortex Lattice Method for initial aerodynamic analysis of upwind sails. Thanks to its light weight requirements, the software can be immediately installed and execuded locally or accessed by cloud environment such as Google Collab. Additionally, package users can define own sail geometries and use pySailingVLM inside custom scripts which makes creating a set of dynamics very convenient.</p>
+<p>Keywords: Vortex Lattice Method (VLM), initial sail analysis, yacht engineering, Python Package</p>
 <p>Inside documentation:</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
@@ -387,7 +386,6 @@ The main purpose of this work was to update existing VLM code to be faster and m
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html#vortex-lattice-method">Vortex Lattice method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="description/benchmarks.html">Benchmarks</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -396,6 +394,7 @@ The main purpose of this work was to update existing VLM code to be faster and m
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="validation/validation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">bibliography</a></li>
 </ul>
 </div>
@@ -460,7 +459,7 @@ The main purpose of this work was to update existing VLM code to be faster and m
   <div class="footer-item">
     
 <p class="component-author">
-By Grzegorz Gruszczyński, Zuzanna Wieczorek
+By Zuzanna Wieczorek, Grzegorz Gruszczyński
 </p>
 
   </div>
@@ -469,7 +468,7 @@ By Grzegorz Gruszczyński, Zuzanna Wieczorek
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

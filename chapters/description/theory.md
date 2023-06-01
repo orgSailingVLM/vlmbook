@@ -1,9 +1,11 @@
 # Theory
 
+The Vortex Lattice Method (VLM) is a numerical method used in computational fluid dynamics. VLM models a surface on aircraft as infinite vortices to estimate the lift curve slope, induced drag, and force distribution. The VLM is the extension of Prandtl's lifting-line theory that is capable of computing swept and low aspect ratio wings. {cite}`aac`. 
+
 ## Introduction
-Vortex Lattice Method is build on the theory of ideal flow, known as Potential flow. Ideal flow is a simplication of the real flow which can be seen in nature. This  approximation is suffiecient from the engineering point of view. VLM do not take into account any turbulence, dissipation and viscous effects. 
+Vortex Lattice Method is build on the Potential flow theory. The viscous effects, drag and flow separation in VLM is sufficient for aproximatting ideal flow seen in nature.
 ## Potential flow theory
-Potenttial Flow Theory treats external flows around bodies as invicid and irrational {cite}`lecture` .The viscous effects are limitted to a thin layer next to the body (boundary layer). Becouse of this and separation phenomena such fluid can be modelled only with small angle of attack. In irrational flow fluid particles are not rotating. 
+Potenttial Flow Theory treats external flows around bodies as invicid and irrotational {cite}`lecture` .The viscous effects are limitted to a thin layer next to the body (boundary layer). Becouse of this and separation phenomena such fluid can be modelled only with small angle of attack. In irrotational flow fluid particles are not rotating. 
 
 In Potential Flow Theory, because velocity must satisfy the conservation of mass equation, the Laplace Equation is qoverning: 
 
@@ -13,7 +15,13 @@ $$
 
 where $\phi$ is a potentinal function defined as continous function which satisfies the conservation of mass and momentum (incompressible, inviscid and irrational flow).
 # Vortex Lattice method
-The Vortex Lattice Method is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. Sources, vortices and doublets are attached to each panel. Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters. Such parameters are known after solving appropriate boundary condition equations. When singularity strengts are determinated, the pressure, velocity can be computed{cite}`bertin`. 
+The Vortex Lattice Method is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. To satisfy boundary conditions VLM uses following elements attached to each panel:
+* source - a point from which fluid issues and flows radially outward such that the continuity equation is satisfied everywhere but at the singularity that exists at the source's center
+* sink - a negative source
+* doublet -  singularity resulting when a source or a sink of equal strength are made to approach each other such that the product of their strangths and their distance apart remains constant at a preselected finite value in the limit as a distance between them approaches zero
+* vortex - an element that generates a circulation, or tangential motion, around its origin
+ 
+Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters. Such parameters are known after solving appropriate boundary condition equations. When singularity strengts are determinated, the pressure, velocity can be computed{cite}`bertin`. 
 
 ```{figure} ../../figures/panels.png
 ---
@@ -24,7 +32,8 @@ Representation of an airplane flowfield by panel (or singularity) methods. Figur
 ```
 
 ## Vortices
-Element which creates circulation around its origin is called a vortex. According to German scientist Hermann von Helmholtz who developed vortex theorems for inviscid incompressible flows {cite}`katz`:
+The vortex theorems for inviscid incompressible flows has been developed by German scientist Hermann von Helmholtz (1821-1894). The theory is based on the following assumptions {cite}`katz`:
+* Flow is inviscid and incompressible   
 * The strength of vortex filament is constant along its length
 * A vortex filament cannot start or end in a fluid (it must form or closed path or extend to infinity)
 * The fluid that forms a vortex tube continues to form a vortex tube and the strength of the vortex tube remains constant as the tube moves about.
@@ -40,15 +49,15 @@ scale: 50%
 Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from {cite}`katz` (Fig. 2.11 page 34).
 ```
 
-The tangential velocity induced is describe by equation:
+The tangential velocity induced is described by equation:
 
 $$
 q_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
 $$
 
-where $r$ is described as distance from the vortex.
+where $r$ is described as distance from the vortex core.
 
-If a vortex is located in free-strem with uniform velocity $u_\infty$ then the total velocity at the distance $r$ can be writtes as $u_\infty + q_\theta(r)$ {cite}`mgr`.
+If a vortex is located in free-strem with uniform velocity $u_\infty$ then the total velocity at the distance $r$ can be writtes as $\overrightarrow{u_\infty} + \overrightarrow{q_\theta(r)}$ {cite}`mgr`.
 
 ### Vortex segment
 ```{figure} ../../figures/vor_seg.png
@@ -91,7 +100,7 @@ $$ (q_infinite)
 The Kutta Condition states that at small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there {cite}`katz`. Because of this the normal component of velocity, from both sides of the airfoil, must vanish. Circulation at trailing edge can be expressed by equation:
 
 $$
-\gamma_{T.E.}=0
+q_{T.E.}=0
 $$
 
 ```{figure} ../../figures/kutta.png
@@ -108,10 +117,9 @@ Flow near cusped trailing edge. Figure taken from {cite}`katz` (Fig. 4.12 page 8
 name: siatka
 height: 300px
 ---
-Nomenclature of the lattice elements.
+Nomenclature of the lattice elements. Figure created by author.
 ```
 
-### Grid Generation
 The surface of the object is divided into panels (gray rectanges on figure {numref}`{number} <siatka>` ). The total amount of them is a product of number of panels spanwise and chordwise. Vortex element is associated to each one of them (pink rectangles). 
 
 There are two types of vortex elements:
@@ -123,21 +131,21 @@ There are two types of vortex elements:
 height: 400
 name: ring
 ---
-Nomenclature of the vortex ring.
+Nomenclature of the vortex ring. Figure created by author.
 ```
 
-Vortex ring (figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`. Horseshoe vortex is established by adding 3 finite and 2 infinite segments following equation {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the
-wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition
+Vortex ring (figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`. Horseshoe vortex is attached to the trailing edge of lifting surface. It consists of three finite and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the
+wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition.
 
 ```{figure} ../../figures/horseshoe.png
 ---
 height: 400
 name: horseshoe
 ---
-Nomenclature of the vortex horseshoe.
+Nomenclature of the vortex horseshoe. Figure created by author.
 ```
 
-When thin surface is angled to a free-stream $u_{\infty}$, the aerodynamic force is being generated at center of pressure. This point is located at the $1/4$ of a panel chord and at $1/2$ of the panel span (from panel leading edge). To fulfill no flow through the surface, the control point is defined at $3/4$ of the chord from the panel leading edge and in the middle of the span.
+When thin surface is angled to a free-stream $\overrightarrow{u_{\infty}}$, the aerodynamic force is being generated at center of pressure. This point is located at the $1/4$ of a panel chord and at $1/2$ of the panel span (from panel leading edge). To fulfill no flow through the surface, the control point is defined at $3/4$ of the chord from the panel leading edge and in the middle of the span.
 
 Vortex vertices $B_k$ and $C_k$ are placed at $1/4$ of panel chord ($v_{k}$), $A_k$ and $D_k$ at $1/4$ of the next panel ($v_{k+1}$). The panel opposite corner points define two vectors $\overrightarrow{A_k}$ and $\overrightarrow{B_k}$, and their vector product will point in the direction of $\overrightarrow{n_k}$ (normal vector).
 
@@ -155,8 +163,10 @@ $$ (bc)
 After equation transformation:
 
 $$
-\sum_{j} \underbrace{\overrightarrow{\nu_{kj}}\,\Gamma_j}_{a_{kj}} \cdot \overrightarrow{n_k}=-\overrightarrow{u_{\infty}}\,\cdot\,\overrightarrow{n_k}
+\sum_{j} \overrightarrow{\nu_{kj}}  \, \Gamma_{j} \cdot \overrightarrow{n_k}=-\overrightarrow{u_{\infty}}\,\cdot\,\overrightarrow{n_k}
 $$ (bc2)
+
+where $\overrightarrow{\nu_{kj}}$ is defined as coefficient of proportionality of induced velocity $\overrightarrow{q_{ind}}$ at k-th control point by j-th vortex.
 
 By expanding equation {eq}`bc` and {eq}`bc2` the RHS coefficient vector can be computed:
 
@@ -164,7 +174,7 @@ $$
 RHS_k=-\overrightarrow{u_{\infty}}\,\cdot\overrightarrow{n_k}
 $$
 
-In arder to obtain gamma magnitude at k-th panel, the following set of algebraic equations must be solved.
+In order to obtain gamma magnitude at k-th panel, the following set of algebraic equations must be solved:
 \begin{gather}
     \begin{bmatrix} 
     a_{11} & \dots  & a_{1m}\\
@@ -184,17 +194,32 @@ In arder to obtain gamma magnitude at k-th panel, the following set of algebraic
     \end{bmatrix}
 \end{gather}
 
-where $m=n_{spanwise}\cdot\,n_{chordwise}$.
+where $m=n_{spanwise}\cdot\,n_{chordwise}$ and $a_{kj} = \overrightarrow{\nu_{kj}} n_k$
 
 
-The force can be expressed according to the Kutta-Joukowski theorem as:
+The aerodynamics force can be expressed according to the Kutta-Joukowski theorem as:
 
 $$
-\overrightarrow{F_{k}}=\rho\,\overrightarrow{u_{\infty_{k}}}\,\Gamma_k\, b_k
+\overrightarrow{F_{areo}} = \rho \overrightarrow{u_{\infty}} \times \overrightarrow{b} \Gamma
 $$
 
-where $b_k$ is a span of k-th panel, which is placed at k-th control point. 
-Lift is defined as the component of the aerodynamic force that is perpendicular to the flow direction and can is defined as a dot product of force and normal vector:
+
+Where $\overrightarrow{b}$ is span vector.
+
+Discretizing, the aerodunamic force corresponding to the j-th section is:
+
+$$
+\overrightarrow{F_{j}}=\rho\,\overrightarrow{V}_{app\_wind\_fs\_j} \times \overrightarrow{b_j}\Gamma_{j} = \\
+\rho(\overrightarrow{V}_{app\_wind\_infs\_j} + \overrightarrow{q}_{ind\_j}) \times \overrightarrow{b_j}\Gamma_{j} = \\
+\rho(\overrightarrow{V}_{app\_wind\_infs\_j} +
+\sum{\overrightarrow{\nu_{jk}}\Gamma_{k}}) \times \overrightarrow{b_j}\Gamma_{j}
+$$
+
+
+where $b_j$ is a vector representing a finite vortex filement going through the center of pressure of the j-th section, $\overrightarrow{V}_{app\_wind\_infs\_j}$ is apparent wind velocity for an 'infinite sail' (without induced wind velocity) and $\overrightarrow{V}_{app\_wind\_fs\_j}$ is apparent wind velocity for a finite sail' (with induced wind velocity).
+
+
+Lift is defined as the component of the aerodynamic force that is perpendicular to the flow direction ($\overrightarrow{u_{\infty}}$) and can is defined as a dot product of force and normal vector:
 
 $$
 L_k=\overrightarrow{F_k}\,\cdot \overrightarrow{n_k}
