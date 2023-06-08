@@ -14,13 +14,13 @@ $$
 $$
 
 where $\phi$ is a potentinal function defined as continous function which satisfies the conservation of mass and momentum (incompressible, inviscid and irrational flow).
-# Vortex Lattice method
-The Vortex Lattice Method is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. To satisfy boundary conditions VLM uses following elements attached to each panel:
+# Vortex Lattice Method
+Vortex Lattice Method allows the computation of induced wind. VLM is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. To satisfy boundary conditions VLM uses following elements attached to each panel:
 * source - a point from which fluid issues and flows radially outward such that the continuity equation is satisfied everywhere but at the singularity that exists at the source's center
 * sink - a negative source
 * doublet -  singularity resulting when a source or a sink of equal strength are made to approach each other such that the product of their strangths and their distance apart remains constant at a preselected finite value in the limit as a distance between them approaches zero
 * vortex - an element that generates a circulation, or tangential motion, around its origin
- 
+
 Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters. Such parameters are known after solving appropriate boundary condition equations. When singularity strengts are determinated, the pressure, velocity can be computed{cite}`bertin`. 
 
 ```{figure} ../../figures/panels.png
@@ -71,7 +71,7 @@ Vortex segment in three dimentions. Figure taken from {cite}`katz` (Fig. 2.16 pa
 The velocity induced by a straight vortex segement (figure {numref}`{number} <vortex-segment>`) in three dimentions with given vortex strength $\Gamma$ at point $P(x,y,z)$ is qiven by equation:
 
 $$
-\overrightarrow{q_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r_1} \times \overrightarrow{r_2}}{|\overrightarrow{r_1} \times \overrightarrow{r_2}|^2} \left(\frac{\overrightarrow{r_1}}{||\overrightarrow{r_1}||} - \frac{\overrightarrow{r_2}}{||\overrightarrow{r_2}||}\right) \cdot\overrightarrow{r_0}=\overrightarrow{\nu}\,\Gamma
+\overrightarrow{w_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r_1} \times \overrightarrow{r_2}}{|\overrightarrow{r_1} \times \overrightarrow{r_2}|^2} \left(\frac{\overrightarrow{r_1}}{||\overrightarrow{r_1}||} - \frac{\overrightarrow{r_2}}{||\overrightarrow{r_2}||}\right) \cdot\overrightarrow{r_0}=\overrightarrow{\nu}\,\Gamma
 $$ (q_finite)
 
 where
@@ -93,14 +93,14 @@ and
 In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula reads {cite}`modern`:
 
 $$
-\overrightarrow{q_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u_\infty} \times \overrightarrow{r_1}}{||\overrightarrow{r_1}||(||\overrightarrow{r_1}|| - \overrightarrow{u_\infty} \cdot \overrightarrow{r_1})}=\overrightarrow{\nu}\,\Gamma
+\overrightarrow{w_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u_\infty} \times \overrightarrow{r_1}}{||\overrightarrow{r_1}||(||\overrightarrow{r_1}|| - \overrightarrow{u_\infty} \cdot \overrightarrow{r_1})}=\overrightarrow{\nu}\,\Gamma
 $$ (q_infinite)
 
 ## The Kutta Condition
 The Kutta Condition states that at small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there {cite}`katz`. Because of this the normal component of velocity, from both sides of the airfoil, must vanish. Circulation at trailing edge can be expressed by equation:
 
 $$
-q_{T.E.}=0
+\gamma_{T.E.}=0
 $$
 
 ```{figure} ../../figures/kutta.png
@@ -134,8 +134,7 @@ name: ring
 Nomenclature of the vortex ring. Figure created by author.
 ```
 
-Vortex ring (figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`. Horseshoe vortex is attached to the trailing edge of lifting surface. It consists of three finite and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the
-wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition.
+Vortex ring (figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`. Horseshoe vortex is attached to the trailing edge of lifting surface. It consists of three finite and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition (see figure {numref}`{number} <tip-vor>`).
 
 ```{figure} ../../figures/horseshoe.png
 ---
@@ -145,10 +144,17 @@ name: horseshoe
 Nomenclature of the vortex horseshoe. Figure created by author.
 ```
 
+```{figure} ../../figures/Tip-vortices.png
+---
+height: 200
+name: tip-vor
+---
+The total amount of circulation is preserved. Figure 6 from {cite}`llt_prom`.
+```
+
 When thin surface is angled to a free-stream $\overrightarrow{u_{\infty}}$, the aerodynamic force is being generated at center of pressure. This point is located at the $1/4$ of a panel chord and at $1/2$ of the panel span (from panel leading edge). To fulfill no flow through the surface, the control point is defined at $3/4$ of the chord from the panel leading edge and in the middle of the span.
 
 Vortex vertices $B_k$ and $C_k$ are placed at $1/4$ of panel chord ($v_{k}$), $A_k$ and $D_k$ at $1/4$ of the next panel ($v_{k+1}$). The panel opposite corner points define two vectors $\overrightarrow{A_k}$ and $\overrightarrow{B_k}$, and their vector product will point in the direction of $\overrightarrow{n_k}$ (normal vector).
-
 
 ### Computations
 
@@ -157,7 +163,7 @@ To converse  which claims that there should be  of the k-th panel, the equation 
 If the velocity induced at k-th panel is $\overrightarrow{q_{ind}}$, no flow through the surface (boundary condition) is fulfield when:
 
 $$
-(\overrightarrow{u_{\infty}} + \overrightarrow{q_{ind}})\cdot\,\overrightarrow{n_k}=0
+(\overrightarrow{u_{\infty}} + \overrightarrow{w_k})\cdot\,\overrightarrow{n_k}=0
 $$ (bc)
 
 After equation transformation:

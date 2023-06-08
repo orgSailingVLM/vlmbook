@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/description/theory';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Coordinate system" href="coordinates.html" />
+    <link rel="next" title="Coordinate System and Wind" href="coordinates.html" />
     <link rel="prev" title="Abstract" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -143,8 +143,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/yacht.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/yacht.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo_nowe1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo_nowe1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Theory</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="coordinates.html">Coordinate system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinates.html">Coordinate System and Wind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
@@ -170,7 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
 </ul>
 </li>
@@ -180,8 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
@@ -380,7 +380,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow-theory">Potential flow theory</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice Method</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortices">Vortices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-element">Vortex element</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-segment">Vortex segment</a></li>
@@ -424,8 +424,8 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vortex-lattice-method">
-<h1>Vortex Lattice method<a class="headerlink" href="#vortex-lattice-method" title="Permalink to this heading">#</a></h1>
-<p>The Vortex Lattice Method is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. To satisfy boundary conditions VLM uses following elements attached to each panel:</p>
+<h1>Vortex Lattice Method<a class="headerlink" href="#vortex-lattice-method" title="Permalink to this heading">#</a></h1>
+<p>Vortex Lattice Method allows the computation of induced wind. VLM is a panel method where wing or other configuration is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. To satisfy boundary conditions VLM uses following elements attached to each panel:</p>
 <ul class="simple">
 <li><p>source - a point from which fluid issues and flows radially outward such that the continuity equation is satisfied everywhere but at the singularity that exists at the source’s center</p></li>
 <li><p>sink - a negative source</p></li>
@@ -476,7 +476,7 @@ q_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
 <p>The velocity induced by a straight vortex segement (figure <a class="reference internal" href="#id10"><span class="std std-numref">3</span></a>) in three dimentions with given vortex strength <span class="math notranslate nohighlight">\(\Gamma\)</span> at point <span class="math notranslate nohighlight">\(P(x,y,z)\)</span> is qiven by equation:</p>
 <div class="math notranslate nohighlight" id="equation-q-finite">
 <span class="eqno">(1)<a class="headerlink" href="#equation-q-finite" title="Permalink to this equation">#</a></span>\[
-\overrightarrow{q_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r_1} \times \overrightarrow{r_2}}{|\overrightarrow{r_1} \times \overrightarrow{r_2}|^2} \left(\frac{\overrightarrow{r_1}}{||\overrightarrow{r_1}||} - \frac{\overrightarrow{r_2}}{||\overrightarrow{r_2}||}\right) \cdot\overrightarrow{r_0}=\overrightarrow{\nu}\,\Gamma
+\overrightarrow{w_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r_1} \times \overrightarrow{r_2}}{|\overrightarrow{r_1} \times \overrightarrow{r_2}|^2} \left(\frac{\overrightarrow{r_1}}{||\overrightarrow{r_1}||} - \frac{\overrightarrow{r_2}}{||\overrightarrow{r_2}||}\right) \cdot\overrightarrow{r_0}=\overrightarrow{\nu}\,\Gamma
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
@@ -493,7 +493,7 @@ q_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
 <p>In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula reads <span id="id11">[<a class="reference internal" href="../bibliography.html#id8" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org, doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
 <div class="math notranslate nohighlight" id="equation-q-infinite">
 <span class="eqno">(2)<a class="headerlink" href="#equation-q-infinite" title="Permalink to this equation">#</a></span>\[
-\overrightarrow{q_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u_\infty} \times \overrightarrow{r_1}}{||\overrightarrow{r_1}||(||\overrightarrow{r_1}|| - \overrightarrow{u_\infty} \cdot \overrightarrow{r_1})}=\overrightarrow{\nu}\,\Gamma
+\overrightarrow{w_{1,2}} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u_\infty} \times \overrightarrow{r_1}}{||\overrightarrow{r_1}||(||\overrightarrow{r_1}|| - \overrightarrow{u_\infty} \cdot \overrightarrow{r_1})}=\overrightarrow{\nu}\,\Gamma
 \]</div>
 </section>
 </section>
@@ -502,7 +502,7 @@ q_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
 <p>The Kutta Condition states that at small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there <span id="id12">[<a class="reference internal" href="../bibliography.html#id4" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>. Because of this the normal component of velocity, from both sides of the airfoil, must vanish. Circulation at trailing edge can be expressed by equation:</p>
 <div class="math notranslate nohighlight">
 \[
-q_{T.E.}=0
+\gamma_{T.E.}=0
 \]</div>
 <figure class="align-default" id="kutta">
 <a class="reference internal image-reference" href="../../_images/kutta.png"><img alt="../../_images/kutta.png" src="../../_images/kutta.png" style="width: 296.5px; height: 84.0px;" /></a>
@@ -531,12 +531,17 @@ q_{T.E.}=0
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Nomenclature of the vortex ring. Figure created by author.</span><a class="headerlink" href="#ring" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Vortex ring (figure <a class="reference internal" href="#ring"><span class="std std-numref">6</span></a>) is created by four finite segments according to equation <a class="reference internal" href="#equation-q-finite">(1)</a>. Horseshoe vortex is attached to the trailing edge of lifting surface. It consists of three finite and two semi-infinite segments following equation <a class="reference internal" href="#equation-q-finite">(1)</a> and <a class="reference internal" href="#equation-q-infinite">(2)</a> (see figure <a class="reference internal" href="#horseshoe"><span class="std std-numref">7</span></a>). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the
-wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition.</p>
+<p>Vortex ring (figure <a class="reference internal" href="#ring"><span class="std std-numref">6</span></a>) is created by four finite segments according to equation <a class="reference internal" href="#equation-q-finite">(1)</a>. Horseshoe vortex is attached to the trailing edge of lifting surface. It consists of three finite and two semi-infinite segments following equation <a class="reference internal" href="#equation-q-finite">(1)</a> and <a class="reference internal" href="#equation-q-infinite">(2)</a> (see figure <a class="reference internal" href="#horseshoe"><span class="std std-numref">7</span></a>). By placing vortex at the quarter chord line of the the two-dimensional Kutta condition is satisfied along the chord.  Also, along the wing trailing edges, the trailing vortex of the last panel row must be canceled to satisfy the three-dimensional trailing-edge condition (see figure <a class="reference internal" href="#tip-vor"><span class="std std-numref">8</span></a>).</p>
 <figure class="align-default" id="horseshoe">
 <a class="reference internal image-reference" href="../../_images/horseshoe.png"><img alt="../../_images/horseshoe.png" src="../../_images/horseshoe.png" style="height: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Nomenclature of the vortex horseshoe. Figure created by author.</span><a class="headerlink" href="#horseshoe" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="tip-vor">
+<a class="reference internal image-reference" href="../../_images/Tip-vortices.png"><img alt="../../_images/Tip-vortices.png" src="../../_images/Tip-vortices.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The total amount of circulation is preserved. Figure 6 from <span id="id14">[<a class="reference internal" href="../bibliography.html#id7" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture: 2.016 Hydrodynamics. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span>.</span><a class="headerlink" href="#tip-vor" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>When thin surface is angled to a free-stream <span class="math notranslate nohighlight">\(\overrightarrow{u_{\infty}}\)</span>, the aerodynamic force is being generated at center of pressure. This point is located at the <span class="math notranslate nohighlight">\(1/4\)</span> of a panel chord and at <span class="math notranslate nohighlight">\(1/2\)</span> of the panel span (from panel leading edge). To fulfill no flow through the surface, the control point is defined at <span class="math notranslate nohighlight">\(3/4\)</span> of the chord from the panel leading edge and in the middle of the span.</p>
@@ -547,7 +552,7 @@ wing trailing edges, the trailing vortex of the last panel row must be canceled 
 <p>If the velocity induced at k-th panel is <span class="math notranslate nohighlight">\(\overrightarrow{q_{ind}}\)</span>, no flow through the surface (boundary condition) is fulfield when:</p>
 <div class="math notranslate nohighlight" id="equation-bc">
 <span class="eqno">(3)<a class="headerlink" href="#equation-bc" title="Permalink to this equation">#</a></span>\[
-(\overrightarrow{u_{\infty}} + \overrightarrow{q_{ind}})\cdot\,\overrightarrow{n_k}=0
+(\overrightarrow{u_{\infty}} + \overrightarrow{w_k})\cdot\,\overrightarrow{n_k}=0
 \]</div>
 <p>After equation transformation:</p>
 <div class="math notranslate nohighlight" id="equation-bc2">
@@ -561,8 +566,8 @@ wing trailing edges, the trailing vortex of the last panel row must be canceled 
 RHS_k=-\overrightarrow{u_{\infty}}\,\cdot\overrightarrow{n_k}
 \]</div>
 <p>In order to obtain gamma magnitude at k-th panel, the following set of algebraic equations must be solved:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f196fd09-998e-4eec-9b4d-29053a1bf10e">
-<span class="eqno">(5)<a class="headerlink" href="#equation-f196fd09-998e-4eec-9b4d-29053a1bf10e" title="Permalink to this equation">#</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-d7f36001-31f4-4697-b729-f9b52cc6ff99">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d7f36001-31f4-4697-b729-f9b52cc6ff99" title="Permalink to this equation">#</a></span>\[\begin{gather}
     \begin{bmatrix} 
     a_{11} &amp; \dots  &amp; a_{1m}\\
     \vdots &amp; \ddots &amp; \vdots\\
@@ -662,7 +667,7 @@ Referencing do wyrazen matematycznych dziala w latexie, w htmlu nie, wiec rzeba 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Coordinate system</p>
+        <p class="prev-next-title">Coordinate System and Wind</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -689,7 +694,7 @@ Referencing do wyrazen matematycznych dziala w latexie, w htmlu nie, wiec rzeba 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-flow-theory">Potential flow theory</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-lattice-method">Vortex Lattice Method</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vortices">Vortices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-element">Vortex element</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vortex-segment">Vortex segment</a></li>

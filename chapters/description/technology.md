@@ -1,17 +1,37 @@
 # Technology
 
 The main purpose of the thesis was to optimize the existing code for initial sail analysis. 
+Orginally the code was implementing many panel objects. Each one of them had many atributes like panel cooridinates, force, pressure, pressure coefficient, span and normal vector. When the size of lattice was increasing, the huge number of objects inside pySailingVLM slowed down the program. To optimize code, the Numba - JIT compiler that translates Python code and NumPy into machine code which enable parallel coalcuations, was applied. Becouse Numba do not understand custom objects like panel, the code was rewritten using two memory layout approaches. 
 
-Orginally the code was written in pure OPP (Object Oriented Programming) Python which led to time consuming computations. To solve this problem, the code was rewritten in a non-objective way. Figure {numref}`{number} <uklad>` shows data layout implemented. Insted of creating many Python objects, data such as coordinates of panels, pressure coefficients were arranged into sets of arrays. Thanks to this, the code has become less complicated and the  Numba (a JIT compiler that translates Python code and NumPy into machine code) enabled parallel coalcuations.
+## Memory layout
+
+Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory. Structure of Arrays (SoA) layout splits elements of a record into separate units allowing access these elements in parallel. The AoS is the opposite layout in which data for different fields is interleaved. Comparison between conceptual layout and memory layout is shown on figure {numref}`{number} <memory_layout>`. 
+
+```{figure} ../../figures/memory_layout.png
+---
+height: 300
+name: memory_layout
+---
+Comparison of the Structure of Arrays (SoA) and Arrray of Structure (AoS). Figure 2 from {cite}`opencl`
+```
+
+The AoS approach ensures that the five values $a_i, b_i, c_i, d_i, e_i$ are 
+next to one another in memory, providing good cache utilisation. The SoA approach ensures that these values are split into five separate units, allowing access to corresponding elements in parallel {cite}`opencl`.
+
+
+Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors was rearranged into nested ones (AoS). Figure {numref}`{number} <uklad>` shows data layout implemented. 
+
 
 ```{figure} ../../figures/panele.drawio.png
 ---
-height: 400
+height: 600
 name: uklad
 ---
 Data layout implemented in pySailingVLM. Figure created by author.
 ```
-To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table {numref}`{number} <benchs>`: objective code, objective code with Numba and non-objective compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.
+## Benchmarks
+
+To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table {numref}`{number} <benchs>`: objective code, 'non-objective',  objective with Numba and 'non-objective' compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.
 
 ```{list-table} Time execution comparison between different approaches of implementing pySailingVLM depending on sail shape.
 :header-rows: 1
@@ -19,31 +39,57 @@ To benchmark pySalingVLM, the time comparison tests were conducted. Three approa
 
 * - No. panels
   - objective [s]
-  - objective + numba [s]
-  - non-objective + numba [s]
+  - 'non-objective' [s]
+  - objective + Numba [s]
+  - 'non-objective' + Numba [s]
 * - 100
   - 16.51
+  - 20.0
   - 1.71
   - 1.04
 * - 400
   - 269.13
+  - 301.39
   - 21.81
   - 10.41
 * - 600
   - 593.85
+  - 647.96
   - 48.44
   - 22.51
 * - 1600
   - 4325.78
+  - 4458.05
   - 320.54
   - 143.69
 * - 2400
+  - no data
   - no data
   - 724.70
   - 320.12
 * - 3600    
   - no data
+  - no data
   - 1653.52
   - 706.62
 ```
-Moreover, the Vortex Lattice Method implementation was improved: the horseshoe vortex was introduced and is used at trailing edge (insted of vortex ring). New approach has added possibility to calculate cambered sailis and visualize pressure coefficients on colormap. Code has been packaged and now is available at PyPi. It can be run locally from command line or in a cloud using Jupyter Notebook. pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.
+According to time results, using Numba is much more efficient when applied to the 'non-objective' code. In order to explain such behaviour the SIMD term should be investigated.
+
+
+### SIMD and vectorization
+SIMD stands for Single Instruction Multiple Data. Instead of performing a single instruction on every single data, SIMD uses wider data-width for similar computational operations {cite}`simd`. A comparison between simple scalar operation and a SIMD computation is depicted in figure {numref}`{number} <simd_fig>`.
+
+```{figure} ../../figures/simd_fig.png
+---
+height: 200
+name: simd_fig
+---
+Simple scalar operation (a) and a SIMD computation (b). Figure 1 from {cite}`simd`.
+```
+
+Vectorization with AOS in memory data layout requires multiple load/shuffle/insert or gather instructions. Because of the reduced CPU frequency in SIMD mode its improvements are not sufficient. Increase in vector width demands more instructions for vector construction. A properly aligned memory data layout for vectorization which Numba uses, needs Structure of Arrays (SOA). It provides SIMD compatible memory accesses and results in efficiency and speedup {cite}`intel`.
+
+Array of Structure memory layout is more appropirate when no vectorization is used because proessing data are next to one another in memory. As a consequence, 'non-objective' code without Numba is slower than objective one (table {numref}`{number} <benchs>`).
+
+## Other improvements
+Apart from code optimizations, the pySailingVLM has gained more features. The possibility to calculate cambered sailis and visualize pressure coefficients on colormap was introduced. Code has been packaged and now is available at Python Package Index (PyPI). It can be run locally from command line or in a cloud using Jupyter Notebook. pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.

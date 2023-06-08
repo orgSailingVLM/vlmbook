@@ -4,7 +4,7 @@
 title: pySailingVLM Documentation
 author: Zuzanna Wieczorek, Grzegorz Gruszczyński
 copyright: "2023"
-logo: figures/yacht.png
+logo: figures/logo_nowe1.png
 exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm]
 
 # Force re-execution of notebooks on each build.

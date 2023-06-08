@@ -22,5 +22,6 @@ parts:
     sections:
     - file: chapters/validation/flat_plate
     - file: chapters/validation/sweep
+  - file: chapters/future
   - file: chapters/conclusion
   - file: chapters/bibliography
