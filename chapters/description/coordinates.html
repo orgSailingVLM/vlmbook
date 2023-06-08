@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Installation &#8212; pySailingVLM Documentation</title>
+    <title>Coordinate system &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/start/installation';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/description/coordinates';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Usage" href="../usage/usage.html" />
-    <link rel="prev" title="Technology" href="../description/technology.html" />
+    <link rel="next" title="Technology" href="technology.html" />
+    <link rel="prev" title="Theory" href="theory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,15 +159,15 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../description/theory.html">Theory</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../description/coordinates.html">Coordinate system</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../description/technology.html">Technology</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Coordinate system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
 
@@ -251,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/start/installation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/description/coordinates.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/chapters/start/installation.md" target="_blank"
+      <li><a href="../../_sources/chapters/description/coordinates.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,9 +352,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -363,26 +363,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installation</h1>
+    <h1>Coordinate system</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-users">For Users</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-developers">For Developers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-package">Create package</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install">Build and install</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -392,57 +377,74 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
-<section id="for-users">
-<h2>For Users<a class="headerlink" href="#for-users" title="Permalink to this heading">#</a></h2>
-<p>pySailingVLM package is available at PyPI, to install it do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pySailingVLM</span>
-</pre></div>
-</div>
-</section>
-<section id="for-developers">
-<h2>For Developers<a class="headerlink" href="#for-developers" title="Permalink to this heading">#</a></h2>
-<p>If you would like to dive into pySailingVLM code and test it on your own please do the folowing steps:</p>
-<ul class="simple">
-<li><p>Clone git project</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="c1">#TODO wsadzic tutaj link</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Go into project</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="c1">#TODO project</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>There is no requirements.txt file, for installing dependencies install a project in editable mode (i.e. setuptools “develop mode”) from a local project path:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
-</pre></div>
-</div>
-<section id="create-package">
-<h3>Create package<a class="headerlink" href="#create-package" title="Permalink to this heading">#</a></h3>
-<p>Building package requires setup.cfg and pyproject.toml files located in main tree of pySailingVLM project. If you do not have the latest pip build package do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">build</span>
-</pre></div>
-</div>
-<p>Then:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">build</span>
-</pre></div>
-</div>
-<section id="build-and-install">
-<h4>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this heading">#</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">build</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/</span><span class="n">pySailingVLM</span><span class="o">-</span><span class="n">VERSION</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="coordinate-system">
+<h1>Coordinate system<a class="headerlink" href="#coordinate-system" title="Permalink to this heading">#</a></h1>
+<p>The surface of the geometry used is defined with coordinates in three dimensions (figure <a class="reference internal" href="#geoms"><span class="std std-numref">8</span></a>)  with the x-axis in the yachts longitudinal (chordwise) direction positive backwards, the y-axis in the transverse direction positive to starboard and the z-axis in spanwise direction positive upwards.</p>
+<figure class="align-default" id="geoms">
+<a class="reference internal image-reference" href="../../_images/geom.png"><img alt="../../_images/geom.png" src="../../_images/geom.png" style="height: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Sail coordinate system. Figure by author.</span><a class="headerlink" href="#geoms" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A boat moves along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity (figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">9</span></a>). The speed of yacht  measured directly from the sailor point of view is desscribed by vectors <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_infs}\)</span> (without induced wind velocity <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span> ) and <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind_\fs}\)</span> (with induced wind velocity). An aerodynamic force is generated and is  perpendicular to the apparent wind velocity. The profile of apparent wind is twisted (see figure <a class="reference internal" href="#north"><span class="std std-numref">10</span></a>).</p>
+<figure class="align-default" id="coord-sys">
+<a class="reference internal image-reference" href="../../_images/coord_sys.svg"><img alt="../../_images/coord_sys.svg" height="500" src="../../_images/coord_sys.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Yacht coordinate system. Figure  from <span id="id1">[<a class="reference internal" href="../bibliography.html#id7" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture: 2.016 Hydrodynamics. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span> p.18.</span><a class="headerlink" href="#coord-sys" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<table class="table" id="coord-table">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Nomenclature</span><a class="headerlink" href="#coord-table" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span></p></td>
+<td><p>angle between apparent wind and true wind</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_infs\_k}\)</span></p></td>
+<td><p>apparent wind velocity for an ‘infinite sail’ (without induced wind velocity) acting on k-th panel</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs\_k}\)</span></p></td>
+<td><p>apparent wind velocity for an ‘finite sail’ (with induced wind velocity) acting on k-th panel</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}\_{true\_wind\_k}\)</span></p></td>
+<td><p>true wind velocity acting on k-th panel</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{w}\_{k}\)</span></p></td>
+<td><p>induced wind velocity acting on k-th panel</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\alpha_{app\_infs\_k}\)</span></p></td>
+<td><p>angle between apparent wind acting on k-th panel for an ‘infinite sail’ (without induced wind velocity) and direction of boat movement (including leeway)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\alpha_{app\_fs\_k}\)</span></p></td>
+<td><p>angle between apparent wind of a ‘finite sail’ acting on k-th panel (with induced wind velocity) and direction of boat movement (including leeway)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\alpha_{ind\_k}\)</span></p></td>
+<td><p>angle between apparent wind acting on k-th panel of a ‘finite sail’ (induced wind velocity) and apparent wind of an ‘infinite sail’ (without induced wind velocity)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\alpha_{yacht\_k}\)</span></p></td>
+<td><p>angle between apparent wind acting on k-th panel and true wind</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\alpha_{true}\)</span></p></td>
+<td><p>angle between true wind acting on k-th panel and direction of boat movement with reference to course over ground (i.e. including leeway) [deg]</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{F}_a\)</span></p></td>
+<td><p>aerodynamic force acting on k-th panel</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{T}\)</span></p></td>
+<td><p>thrust force in direction of boat movement - Speed Over Ground (SOG)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="north">
+<a class="reference internal image-reference" href="../../_images/North-Sail-Understanding-Twised_wind.png"><img alt="../../_images/North-Sail-Understanding-Twised_wind.png" src="../../_images/North-Sail-Understanding-Twised_wind.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Profile of apparent wind on sails <span id="id2">[<a class="reference internal" href="../bibliography.html#id2" title="Bill Gladstone North Sails. Twist explained. 2018. URL: https://www.northsails.com/sailing/en/2018/10/north-u-understanding-twist-by-bill-gladstone (visited on 2021-11-07).">NS18</a>]</span>.</span><a class="headerlink" href="#north" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 
     <script type="text/x-thebe-config">
@@ -458,7 +460,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./chapters/start"
+            path: "./chapters/description"
         },
         predefinedOutput: true
     }
@@ -477,20 +479,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../description/technology.html"
+       href="theory.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Technology</p>
+        <p class="prev-next-title">Theory</p>
       </div>
     </a>
     <a class="right-next"
-       href="../usage/usage.html"
+       href="technology.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Usage</p>
+        <p class="prev-next-title">Technology</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -503,27 +505,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-users">For Users</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-developers">For Developers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-package">Create package</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-install">Build and install</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
