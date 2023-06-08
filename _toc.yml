@@ -8,6 +8,7 @@ parts:
 - caption: Description
   chapters:
   - file: chapters/description/theory
+  - file: chapters/description/coordinates
   - file: chapters/description/technology
   
 - caption: Getting Started

@@ -1,0 +1,63 @@
+#  Coordinate system 
+
+The surface of the geometry used is defined with coordinates in three dimensions (figure {numref}`{number} <geoms>`)  with the x-axis in the yachts longitudinal (chordwise) direction positive backwards, the y-axis in the transverse direction positive to starboard and the z-axis in spanwise direction positive upwards.
+
+```{figure} ../../figures/geom.png
+---
+height: 500
+name: geoms
+---
+Sail coordinate system. Figure by author.
+```
+
+A boat moves along x-axis with the $\overrightarrow{V}_{yacht}$ velocity (figure {numref}`{number} <coord_sys>`). The speed of yacht  measured directly from the sailor point of view is desscribed by vectors $\overrightarrow{V}_{app\_wind\_infs}$ (without induced wind velocity $\overrightarrow{w}$ ) and $\overrightarrow{V}_{app\_wind_\fs}$ (with induced wind velocity). An aerodynamic force is generated and is  perpendicular to the apparent wind velocity. The profile of apparent wind is twisted (see figure {numref}`{number} <north>`).
+
+```{figure} ../../figures/coord_sys.svg
+---
+height: 500
+name: coord_sys
+---
+Yacht coordinate system. Figure  from {cite}`llt_prom` p.18.
+```
+
+
+```{list-table} Nomenclature
+:header-rows: 1
+:name: coord_table
+
+* - Name
+  - Description
+* - $\overrightarrow{V}_{yacht}$
+  - angle between apparent wind and true wind       
+* - $\overrightarrow{V}_{app\_wind\_infs\_k}$
+  - apparent wind velocity for an 'infinite sail' (without induced wind velocity) acting on k-th panel
+* - $\overrightarrow{V}_{app\_wind\_fs\_k}$
+  -  apparent wind velocity for an 'finite sail' (with induced wind velocity) acting on k-th panel
+* - $\overrightarrow{V}\_{true\_wind\_k}$
+  - true wind velocity acting on k-th panel
+* - $\overrightarrow{w}\_{k}$
+  - induced wind velocity acting on k-th panel
+* - $\alpha_{app\_infs\_k}$
+  - angle between apparent wind acting on k-th panel for an 'infinite sail' (without induced wind velocity) and direction of boat movement (including leeway)
+* - $\alpha_{app\_fs\_k}$
+  - angle between apparent wind of a 'finite sail' acting on k-th panel (with induced wind velocity) and direction of boat movement (including leeway) 
+* - $\alpha_{ind\_k}$
+  - angle between apparent wind acting on k-th panel of a 'finite sail' (induced wind velocity) and apparent wind of an 'infinite sail' (without induced wind velocity)
+* - $\alpha_{yacht\_k}$
+  - angle between apparent wind acting on k-th panel and true wind
+* - $\alpha_{true}$
+  - angle between true wind acting on k-th panel and direction of boat movement with reference to course over ground (i.e. including leeway) [deg]
+* - $\overrightarrow{F}_a$
+  - aerodynamic force acting on k-th panel
+* - $\overrightarrow{T}$
+  - thrust force in direction of boat movement - Speed Over Ground (SOG)
+```
+
+
+```{figure} ../../figures/North-Sail-Understanding-Twised_wind.png
+---
+height: 300
+name: north
+---
+Profile of apparent wind on sails {cite}`north`.
+```

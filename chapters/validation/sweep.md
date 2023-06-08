@@ -1,5 +1,5 @@
 # Sweep wing
-Swept wing by Bertin {cite}`bertin` is a flat plate with a $45^\circ$ leading edge sweeping angle. The span of wing is 1 unit and a chord of 0.2 units. Model was discretized into 4 spanwise panels and 1 chordwise panel. The free stream is aligned with the x-axis and has a magnitude of 1 units. 
+Swept wing by Bertin {cite}`bertin` is a flat plate with a $45^\circ$ leading edge sweeping angle. The span of wing is 1 unit and a chord of 0.2 unit. Model was discretized into 4 spanwise panels and 1 chordwise panel. The free stream is aligned with the x-axis and has a magnitude of 1 units. 
 
 ```{list-table} Comparison between swept wing by Bertin and pySailingVLM results.
 :header-rows: 1
@@ -33,3 +33,5 @@ Dodatkowy wykres za Katzem: https://www.researchgate.net/publication/245355607_C
 
 # results
 Results obtained by pySailingVLM are close to teoretical results taken from {cite}`bertin`.
+When the angle of attack increases, the lift coefficient calculated by pySailingVLM differ from Bertin results (figure {numref}`{number} <bertin_1>`). It can be related with a small-angle approximation used in the Vortex Lattice Method, where the angle of attack and the angle of sideslip should be both small.
+??????????????????????????????????????????
