@@ -12,11 +12,6 @@ exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm]
 execute:
   execute_notebooks: force
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
-
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
@@ -40,14 +35,22 @@ parse:
     - amsmath
     - dollarmath
 
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_engine: xelatex
+  latex_documents:
+    targetname: book.tex
+
+
 sphinx:
   config:
     latex_elements:
+      papersize: a4paper
+      pointsize: 12pt
       extrapackages: |
         \usepackage{nicefrac, xfrac}
       maketitle: |
           \sphinxmaketitle
-           
           \clearpage
 
 
