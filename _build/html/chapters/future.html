@@ -167,14 +167,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples/sweep_example.html">Sweep cambered main sail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Future outlooks</a></li>
@@ -223,50 +222,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/orgSailingVLM/pySailingVLM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/future.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -376,6 +343,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">GPU</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-code-as-soa">All code as SoA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-dupllicate">Points dupllicate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-differentiation">Automatic Differentiation</a></li>
 </ul>
             </nav>
         </div>
@@ -392,21 +360,27 @@ document.write(`
 <p>Some improvements to pySailingVLM code can be conducted in order to decrease program time execution.</p>
 <section id="gpu">
 <h2>GPU<a class="headerlink" href="#gpu" title="Permalink to this heading">#</a></h2>
-<p>Apart form CPU programing, Numba supports CUDA GPU programming by directly compiling a restricted subset of Python code into CUDA kernels and device functions using the CUDA execution model. Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id14" title="Numba documentation [access: 08.06.2023]. URL: https://numba.pydata.org/numba-doc/latest/index.html.">num</a>]</span>. The NumPy arrays are automatically shifted between the CPU and the GPU. To increase code performance, calcuations can be moved to GPU.</p>
+<p>Apart form CPU programing, Numba supports CUDA GPU programming by directly compiling a restricted subset of Python code into CUDA kernels and device functions using the CUDA execution model. Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id15" title="Numba documentation [access: 08.06.2023]. URL: https://numba.pydata.org/numba-doc/latest/index.html.">num</a>]</span>. The NumPy arrays are automatically shifted between the CPU and the GPU. To increase code performance, calcuations can be moved to GPU.</p>
 </section>
 <section id="all-code-as-soa">
 <h2>All code as SoA<a class="headerlink" href="#all-code-as-soa" title="Permalink to this heading">#</a></h2>
-<p>Up to now, most of Python objects are represented as Structure of Arrays, except panels. To take full adventage of GPU speed up, panels can be rewriten into SoA. This memory layout is recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id13" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span> due to parallel acces to data units.</p>
+<p>Up to now, most of Python objects are represented as Structure of Arrays, except panels. To take full adventage of GPU speed up, panels can be rewriten into SoA. This memory layout is recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id14" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span> due to parallel acces to data units.</p>
 </section>
 <section id="points-dupllicate">
 <h2>Points dupllicate<a class="headerlink" href="#points-dupllicate" title="Permalink to this heading">#</a></h2>
-<p>Panels which are close to each other share same points (see figure <a class="reference internal" href="#future-panels"><span class="std std-numref">19</span></a>). Current pySailingVLM implementation do not take into account this fact and there are duplicates of points coordinates in panel array. Reducing redundant points can improve the code efficiency.</p>
+<p>Panels which are close to each other share same points (see figure <a class="reference internal" href="#future-panels"><span class="std std-numref">20</span></a>). Current pySailingVLM implementation do not take into account this fact and there are duplicates of points coordinates in panel array. Reducing redundant points can improve the code efficiency.</p>
 <figure class="align-default" id="future-panels">
 <a class="reference internal image-reference" href="../_images/future_drawio.png"><img alt="../_images/future_drawio.png" src="../_images/future_drawio.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="automatic-differentiation">
+<h2>Automatic Differentiation<a class="headerlink" href="#automatic-differentiation" title="Permalink to this heading">#</a></h2>
+<p>pySailingVLM code can be extended to provide an option to find the best sail shape for the given wind conditions.
+???????????????????????????????????????????????????????????????????????????????
+co tu dopisac?????</p>
 </section>
 </section>
 
@@ -480,6 +454,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">GPU</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-code-as-soa">All code as SoA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-dupllicate">Points dupllicate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-differentiation">Automatic Differentiation</a></li>
 </ul>
   </nav></div>
 

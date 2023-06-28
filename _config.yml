@@ -4,8 +4,8 @@
 title: pySailingVLM Documentation
 author: Zuzanna Wieczorek, Grzegorz Gruszczyński
 copyright: "2023"
-logo: figures/logo_nowe1.png
-exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm]
+logo: figures/logo_nowe1.png #/home/zuzanna/Pictures/logo.svg 
+exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm, README.md]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -18,14 +18,14 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/zuza3012/vlmbook  # Online location of your book
-  #path_to_book: docs  # Optional path to your book, relative to the repository root
+  url: https://github.com/orgSailingVLM/pySailingVLM #https://github.com/orgSailingVLM/vlmbook  # Online location of your book
+  path_to_book: https://github.com/orgSailingVLM/vlmbook  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
+  use_issues_button: false
   use_repository_button: true
   include-in-header: mathjax.html
 parse:
@@ -53,7 +53,9 @@ sphinx:
           \sphinxmaketitle
           \clearpage
 
-
+launch_buttons:
+  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : "https://mybinder.org/v2/gh/orgSailingVLM/pySailingVLM/main?labpath=pySailingVLM%2Fexamples"  # The URL of the BinderHub (e.g., https://mybinder.org)
 
 
 

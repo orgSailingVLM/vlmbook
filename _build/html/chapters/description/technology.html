@@ -169,14 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
@@ -225,50 +224,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/orgSailingVLM/pySailingVLM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/description/technology.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -378,6 +345,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-layout">Memory layout</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simd-and-vectorization">SIMD and vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-paradigms">Programming paradigms</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-improvements">Other improvements</a></li>
@@ -394,38 +362,37 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="technology">
 <h1>Technology<a class="headerlink" href="#technology" title="Permalink to this heading">#</a></h1>
-<p>The main purpose of the thesis was to optimize the existing code for initial sail analysis.
-Orginally the code was implementing many panel objects. Each one of them had many atributes like panel cooridinates, force, pressure, pressure coefficient, span and normal vector. When the size of lattice was increasing, the huge number of objects inside pySailingVLM slowed down the program. To optimize code, the Numba - JIT compiler that translates Python code and NumPy into machine code which enable parallel coalcuations, was applied. Becouse Numba do not understand custom objects like panel, the code was rewritten using two memory layout approaches.</p>
+<p>Orginally the code was implemented in a Object Oriented way. Each panel has been represented by an instance of an object. Every one of them had many atributes like panel cooridinates, force, pressure, pressure coefficient, span and normal vector. When the size of lattice was increasing, the huge number of objects inside pySailingVLM slowed down the program. To optimize code, the Numba - JIT compiler that translates Python code and NumPy into machine code which enable parallel coalcuations, was applied. Becouse Numba do not handle custom objects like panel, they have been rewritten into NumPy arrays using two memory layout approaches.</p>
 <section id="memory-layout">
 <h2>Memory layout<a class="headerlink" href="#memory-layout" title="Permalink to this heading">#</a></h2>
-<p>Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory. Structure of Arrays (SoA) layout splits elements of a record into separate units allowing access these elements in parallel. The AoS is the opposite layout in which data for different fields is interleaved. Comparison between conceptual layout and memory layout is shown on figure <a class="reference internal" href="#id2"><span class="std std-numref">13</span></a>.</p>
+<p>Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory. Structure of Arrays (SoA) layout splits elements of a record into separate units allowing coalesced memory access. The AoS is the opposite layout. It is a collection of multiple structures variables where each variable contains information about different records. AoS is supported directly by most programming languages. Comparison between conceptual layout and memory layout is shown on figure <a class="reference internal" href="#id2"><span class="std std-numref">14</span></a>.</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../_images/memory_layout.png"><img alt="../../_images/memory_layout.png" src="../../_images/memory_layout.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Comparison of the Structure of Arrays (SoA) and Arrray of Structure (AoS). Figure 2 from <span id="id1">[<a class="reference internal" href="../bibliography.html#id11" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison of the Structure of Arrays (SoA) and Arrray of Structure (AoS). Figure 2 from <span id="id1">[<a class="reference internal" href="../bibliography.html#id12" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The AoS approach ensures that the five values <span class="math notranslate nohighlight">\(a_i, b_i, c_i, d_i, e_i\)</span> are
-next to one another in memory, providing good cache utilisation. The SoA approach ensures that these values are split into five separate units, allowing access to corresponding elements in parallel <span id="id3">[<a class="reference internal" href="../bibliography.html#id11" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span>.</p>
-<p>Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors was rearranged into nested ones (AoS). Figure <a class="reference internal" href="#uklad"><span class="std std-numref">14</span></a> shows data layout implemented.</p>
+next to one another in memory, providing good cache utilisation. The SoA approach makes sure that these values are split into five separate units, allowing access to corresponding elements in parallel <span id="id3">[<a class="reference internal" href="../bibliography.html#id12" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span>.</p>
+<p>Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors was rearranged into nested ones (AoS). Figure <a class="reference internal" href="#uklad"><span class="std std-numref">15</span></a> shows data layout implemented.</p>
 <figure class="align-default" id="uklad">
 <a class="reference internal image-reference" href="../../_images/panele.drawio.png"><img alt="../../_images/panele.drawio.png" src="../../_images/panele.drawio.png" style="height: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Data layout implemented in pySailingVLM. Figure created by author.</span><a class="headerlink" href="#uklad" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Data layout implemented in pySailingVLM. Figure created by author.</span><a class="headerlink" href="#uklad" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="benchmarks">
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this heading">#</a></h2>
-<p>To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a>: objective code, ‘non-objective’,  objective with Numba and ‘non-objective’ compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.</p>
+<p>To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a>: object oriented (OO) code, functional (FP) approach, object oriented with Numba and functional code compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.</p>
 <table class="table" id="benchs">
 <caption><span class="caption-number">Table 2 </span><span class="caption-text">Time execution comparison between different approaches of implementing pySailingVLM depending on sail shape.</span><a class="headerlink" href="#benchs" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>No. panels</p></th>
-<th class="head"><p>objective [s]</p></th>
-<th class="head"><p>‘non-objective’ [s]</p></th>
-<th class="head"><p>objective + Numba [s]</p></th>
-<th class="head"><p>‘non-objective’ + Numba [s]</p></th>
+<th class="head"><p>OO [s]</p></th>
+<th class="head"><p>FP [s]</p></th>
+<th class="head"><p>OO + Numba [s]</p></th>
+<th class="head"><p>FP + Numba [s]</p></th>
 </tr>
 </thead>
 <tbody>
@@ -467,18 +434,28 @@ next to one another in memory, providing good cache utilisation. The SoA approac
 </tr>
 </tbody>
 </table>
-<p>According to time results, using Numba is much more efficient when applied to the ‘non-objective’ code. In order to explain such behaviour the SIMD term should be investigated.</p>
+<p>According to time results, using Numba is much more efficient when applied to the functional code. In order to explain such behaviour the SIMD term should be investigated.</p>
 <section id="simd-and-vectorization">
 <h3>SIMD and vectorization<a class="headerlink" href="#simd-and-vectorization" title="Permalink to this heading">#</a></h3>
-<p>SIMD stands for Single Instruction Multiple Data. Instead of performing a single instruction on every single data, SIMD uses wider data-width for similar computational operations <span id="id4">[<a class="reference internal" href="../bibliography.html#id12" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X, doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>. A comparison between simple scalar operation and a SIMD computation is depicted in figure <a class="reference internal" href="#simd-fig"><span class="std std-numref">15</span></a>.</p>
+<p>SIMD stands for Single Instruction Multiple Data. Instead of performing a single instruction on every single data, SIMD uses wider data-width for similar computational operations <span id="id4">[<a class="reference internal" href="../bibliography.html#id13" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X, doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>. A comparison between simple scalar operation and a SIMD computation is depicted in figure <a class="reference internal" href="#simd-fig"><span class="std std-numref">16</span></a>.</p>
 <figure class="align-default" id="simd-fig">
 <a class="reference internal image-reference" href="../../_images/simd_fig.png"><img alt="../../_images/simd_fig.png" src="../../_images/simd_fig.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Simple scalar operation (a) and a SIMD computation (b). Figure 1 from <span id="id5">[<a class="reference internal" href="../bibliography.html#id12" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X, doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>.</span><a class="headerlink" href="#simd-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Simple scalar operation (a) and a SIMD computation (b). Figure 1 from <span id="id5">[<a class="reference internal" href="../bibliography.html#id13" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X, doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>.</span><a class="headerlink" href="#simd-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Vectorization with AOS in memory data layout requires multiple load/shuffle/insert or gather instructions. Because of the reduced CPU frequency in SIMD mode its improvements are not sufficient. Increase in vector width demands more instructions for vector construction. A properly aligned memory data layout for vectorization which Numba uses, needs Structure of Arrays (SOA). It provides SIMD compatible memory accesses and results in efficiency and speedup <span id="id6">[<a class="reference internal" href="../bibliography.html#id13" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span>.</p>
-<p>Array of Structure memory layout is more appropirate when no vectorization is used because proessing data are next to one another in memory. As a consequence, ‘non-objective’ code without Numba is slower than objective one (table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a>).</p>
+<p>Vectorization with AOS in memory data layout requires multiple load/shuffle/insert or gather instructions. Because of the reduced CPU frequency in SIMD mode its improvements are not sufficient. Increase in vector width demands more instructions for vector construction. A properly aligned memory data layout for vectorization which Numba uses, needs Structure of Arrays (SOA). It provides SIMD compatible memory accesses and results in efficiency and speedup <span id="id6">[<a class="reference internal" href="../bibliography.html#id14" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span>.</p>
+</section>
+<section id="programming-paradigms">
+<h3>Programming paradigms<a class="headerlink" href="#programming-paradigms" title="Permalink to this heading">#</a></h3>
+<p>Object Oriented and functional programming paradigms take a very different approach to how code is structured. In Object Oriented code objects are used to represent data, functions or methods are used to manipulate the given object <span id="id7">[<a class="reference internal" href="../bibliography.html#id17" title="Functional programming vs object oriented programming (oop) which is better….? [access: 28.06.2023]. URL: https://medium.com/&#64;shaistha24/functional-programming-vs-object-oriented-programming-oop-which-is-better-82172e53a526.">med</a>]</span>. This apprach is used to perform a few operations with common behavior and different variants <span id="id8">[<a class="reference internal" href="../bibliography.html#id20" title="Functional programming vs oop [access: 28.06.2023]. URL: https://www.educba.com/functional-programming-vs-oop/.">edu</a>]</span>.</p>
+<p>Functional programming uses functions for creating clean and maintainable software <span id="id9">[<a class="reference internal" href="../bibliography.html#id18" title="What is functional programming? a practical guide [access: 28.06.2023]. URL: https://www.infoworld.com/article/3613715/what-is-functional-programming-a-practical-guide.html.">inf</a>]</span>. FP should rely on pure functions which given the same inputs, always returns the same output and does not have any side effects. Side effects appears when function relies on, modifies, something outside its parameters to do something (e.g. function doing IO operations) <span id="id10">[<a class="reference internal" href="../bibliography.html#id19" title="The not-so-scary guide to functional programming [access: 28.06.2023]. URL: https://www.yld.io/blog/the-not-so-scary-guide-to-functional-programming.">yld</a>]</span>. Functional programming provides high performance in processing large data for applications <span id="id11">[<a class="reference internal" href="../bibliography.html#id20" title="Functional programming vs oop [access: 28.06.2023]. URL: https://www.educba.com/functional-programming-vs-oop/.">edu</a>]</span>.</p>
+<p>According to table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a> pySailingVLM functional code is a little bit lower than Object Oriented approach. FP code implementation can gain some improvements to achieve better results:</p>
+<ul class="simple">
+<li><p>reducing the number of local variables inside functions</p></li>
+<li><p>vectorizing for-loops using np.vectorize() function from Numpy module</p></li>
+<li><p>change the Numpy array initialization method: np.zeros() -&gt; np.empty()</p></li>
+</ul>
 </section>
 </section>
 <section id="other-improvements">
@@ -557,6 +534,7 @@ next to one another in memory, providing good cache utilisation. The SoA approac
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-layout">Memory layout</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarks">Benchmarks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simd-and-vectorization">SIMD and vectorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-paradigms">Programming paradigms</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-improvements">Other improvements</a></li>

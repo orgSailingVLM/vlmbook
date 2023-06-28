@@ -17,7 +17,7 @@ parts:
   - file: chapters/usage/usage
     sections:
       - file: chapters/examples/sailingvlm_example.ipynb
-      - file: chapters/examples/sweep_example.ipynb
+      - file: chapters/examples/rc44.ipynb
   - file: chapters/validation/validation
     sections:
     - file: chapters/validation/flat_plate

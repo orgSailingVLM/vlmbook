@@ -169,14 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="validation.html">Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sweep wing</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
@@ -225,50 +224,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/orgSailingVLM/pySailingVLM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/validation/sweep.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -375,10 +342,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sweep wing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -391,7 +356,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sweep-wing">
 <h1>Sweep wing<a class="headerlink" href="#sweep-wing" title="Permalink to this heading">#</a></h1>
-<p>Swept wing by Bertin <span id="id1">[<a class="reference internal" href="../bibliography.html#id5" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>, is a flat plate with a <span class="math notranslate nohighlight">\(45^\circ\)</span> leading edge sweeping angle. The span of wing is 1 unit and a chord of 0.2 unit. Model was discretized into 4 spanwise panels and 1 chordwise panel. The free stream is aligned with the x-axis and has a magnitude of 1 units.</p>
+<p>Swept wing by Bertin <span id="id1">[<a class="reference internal" href="../bibliography.html#id6" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>, is a flat plate with a <span class="math notranslate nohighlight">\(45^\circ\)</span> leading edge sweeping angle. The span of wing is 1 unit and a chord of 0.2 unit. Model was discretized into 4 spanwise panels and 1 chordwise panel. The free stream is aligned with the x-axis and has a magnitude of 1 units.</p>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
 <table class="table" id="comp-sweep">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Comparison between swept wing by Bertin and pySailingVLM results.</span><a class="headerlink" href="#comp-sweep" title="Permalink to this table">#</a></caption>
 <thead>
@@ -410,25 +377,17 @@ document.write(`
 <figure class="align-default" id="bertin-1">
 <img alt="../../_images/bertin_1.png" src="../../_images/bertin_1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Lift coefficient versus angle of attack. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Lift coefficient versus angle of attack. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="bertin-2">
 <img alt="../../_images/bertin_2.png" src="../../_images/bertin_2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Comparison of spanwise lift distributionfor the Bertin wing. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Comparison of spanwise lift distributionfor the Bertin wing. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>????????????????????????
-TODO
-Dodatkowy wykres za Katzem: https://www.researchgate.net/publication/245355607_Calculation_of_the_Aerodynamic_Forces_on_Automotive_Lifting_Surfaces
-Fig4</p>
+<p>Results obtained by pySailingVLM are close to teoretical results taken from <span id="id2">[<a class="reference internal" href="../bibliography.html#id6" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="results">
-<h1>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h1>
-<p>Results obtained by pySailingVLM are close to teoretical results taken from <span id="id2">[<a class="reference internal" href="../bibliography.html#id5" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.
-When the angle of attack increases, the lift coefficient calculated by pySailingVLM differ from Bertin results (figure <a class="reference internal" href="#bertin-1"><span class="std std-numref">17</span></a>). It can be related with a small-angle approximation used in the Vortex Lattice Method, where the angle of attack and the angle of sideslip should be both small.
-??????????????????????????????????????????</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -498,10 +457,8 @@ When the angle of attack increases, the lift coefficient calculated by pySailing
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sweep wing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

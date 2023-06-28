@@ -169,14 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
@@ -225,50 +224,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/orgSailingVLM/pySailingVLM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/description/coordinates.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -379,18 +346,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="coordinate-system-and-wind">
 <h1>Coordinate System and Wind<a class="headerlink" href="#coordinate-system-and-wind" title="Permalink to this heading">#</a></h1>
-<p>The surface of the geometry used is defined with coordinates in three dimensions (figure <a class="reference internal" href="#geoms"><span class="std std-numref">9</span></a>)  with the x-axis in the yachts longitudinal (chordwise) direction positive backwards, the y-axis in the transverse direction positive to starboard and the z-axis in spanwise direction positive upwards.</p>
-<figure class="align-default" id="geoms">
-<a class="reference internal image-reference" href="../../_images/geom.png"><img alt="../../_images/geom.png" src="../../_images/geom.png" style="height: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Sail coordinate system. Figure by author.</span><a class="headerlink" href="#geoms" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>A boat moves along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity (figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">10</span></a>). The speed of yacht  measured directly from the sailor point of view is desscribed by vectors <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_infs}\)</span> (without induced wind velocity <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span> ) and <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind_\fs}\)</span> (with induced wind velocity). An aerodynamic force is generated and is  perpendicular to the apparent wind velocity. The profile of apparent wind is twisted (see figure <a class="reference internal" href="#north"><span class="std std-numref">11</span></a>).</p>
+<p>A boat moves along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity (figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">10</span></a>). Apparent wind velocity for an ‘finite’ sail is described by vector <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span> (with induced wind velocity). An aerodynamic force is generated and is  perpendicular to the apparent wind velocity.</p>
 <figure class="align-default" id="coord-sys">
 <a class="reference internal image-reference" href="../../_images/coord_sys.png"><img alt="../../_images/coord_sys.png" src="../../_images/coord_sys.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Yacht coordinate system. Figure  from <span id="id1">[<a class="reference internal" href="../bibliography.html#id7" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture: 2.016 Hydrodynamics. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span> p.18.</span><a class="headerlink" href="#coord-sys" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Yacht coordinate system. Figure  from <span id="id1">[<a class="reference internal" href="../bibliography.html#id8" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture for Computational Engineering, second-level degree program. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span> p.18.</span><a class="headerlink" href="#coord-sys" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <table class="table" id="coord-table">
@@ -437,19 +397,45 @@ document.write(`
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{T}\)</span></p></td>
 <td><p>thrust force in direction of boat movement - Speed Over Ground (SOG)</p></td>
 </tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span></p></td>
+<td><p>drag</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{L}\)</span></p></td>
+<td><p>lift</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{U}_{\infty}\)</span></p></td>
+<td><p>free-stream with uniform velocity</p></td>
+</tr>
 </tbody>
 </table>
-<figure class="align-default" id="north">
-<a class="reference internal image-reference" href="../../_images/North-Sail-Understanding-Twised_wind.png"><img alt="../../_images/North-Sail-Understanding-Twised_wind.png" src="../../_images/North-Sail-Understanding-Twised_wind.png" style="height: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Profile of apparent wind on sails <span id="id2">[<a class="reference internal" href="../bibliography.html#id2" title="Bill Gladstone North Sails. Twist explained. 2018. URL: https://www.northsails.com/sailing/en/2018/10/north-u-understanding-twist-by-bill-gladstone (visited on 2021-11-07).">NS18</a>]</span>.</span><a class="headerlink" href="#north" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>It is worth adding that the induced wind causes extra drag (see figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">12</span></a>)</p>
+<p>Due to surface friction, the true wind profile is logarithmic. Additionally, induced wind causes extra drag (figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">11</span></a> and <a class="reference internal" href="#application-range"><span class="std std-numref">13</span></a>).  As a consequence, the profile of apparent wind is twisted (see figure <a class="reference internal" href="#north"><span class="std std-numref">12</span></a>). By choosong the right shape of sail, the drag can be minimised.</p>
+<!---
+It is worth adding that the induced wind causes extra drag (see figure {numref}`{number} <induced_drag>`)
+
+```{figure} ../../figures/Tip-vortices.png
+---
+height: 300
+name: tip-vortices
+---
+The total amount of circulation is preserved. Figure 6 from {cite}`llt_prom`.
+```
+-->
 <figure class="align-default" id="induced-drag">
 <a class="reference internal image-reference" href="../../_images/induced_drag.png"><img alt="../../_images/induced_drag.png" src="../../_images/induced_drag.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Extra drag generated by induced wind. Figure 6 from <span id="id3">[<a class="reference internal" href="../bibliography.html#id7" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture: 2.016 Hydrodynamics. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span>.</span><a class="headerlink" href="#induced-drag" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Extra drag generated by induced wind. Figure 6 from <span id="id2">[<a class="reference internal" href="../bibliography.html#id8" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture for Computational Engineering, second-level degree program. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span>.</span><a class="headerlink" href="#induced-drag" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="north">
+<a class="reference internal image-reference" href="../../_images/North-Sail-Understanding-Twised_wind.png"><img alt="../../_images/North-Sail-Understanding-Twised_wind.png" src="../../_images/North-Sail-Understanding-Twised_wind.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Profile of apparent wind on sails <span id="id3">[<a class="reference internal" href="../bibliography.html#id2" title="Bill Gladstone North Sails. Twist explained. 2018. URL: https://www.northsails.com/sailing/en/2018/10/north-u-understanding-twist-by-bill-gladstone (visited on 2021-11-07).">NS18</a>]</span>.</span><a class="headerlink" href="#north" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="application-range">
+<a class="reference internal image-reference" href="../../_images/application_range.svg"><img alt="../../_images/application_range.svg" height="500" src="../../_images/application_range.svg" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Influence of the induced drag <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture for Computational Engineering, second-level degree program. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span>.</span><a class="headerlink" href="#application-range" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

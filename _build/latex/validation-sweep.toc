@@ -1,2 +1,0 @@
-\selectlanguage *{english}
-\contentsline {part}{I\hspace {1em}Results}{3}{part.1}%
