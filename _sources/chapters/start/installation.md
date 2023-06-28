@@ -10,11 +10,11 @@ pip install pySailingVLM
 If you would like to dive into pySailingVLM code and test it on your own please do the folowing steps:
 * Clone git project
 ```
-git clone #TODO wsadzic tutaj link
+git clone git@github.com:orgSailingVLM/pySailingVLM.git
 ```
 * Go into project
 ```
-cd #TODO project
+cd pySailingVLM
 ```
 * There is no requirements.txt file, for installing dependencies install a project in editable mode (i.e. setuptools "develop mode") from a local project path:
 ```

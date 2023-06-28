@@ -169,14 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered jib and main example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sweep_example.html">Sweep cambered main sail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="validation.html">Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sweep.html">Sweep wing</a></li>
-
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
@@ -225,50 +224,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/orgSailingVLM/pySailingVLM" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/zuza3012/vlmbook/issues/new?title=Issue%20on%20page%20%2Fchapters/validation/flat_plate.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -389,7 +356,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rectangular-flat-plate">
 <h1>Rectangular flat plate<a class="headerlink" href="#rectangular-flat-plate" title="Permalink to this heading">#</a></h1>
-<p>Using pySailingVLm a rectangular flat plate was modeled with a span of 10 units and a constant chord of 1 unit. The geomery of sail is discretized into 16 spanwise and 8 chordwise panels. The free-stream strength is 1 unit and the angle of attack is <span class="math notranslate nohighlight">\(10^\circ\)</span>. Then the lift coefficient slope  <span class="math notranslate nohighlight">\(C_{L,\alpha}\)</span> was compared with <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="T.Larsson A. Helmstad. An Aeroelastic Implementation for Yacht Sails and Rigs, Degree project in Naval Architecture. KTH Engeneering Sciences, 2013.">AH13</a>]</span> and analitically derived results in the table below.</p>
+<p>Using pySailingVLm a rectangular flat plate was modeled with a span of 10 units and a constant chord of 1 unit. The geomery of sail is discretized into 16 spanwise and 8 chordwise panels. The free-stream strength is 1 unit and the angle of attack is <span class="math notranslate nohighlight">\(10^\circ\)</span>. Then the lift coefficient slope  <span class="math notranslate nohighlight">\(C_{L,\alpha}\)</span> was compared with <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="T.Larsson A. Helmstad. An Aeroelastic Implementation for Yacht Sails and Rigs, Degree project in Naval Architecture. KTH Engeneering Sciences, 2013.">AH13</a>]</span> and analitically derived results (using equation <a class="reference internal" href="#equation-anal">(6)</a>) in the table below.</p>
+<div class="math notranslate nohighlight" id="equation-anal">
+<span class="eqno">(6)<a class="headerlink" href="#equation-anal" title="Permalink to this equation">#</a></span>\[C_{L,\alpha} = \frac{2\pi}{1+ \frac{2}{e_w AR}}\]</div>
+<p>where:
+AR - aspect ratio
+e_w - span efficiency factor</p>
 <table class="table" id="comp">
 <caption><span class="caption-number">Table 3 </span><span class="caption-text">Results from pySailingVLM code of the rectangular flat plate of a slope </span><a class="headerlink" href="#comp" title="Permalink to this table">#</a></caption>
 <thead>
@@ -410,14 +382,12 @@ document.write(`
 <figure class="align-default" id="flat-cp">
 <a class="reference internal image-reference" href="../../_images/flat_cp.png"><img alt="../../_images/flat_cp.png" src="../../_images/flat_cp.png" style="height: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Pressure coefficients for flat plate. Figure generated by pySailingVLM.</span><a class="headerlink" href="#flat-cp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Pressure coefficients for flat plate. Figure generated by pySailingVLM.</span><a class="headerlink" href="#flat-cp" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>????????????????????? dac cp plot z magisterki??????????????????????????????</p>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
 <p>The results obtained by pySailingVLM are close to analitical and also <span id="id3">[<a class="reference internal" href="../bibliography.html#id3" title="T.Larsson A. Helmstad. An Aeroelastic Implementation for Yacht Sails and Rigs, Degree project in Naval Architecture. KTH Engeneering Sciences, 2013.">AH13</a>]</span> data. It should be noticed that analytically derived results assumes a span efficiency factor of 0.8.</p>
-<p>????????????????????????? DAC wzor gdzies????????????????????</p>
 </section>
 </section>
 
