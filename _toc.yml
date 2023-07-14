@@ -18,6 +18,8 @@ parts:
     sections:
       - file: chapters/examples/sailingvlm_example.ipynb
       - file: chapters/examples/rc44.ipynb
+- caption: Validation     
+  chapters:
   - file: chapters/validation/validation
     sections:
     - file: chapters/validation/flat_plate

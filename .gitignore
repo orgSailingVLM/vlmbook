@@ -1,3 +1,4 @@
 other/*
 chapters/examples/results_example_jib_and_mainsail_vlm/
 .vscode
+_build/*

@@ -1,21 +1,12 @@
 # Usage
 
-```{note}
-First usage of pySailingVLm will produce numba warining. This behaviour is correct. Warining messages will disappear during second run of program.
-
-Example warning:
-
-/home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: <function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40>. Debug line information may be inaccurate.
-```
-
-## Jupyter Notebook
-For Jupyter Notebook examples see Usage subsection.
-
 ## Command line
-### Input file
-In order to run pySailingVLM from command line you must provide a variable.py file. Example file is shown below. Modify it for your needs.
 
-```
+In order to run pySailingVLM from the command line, the input file called `variable.py` must be provided. 
+Example file is shown below.
+Modify it for your needs.
+
+```python
 import os
 import numpy as np
 import time
@@ -109,22 +100,35 @@ keel_args={
 ```
 
 ### Run script
-To run script with variables.py located in working directory do:
-```
+
+By default, the program assumes that the `variables.py` file is located in the working directory:
+
+```bash
 pySailingVLM
 ```
-If variables.py is located in different directory, you must sepecify its location by providing additional option for pySailingVLM script:
 
-```
+If the `variables.py` file is located in a different directory, one have to sepecify its location by providing additional option for pySailingVLM script:
+
+```bash
 pySailingVLM --dvars path_to_foler_with_variables.py
 ```
 
 More information is available inside script help:
-```
+
+```bash
 pySailingVLM --help
 ```
+
 ### Output
+
 pySailingVLM produces output files: data in xlsx file, matplotlib figures and pressure coefficient colormap in html extention (interactive plot). It is saved in the location specified in varaibles.py.
 
+```{note}
+First usage of pySailingVLm will produce numba warining. 
+This behaviour is correct. 
+Warining messages will disappear during second run of program.
 
+Example warning:
 
+/home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: <function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40>. Debug line information may be inaccurate.
+```

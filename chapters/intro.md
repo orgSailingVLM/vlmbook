@@ -2,17 +2,33 @@
 ```{role} raw-latex(raw)
 :format: latex
 ```
-# Abstract 
 
-The beginning of fluid dynamics has started in acient Greece, when Archimedes investigated the fluid statics and bouancy. From that time, many well-konwn mathematicians and engineers have contributed to defining how air and gases behave. The equations they have constructed are extremely complex and difficult to calculate by hand when the geometry of airfoil is complicated. The rapid improvement of computers' power in 1970s has led to developing complex flow desings. Over the past few decades Computational Fluid Dynamics (CFD) has been improved dramatically. 
+# Abstract
 
-There are many methods, that are used in Computational Fluid Dynamics. Some of them are Finite Element Method (FEM), Volume of Fluid (VOF) and Lattice Boltzmann Method (LBM). They provide good and accurate results but require high amount of computational resources. To overcome this problem, low fidelity tools can be used, like Vortex Lattice Method (VLM). Using VLM is benefical in the early conceptual design phase {cite}`artphase`, when many different desings should be tested. Thanks to fast computations of aerodynamics forces and pressures, engineers can quickly overview modelled design performance.
+Nowadays, the state-of-the-art CFD solvers (FEM, VOF, LBM) can provide incredibly accurate results for almost any geometry. 
+However, the solution comes at the price of high amount of computational resources. 
+To circumvent this issue, the low fidelity approaches like Vortex Lattice Method (VLM){cite}`artphase` can be employed for particular types of computational problems. 
+The VLM is an engineering standard in the conceptual design phase of aircrafts or sailing yachts as it allows
+designers to quickly estimate the performance of numerous different models.
+Due to the specifics of conditions in which a sailing yacht operates, the VLM solvers dedicated
+to aircraft design can not be adopted in a straightforward fashion.
+Here, we present the first open-source Python package which implements the
+Vortex Lattice Method for the initial aerodynamic analysis of upwind sails. Thanks to its
+lightweight requirements, the software can be easily installed and executed locally or accessed
+in a cloud environment
 
-In this work, we present the first open source Python package which implements Vortex Lattice Method for initial aerodynamic analysis of upwind sails. Thanks to its lightweight requirements, the software can be immediately installed and execuded locally or accessed by cloud environment such as Google Collab. Additionally, package users can define own sail geometries and use pySailingVLM inside custom scripts which makes creating a set of dynamics very convenient.
+```{note}
 
-Keywords: Vortex Lattice Method (VLM), initial sail analysis, yacht engineering, Python Package
+**pySailingVLM** is available at
 
-Inside documentation:
+    https://pypi.org/project/pySailingVLM/
+    https://github.com/orgSailingVLM/pySailingVLM
+    
+```
+
+**Keywords**: Vortex Lattice Method (VLM), initial sail analysis, yacht engineering, python package
+
+## Table of contents
 
 ```{tableofcontents}
 ```
