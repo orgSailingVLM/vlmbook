@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Validation" href="../validation/validation.html" />
-    <link rel="prev" title="Cambered yacht" href="sailingvlm_example.html" />
+    <link rel="prev" title="Sail with camber" href="sailingvlm_example.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../usage/usage.html">Usage</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sailingvlm_example.html">Sail with camber</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">RC44 yacht</a></li>
 </ul>
 </li>
@@ -176,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
@@ -375,6 +375,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rc44-yacht">
 <h1>RC44 yacht<a class="headerlink" href="#rc44-yacht" title="Permalink to this heading">#</a></h1>
+<figure class="align-default" id="rc44-photo1">
+<a class="reference internal image-reference" href="../../_images/rc44_photo1.png"><img alt="../../_images/rc44_photo1.png" src="../../_images/rc44_photo1.png" style="height: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Yacht of the RC44 class. Picture from <a class="reference external" href="https://www.44cup.org/">https://www.44cup.org/</a>.</span><a class="headerlink" href="#rc44-photo1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In cell below insert your initial parameters. If some of them are not required for your model, simply pass 0 value (for numbers).
 Some parameters are necessary only for specific cases like roughness (used by package when logarithmic profile is set) and they are omitted during computation.</p>
 <div class="alert alert-block alert-warning"><b>ATTENTION:</b> do not delete keys in dictionaries and do not change their names. 
@@ -497,6 +503,19 @@ Make sure also that the length of your arrays match, like:  girths and chords</d
 <span class="kn">from</span> <span class="nn">pySailingVLM.runner.sail</span> <span class="kn">import</span> <span class="n">Wind</span><span class="p">,</span> <span class="n">Sail</span>
 <span class="kn">from</span> <span class="nn">pySailingVLM.runner.container</span> <span class="kn">import</span> <span class="n">Output</span><span class="p">,</span> <span class="n">Rig</span><span class="p">,</span> <span class="n">Conditions</span><span class="p">,</span> <span class="n">Solver</span><span class="p">,</span> <span class="n">MainSail</span><span class="p">,</span> <span class="n">JibSail</span><span class="p">,</span> <span class="n">Csys</span><span class="p">,</span> <span class="n">Keel</span>
 <span class="kn">from</span> <span class="nn">pySailingVLM.solver.panels_plotter</span> <span class="kn">import</span> <span class="n">plot_cp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">pySailingVLM.rotations.csys_transformations</span> <span class="kn">import</span> <span class="n">CSYS_transformations</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">pySailingVLM.yacht_geometry.hull_geometry</span> <span class="kn">import</span> <span class="n">HullGeometry</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">pySailingVLM.results.save_utils</span> <span class="kn">import</span> <span class="n">save_results_to_file</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pySailingVLM&#39;
 </pre></div>
 </div>
 </div>
@@ -1168,7 +1187,7 @@ if (force === true) {
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cambered yacht</p>
+        <p class="prev-next-title">Sail with camber</p>
       </div>
     </a>
     <a class="right-next"

@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
@@ -362,19 +362,33 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="technology">
 <h1>Technology<a class="headerlink" href="#technology" title="Permalink to this heading">#</a></h1>
-<p>Orginally the code was implemented in a Object Oriented way. Each panel has been represented by an instance of an object. Every one of them had many atributes like panel cooridinates, force, pressure, pressure coefficient, span and normal vector. When the size of lattice was increasing, the huge number of objects inside pySailingVLM slowed down the program. To optimize code, the Numba - JIT compiler that translates Python code and NumPy into machine code which enable parallel coalcuations, was applied. Becouse Numba do not handle custom objects like panel, they have been rewritten into NumPy arrays using two memory layout approaches.</p>
+<p>The initial version of pySailingVLM has been implemented in a Object Oriented (OO) way.
+Each panel has been represented by an instance of an object.
+Every one of them had many atributtes like cooridinates, force, pressure, pressure coefficient, span, normal vector, etc.
+Such arrangment is refereed as Array of Structures (AoS).</p>
+<p>To speed up the program, the Numba library has been employed.
+It provides a JIT (just in time) compiler which can complile the regular python script into a machine code.
+Moreover, parallel calculations for SIMD (single instruction multiple data) can be automatically applied.
+Unfortunately, Numba can not handle custom objects like panel.
+Therefore, the code has been rewritten to store the aforementioned attibutes as independend arrays instead of keeping them within objects.</p>
 <section id="memory-layout">
 <h2>Memory layout<a class="headerlink" href="#memory-layout" title="Permalink to this heading">#</a></h2>
-<p>Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory. Structure of Arrays (SoA) layout splits elements of a record into separate units allowing coalesced memory access. The AoS is the opposite layout. It is a collection of multiple structures variables where each variable contains information about different records. AoS is supported directly by most programming languages. Comparison between conceptual layout and memory layout is shown on figure <a class="reference internal" href="#id2"><span class="std std-numref">14</span></a>.</p>
+<p>Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory.
+Structure of Arrays (SoA) layout splits elements of a record into separate vectors of a given type, allowing coalesced memory access.
+The AoS is the opposite layout.
+It is a collection of structures where each structure contains different records.
+Comparison between conceptual layout and memory layout is shown on figure <a class="reference internal" href="#id2"><span class="std std-numref">14</span></a>.</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../_images/memory_layout.png"><img alt="../../_images/memory_layout.png" src="../../_images/memory_layout.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison of the Structure of Arrays (SoA) and Arrray of Structure (AoS). Figure 2 from <span id="id1">[<a class="reference internal" href="../bibliography.html#id12" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The AoS approach ensures that the five values <span class="math notranslate nohighlight">\(a_i, b_i, c_i, d_i, e_i\)</span> are
-next to one another in memory, providing good cache utilisation. The SoA approach makes sure that these values are split into five separate units, allowing access to corresponding elements in parallel <span id="id3">[<a class="reference internal" href="../bibliography.html#id12" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span>.</p>
-<p>Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors was rearranged into nested ones (AoS). Figure <a class="reference internal" href="#uklad"><span class="std std-numref">15</span></a> shows data layout implemented.</p>
+<p>The AoS approach ensures that the five values <span class="math notranslate nohighlight">\(a_i, b_i, c_i, d_i, e_i\)</span> are next to one another in memory,
+providing good cache utilisation.
+The SoA approach makes sure that these values are split into five separate units, allowing access to corresponding elements in parallel <span id="id3">[<a class="reference internal" href="../bibliography.html#id12" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669, doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span>.</p>
+<p>Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors were kept as nested ones (AoS).
+Figure <a class="reference internal" href="#uklad"><span class="std std-numref">15</span></a> shows data layout implemented.</p>
 <figure class="align-default" id="uklad">
 <a class="reference internal image-reference" href="../../_images/panele.drawio.png"><img alt="../../_images/panele.drawio.png" src="../../_images/panele.drawio.png" style="height: 600px;" /></a>
 <figcaption>
@@ -460,7 +474,11 @@ next to one another in memory, providing good cache utilisation. The SoA approac
 </section>
 <section id="other-improvements">
 <h2>Other improvements<a class="headerlink" href="#other-improvements" title="Permalink to this heading">#</a></h2>
-<p>Apart from code optimizations, the pySailingVLM has gained more features. The possibility to calculate cambered sailis and visualize pressure coefficients on colormap was introduced. Code has been packaged and now is available at Python Package Index (PyPI). It can be run locally from command line or in a cloud using Jupyter Notebook. pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.</p>
+<p>Apart from code optimizations, the pySailingVLM has gained more features.
+The possibility to calculate cambered sails and visualize pressure coefficients on colormap was introduced.
+Code has been packaged and now is available at Python Package Index (PyPI).
+It can be run locally from command line or in a cloud using Jupyter Notebook.
+pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.</p>
 </section>
 </section>
 

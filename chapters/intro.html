@@ -158,7 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="description/coordinates.html">Coordinate System and Wind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
 </ul>
@@ -166,17 +165,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="usage/usage.html">Usage</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/sailingvlm_example.html">Sail with camber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validation</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="future.html">Future outlooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="future.html">Future outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -316,7 +318,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -332,6 +336,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -343,16 +357,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="abstract">
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h1>
-<p>The beginning of fluid dynamics has started in acient Greece, when Archimedes investigated the fluid statics and bouancy. From that time, many well-konwn mathematicians and engineers have contributed to defining how air and gases behave. The equations they have constructed are extremely complex and difficult to calculate by hand when the geometry of airfoil is complicated. The rapid improvement of computers’ power in 1970s has led to developing complex flow desings. Over the past few decades Computational Fluid Dynamics (CFD) has been improved dramatically.</p>
-<p>There are many methods, that are used in Computational Fluid Dynamics. Some of them are Finite Element Method (FEM), Volume of Fluid (VOF) and Lattice Boltzmann Method (LBM). They provide good and accurate results but require high amount of computational resources. To overcome this problem, low fidelity tools can be used, like Vortex Lattice Method (VLM). Using VLM is benefical in the early conceptual design phase <span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. Pakistan Journal of Engineering and Technology, PakJET, 04(01):207- 211, 2021. URL: https://www.hpej.net/journals/pakjet/article/view/754/564, doi:DOI: 10.51846/vol4iss1pp207-211.">NJS+21</a>]</span>, when many different desings should be tested. Thanks to fast computations of aerodynamics forces and pressures, engineers can quickly overview modelled design performance.</p>
-<p>In this work, we present the first open source Python package which implements Vortex Lattice Method for initial aerodynamic analysis of upwind sails. Thanks to its lightweight requirements, the software can be immediately installed and execuded locally or accessed by cloud environment such as Google Collab. Additionally, package users can define own sail geometries and use pySailingVLM inside custom scripts which makes creating a set of dynamics very convenient.</p>
-<p>Keywords: Vortex Lattice Method (VLM), initial sail analysis, yacht engineering, Python Package</p>
-<p>Inside documentation:</p>
+<p>Nowadays, the state-of-the-art CFD solvers (FEM, VOF, LBM) can provide incredibly accurate results for almost any geometry.
+However, the solution comes at the price of high amount of computational resources.
+To circumvent this issue, the low fidelity approaches like Vortex Lattice Method (VLM)<span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. Pakistan Journal of Engineering and Technology, PakJET, 04(01):207- 211, 2021. URL: https://www.hpej.net/journals/pakjet/article/view/754/564, doi:DOI: 10.51846/vol4iss1pp207-211.">NJS+21</a>]</span> can be employed for particular types of computational problems.
+The VLM is an engineering standard in the conceptual design phase of aircrafts or sailing yachts as it allows
+designers to quickly estimate the performance of numerous different models.
+Due to the specifics of conditions in which a sailing yacht operates, the VLM solvers dedicated
+to aircraft design can not be adopted in a straightforward fashion.
+Here, we present the first open-source Python package which implements the
+Vortex Lattice Method for the initial aerodynamic analysis of upwind sails. Thanks to its
+lightweight requirements, the software can be easily installed and executed locally or accessed
+in a cloud environment</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>pySailingVLM</strong> is available at</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://pypi.org/project/pySailingVLM/
+https://github.com/orgSailingVLM/pySailingVLM
+</pre></div>
+</div>
+</div>
+<p><strong>Keywords</strong>: Vortex Lattice Method (VLM), initial sail analysis, yacht engineering, python package</p>
+<section id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="description/theory.html">Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="description/theory.html#vortex-lattice-method">Vortex Lattice Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description/coordinates.html">Coordinate System and Wind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description/technology.html">Technology</a></li>
 </ul>
@@ -362,12 +392,18 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="start/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/usage.html">Usage</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validation</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="validation/validation.html">Validation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="future.html">Future outlooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="future.html">Future outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,6 +455,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

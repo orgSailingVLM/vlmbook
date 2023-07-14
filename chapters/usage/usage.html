@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/usage/usage';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Cambered yacht" href="../examples/sailingvlm_example.html" />
+    <link rel="next" title="Sail with camber" href="../examples/sailingvlm_example.html" />
     <link rel="prev" title="Installation" href="../start/installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,7 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../description/theory.html">Theory</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../description/coordinates.html">Coordinate System and Wind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../description/technology.html">Technology</a></li>
 </ul>
@@ -167,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../start/installation.html">Installation</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Usage</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Cambered yacht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/sailingvlm_example.html">Sail with camber</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
@@ -176,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Conclusions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -340,9 +339,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line">Command line</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-file">Input file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-script">Run script</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
@@ -360,22 +357,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>First usage of pySailingVLm will produce numba warining. This behaviour is correct. Warining messages will disappear during second run of program.</p>
-<p>Example warning:</p>
-<p>/home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: &lt;function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40&gt;. Debug line information may be inaccurate.</p>
-</div>
-<section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
-<p>For Jupyter Notebook examples see Usage subsection.</p>
-</section>
 <section id="command-line">
 <h2>Command line<a class="headerlink" href="#command-line" title="Permalink to this heading">#</a></h2>
-<section id="input-file">
-<h3>Input file<a class="headerlink" href="#input-file" title="Permalink to this heading">#</a></h3>
-<p>In order to run pySailingVLM from command line you must provide a variable.py file. Example file is shown below. Modify it for your needs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<p>In order to run pySailingVLM from the command line, the input file called <code class="docutils literal notranslate"><span class="pre">variable.py</span></code> must be provided.
+Example file is shown below.
+Modify it for your needs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -467,25 +454,32 @@ document.write(`
 <span class="p">}</span>  
 </pre></div>
 </div>
-</section>
 <section id="run-script">
 <h3>Run script<a class="headerlink" href="#run-script" title="Permalink to this heading">#</a></h3>
-<p>To run script with variables.py located in working directory do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pySailingVLM</span>
+<p>By default, the program assumes that the <code class="docutils literal notranslate"><span class="pre">variables.py</span></code> file is located in the working directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM
 </pre></div>
 </div>
-<p>If variables.py is located in different directory, you must sepecify its location by providing additional option for pySailingVLM script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pySailingVLM</span> <span class="o">--</span><span class="n">dvars</span> <span class="n">path_to_foler_with_variables</span><span class="o">.</span><span class="n">py</span>
+<p>If the <code class="docutils literal notranslate"><span class="pre">variables.py</span></code> file is located in a different directory, one have to sepecify its location by providing additional option for pySailingVLM script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM --dvars path_to_foler_with_variables.py
 </pre></div>
 </div>
 <p>More information is available inside script help:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pySailingVLM</span> <span class="o">--</span><span class="n">help</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM --help
 </pre></div>
 </div>
 </section>
 <section id="output">
 <h3>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h3>
 <p>pySailingVLM produces output files: data in xlsx file, matplotlib figures and pressure coefficient colormap in html extention (interactive plot). It is saved in the location specified in varaibles.py.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First usage of pySailingVLm will produce numba warining.
+This behaviour is correct.
+Warining messages will disappear during second run of program.</p>
+<p>Example warning:</p>
+<p>/home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: &lt;function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40&gt;. Debug line information may be inaccurate.</p>
+</div>
 </section>
 </section>
 <div class="toctree-wrapper compound">
@@ -537,7 +531,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Cambered yacht</p>
+        <p class="prev-next-title">Sail with camber</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -559,9 +553,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line">Command line</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-file">Input file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-script">Run script</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
