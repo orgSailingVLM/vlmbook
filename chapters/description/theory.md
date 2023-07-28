@@ -183,6 +183,8 @@ Nomenclature of the vortex horseshoe. Figure created by author.
 Horseshoe vortex is attached to the trailing edge of lifting surface.
 It consists of three finite and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`).
 
+The bound vortex of the wing is considered bound to a "lifting line".  The lifting line theory considers the wing to be a single vortex filament.  The tip vortices are the "automatic" consequences of the lifting line and the circulation around a finite wing.
+
 #### Vortex location
 
 The center of pressure is a point to which a resulting aerodynamic force is attached.
@@ -191,7 +193,7 @@ To fulfill no flow through the surface condition, the control point is defined a
 
 Vortex vertices $B_k$ and $C_k$ are placed at $1/4$ of panel chord ($v_{k}$), $A_k$ and $D_k$ at $1/4$ of the next panel ($v_{k+1}$). The panel opposite corner points define two vectors $\overrightarrow{A}_{k}$ and $\overrightarrow{B}_{k}$, and their vector product will point in the direction of $\overrightarrow{n}_{k}$ (normal vector).
 
-### The Boundary Condition 
+### The Boundary Condition
 
 The Boundary Condition requires no flow through the surface of the k-th panel:
 
@@ -242,7 +244,6 @@ Which leads to a set of linear algebraic equations
 \end{gather}
 
 where $m=n_{spanwise}\cdot\,n_{chordwise}$ and $a_{kj} = \overrightarrow{\nu_{kj}} n_k$
-
 
 ### The aerodynamic force
 
