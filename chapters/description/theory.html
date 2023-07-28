@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -532,6 +533,7 @@ Vortex element is associated to segment one of the panel (pink rectangles).</p>
 </figure>
 <p>Horseshoe vortex is attached to the trailing edge of lifting surface.
 It consists of three finite and two semi-infinite segments following equation <a class="reference internal" href="#equation-q-finite">(1)</a> and <a class="reference internal" href="#equation-q-infinite">(2)</a> (see figure <a class="reference internal" href="#horseshoe"><span class="std std-numref">8</span></a>).</p>
+<p>The bound vortex of the wing is considered bound to a “lifting line”.  The lifting line theory considers the wing to be a single vortex filament.  The tip vortices are the “automatic” consequences of the lifting line and the circulation around a finite wing.</p>
 </section>
 <section id="vortex-location">
 <h4>Vortex location<a class="headerlink" href="#vortex-location" title="Permalink to this heading">#</a></h4>
@@ -569,8 +571,8 @@ To fulfill no flow through the surface condition, the control point is defined a
 \underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
 \end{split}\]</div>
 <p>Which leads to a set of linear algebraic equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c4b5b99-51a2-4221-99de-2a3fb65ba7d1">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9c4b5b99-51a2-4221-99de-2a3fb65ba7d1" title="Permalink to this equation">#</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-b70be30f-6203-48e7-bafa-b1f41070e7b0">
+<span class="eqno">(3)<a class="headerlink" href="#equation-b70be30f-6203-48e7-bafa-b1f41070e7b0" title="Permalink to this equation">#</a></span>\[\begin{gather}
     \begin{bmatrix}
     a_{11} &amp; \dots  &amp; a_{1m}\\
     \vdots &amp; \ddots &amp; \vdots\\

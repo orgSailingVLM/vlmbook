@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -161,8 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Description</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
-
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Coordinate System and Wind</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technology.html">Technology</a></li>
 </ul>
@@ -350,7 +349,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="coordinate-system-and-wind">
 <h1>Coordinate System and Wind<a class="headerlink" href="#coordinate-system-and-wind" title="Permalink to this heading">#</a></h1>
-<p>A boat moves along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity (figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">9</span></a>). Apparent wind velocity for an ‘finite’ sail is described by vector <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span> (with induced wind velocity). An aerodynamic force is generated and is  perpendicular to the apparent wind velocity.</p>
+<p>Figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">9</span></a> shows wind and force vectors acting on a boat moving along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity. Apparent wind velocity for an ‘finite’ sail is described by vector <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span> (with induced wind velocity).
+An aerodynamic force is generated and is perpendicular to the apparent wind velocity.</p>
 <figure class="align-default" id="coord-sys">
 <a class="reference internal image-reference" href="../../_images/coord_sys.png"><img alt="../../_images/coord_sys.png" src="../../_images/coord_sys.png" style="height: 500px;" /></a>
 <figcaption>
@@ -412,24 +412,19 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>Due to surface friction, the profile of the true wind is logarithmic. As a consequence, the profile of apparent wind is twisted (see figure <a class="reference internal" href="#north"><span class="std std-numref">10</span></a>).</p>
+<p>Due to surface friction, the profile of the true wind is logarithmic.
+As a consequence, the profile of apparent wind is twisted (see figure <a class="reference internal" href="#north"><span class="std std-numref">10</span></a>).</p>
 <figure class="align-default" id="north">
 <a class="reference internal image-reference" href="../../_images/North-Sail-Understanding-Twised_wind.png"><img alt="../../_images/North-Sail-Understanding-Twised_wind.png" src="../../_images/North-Sail-Understanding-Twised_wind.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 10 </span><span class="caption-text">Profile of apparent wind on sails <span id="id2">[<a class="reference internal" href="../bibliography.html#id2" title="Bill Gladstone North Sails. Twist explained. 2018. URL: https://www.northsails.com/sailing/en/2018/10/north-u-understanding-twist-by-bill-gladstone (visited on 2021-11-07).">NS18</a>]</span>.</span><a class="headerlink" href="#north" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<!---
-It is worth adding that the induced wind causes extra drag (see figure {numref}`{number} <induced_drag>`)
-
-```{figure} ../../figures/Tip-vortices.png
----
-height: 300
-name: tip-vortices
----
-The total amount of circulation is preserved. Figure 6 from {cite}`llt_prom`.
-```
--->
+<p>Due to tip vorticies (shown at figure <a class="reference internal" href="#tip-vor"><span class="std std-numref">11</span></a>)
+extra wind <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span> is generated.
+As a consequence, total wind velocity <span class="math notranslate nohighlight">\(\overrightarrow{U}\)</span> acting on a boat is different than free-stream and is the sum of the vectors <span class="math notranslate nohighlight">\(\overrightarrow{U}_{\infty}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span>.
+Therefore, induced wind causes additional drag <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span>.
+The total lift is the sum of <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{L}_{\infty}\)</span> vectors (figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">12</span></a>).</p>
 <figure class="align-default" id="tip-vor">
 <a class="reference internal image-reference" href="../../_images/Tip-vortices.png"><img alt="../../_images/Tip-vortices.png" src="../../_images/Tip-vortices.png" style="height: 200px;" /></a>
 <figcaption>
@@ -442,7 +437,9 @@ The total amount of circulation is preserved. Figure 6 from {cite}`llt_prom`.
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text">Extra drag generated by induced wind. Figure 6 from <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="G. Gruszczyński. Constrained optimization of an upwind sail set using fast solver. In Lecture for Computational Engineering, second-level degree program. Interdisciplinary Center for Mathematical and Computational Modelling, University of Warsaw, 2021.">Gru21</a>]</span>.</span><a class="headerlink" href="#induced-drag" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The induced wind causes extra drag (figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">12</span></a> and <a class="reference internal" href="#application-range"><span class="std std-numref">13</span></a>).  By choosong the right shape of sail, the drag can be minimised.</p>
+<p>Induced drag is proportional to the square of lift (depicted on figure <a class="reference internal" href="#application-range"><span class="std std-numref">13</span></a>).
+There exists an unique value of lift and the drag induced by it, for which the thrust reaches maximum.
+To minimise drag, the right shape of sail should be chosen.</p>
 <figure class="align-default" id="application-range">
 <a class="reference internal image-reference" href="../../_images/application_range.svg"><img alt="../../_images/application_range.svg" height="500" src="../../_images/application_range.svg" /></a>
 <figcaption>

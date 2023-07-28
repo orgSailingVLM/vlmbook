@@ -2,7 +2,7 @@
 
 ## Command line
 
-In order to run pySailingVLM from the command line, the input file called `variable.py` must be provided. 
+In order to run pySailingVLM from the command line, the input file called `variable.py` must be provided.
 Example file is shown below.
 Modify it for your needs.
 
@@ -25,7 +25,6 @@ solver_args = {
     'n_spanwise':  15,  # No of control points (above the water) per sail, recommended: 50
     'n_chordwise': 10, # No of control points (above the water) per sail, recommended: 50
     'interpolation_type': "spline",  # either "spline" or "linear"
-    'LLT_twist': "real_twist",  # defines how the Lifting Line discretize the sail twist.
 }
 
 conditions_args = {
@@ -101,7 +100,8 @@ keel_args={
 
 ### Run script
 
-By default, the program assumes that the `variables.py` file is located in the working directory:
+By default, the program assumes that the `variables.py` file is located in the working directory.
+To run the program do:
 
 ```bash
 pySailingVLM
@@ -132,3 +132,7 @@ Example warning:
 
 /home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: <function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40>. Debug line information may be inaccurate.
 ```
+
+## Jupyter Notebook
+
+Example notebooks: {ref}`rc44` and {ref}`sail-with-camber`.

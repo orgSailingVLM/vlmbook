@@ -1,9 +1,9 @@
 # Sweep wing
 
-Swept wing by Bertin {cite}`bertin`, is a flat plate with a $45^\circ$ sweep angle. 
-The span of wing is 1 unit and the chord is 0.2 unit. 
-Model was discretized into 4 spanwise panels and 1 chordwise panel. 
-The free stream is aligned with the x-axis and its magnitude is 1 unit. 
+Swept wing by Bertin {cite}`bertin`, is a flat plate with a $45^\circ$ sweep angle.
+The span of wing is 1 unit and the chord is 0.2 unit.
+Model was discretized into 4 spanwise panels and 1 chordwise panel.
+The free stream is aligned with the x-axis and its magnitude is 1 unit.
 
 ## Results
 

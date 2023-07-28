@@ -1,42 +1,39 @@
 Traceback (most recent call last):
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 730, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/util.py", line 96, in ensure_async
+    result = await obj
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/jupyter_client/channels.py", line 315, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/client.py", line 1269, in execute
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/util.py", line 85, in wrapped
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/util.py", line 60, in just_run
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/client.py", line 707, in async_execute
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/client.py", line 1025, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/grzegorz/.virtualenvs/experimental/lib/python3.10/site-packages/nbclient/client.py", line 919, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-import shutil
-from pySailingVLM.rotations.csys_transformations import CSYS_transformations
-from pySailingVLM.yacht_geometry.hull_geometry import HullGeometry
-from pySailingVLM.results.save_utils import save_results_to_file
-from pySailingVLM.solver.panels_plotter import display_panels_xyz_and_winds
-from pySailingVLM.results.inviscid_flow import InviscidFlowResults
-from pySailingVLM.solver.vlm import Vlm
-from pySailingVLM.runner.sail import Wind, Sail
-from pySailingVLM.runner.container import Output, Rig, Conditions, Solver, MainSail, JibSail, Csys, Keel
-from pySailingVLM.solver.panels_plotter import plot_cp
-------------------
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mshutil[39;00m
-[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpySailingVLM[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrotations[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcsys_transformations[39;00m [38;5;28;01mimport[39;00m CSYS_transformations
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpySailingVLM[39;00m[38;5;21;01m.[39;00m[38;5;21;01myacht_geometry[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhull_geometry[39;00m [38;5;28;01mimport[39;00m HullGeometry
-[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpySailingVLM[39;00m[38;5;21;01m.[39;00m[38;5;21;01mresults[39;00m[38;5;21;01m.[39;00m[38;5;21;01msave_utils[39;00m [38;5;28;01mimport[39;00m save_results_to_file
-
-[0;31mModuleNotFoundError[0m: No module named 'pySailingVLM'
-ModuleNotFoundError: No module named 'pySailingVLM'
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 949, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 754, in _async_poll_for_reply
+    await self._async_handle_timeout(timeout, cell)
+  File "/home/zuzanna/Documents/miniconda3/envs/mgr_test/lib/python3.10/site-packages/nbclient/client.py", line 801, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['csys_transformations = CSYS_transformations(', '    conditions.heel_deg, conditions.leeway_deg,', '    v_from_original_xyz_2_reference_csys_xyz=csys.reference_level_for_moments)', '', 'w = Wind(conditions)']
+...
+['hull = HullGeometry(rig.sheer_above_waterline, rig.foretriangle_base, csys_transformations, keel.center_of_lateral_resistance_upright)', 'myvlm = Vlm(sail_set.panels, solver.n_chordwise, solver.n_spanwise, conditions.rho, w.profile, sail_set.trailing_edge_info, sail_set.leading_edge_info)', '', 'inviscid_flow_results = InviscidFlowResults(sail_set, csys_transformations, myvlm)', 'inviscid_flow_results.estimate_heeling_moment_from_keel(hull.center_of_lateral_resistance)']
+-------------------
 

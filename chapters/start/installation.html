@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -366,7 +367,7 @@ document.write(`
 <section id="for-users">
 <h2>For Users<a class="headerlink" href="#for-users" title="Permalink to this heading">#</a></h2>
 <p>pySailingVLM package is available at PyPI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pySailingVLM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pySailingVLM
 </pre></div>
 </div>
 </section>
@@ -376,38 +377,38 @@ document.write(`
 <ul class="simple">
 <li><p>Clone project</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:orgSailingVLM/pySailingVLM.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:orgSailingVLM/pySailingVLM.git
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Go into project</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> pySailingVLM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>pySailingVLM
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>There is no requirements.txt file, for installing dependencies install a project in editable mode (i.e. setuptools “develop mode”) from a local project path:</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -q -e .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 <section id="create-package">
 <h3>Create package<a class="headerlink" href="#create-package" title="Permalink to this heading">#</a></h3>
 <p>Building the package requires <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> and <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> files located in main tree of pySailingVLM project.
 If you do not have the latest pip build, type the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>build
 </pre></div>
 </div>
 <p>Then</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>build
 </pre></div>
 </div>
 <section id="build-and-install">
 <h4>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this heading">#</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>build
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install dist/pySailingVLM-VERSION.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>dist/pySailingVLM-VERSION.tar.gz
 </pre></div>
 </div>
 </section>

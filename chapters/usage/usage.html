@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -170,6 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../examples/rc44.html">RC44 yacht</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validation</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
@@ -344,6 +348,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 </ul>
             </nav>
         </div>
@@ -380,7 +385,6 @@ Modify it for your needs.</p>
     <span class="s1">&#39;n_spanwise&#39;</span><span class="p">:</span>  <span class="mi">15</span><span class="p">,</span>  <span class="c1"># No of control points (above the water) per sail, recommended: 50</span>
     <span class="s1">&#39;n_chordwise&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1"># No of control points (above the water) per sail, recommended: 50</span>
     <span class="s1">&#39;interpolation_type&#39;</span><span class="p">:</span> <span class="s2">&quot;spline&quot;</span><span class="p">,</span>  <span class="c1"># either &quot;spline&quot; or &quot;linear&quot;</span>
-    <span class="s1">&#39;LLT_twist&#39;</span><span class="p">:</span> <span class="s2">&quot;real_twist&quot;</span><span class="p">,</span>  <span class="c1"># defines how the Lifting Line discretize the sail twist.</span>
 <span class="p">}</span>
 
 <span class="n">conditions_args</span> <span class="o">=</span> <span class="p">{</span>
@@ -456,16 +460,17 @@ Modify it for your needs.</p>
 </div>
 <section id="run-script">
 <h3>Run script<a class="headerlink" href="#run-script" title="Permalink to this heading">#</a></h3>
-<p>By default, the program assumes that the <code class="docutils literal notranslate"><span class="pre">variables.py</span></code> file is located in the working directory:</p>
+<p>By default, the program assumes that the <code class="docutils literal notranslate"><span class="pre">variables.py</span></code> file is located in the working directory.
+To run the program do:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM
 </pre></div>
 </div>
 <p>If the <code class="docutils literal notranslate"><span class="pre">variables.py</span></code> file is located in a different directory, one have to sepecify its location by providing additional option for pySailingVLM script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM --dvars path_to_foler_with_variables.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM<span class="w"> </span>--dvars<span class="w"> </span>path_to_foler_with_variables.py
 </pre></div>
 </div>
 <p>More information is available inside script help:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pySailingVLM<span class="w"> </span>--help
 </pre></div>
 </div>
 </section>
@@ -481,6 +486,10 @@ Warining messages will disappear during second run of program.</p>
 <p>/home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: &lt;function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40&gt;. Debug line information may be inaccurate.</p>
 </div>
 </section>
+</section>
+<section id="jupyter-notebook">
+<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>Example notebooks: <a class="reference internal" href="../examples/rc44.html#rc44"><span class="std std-ref">RC44 yacht</span></a> and <a class="reference internal" href="../examples/sailingvlm_example.html#sail-with-camber"><span class="std std-ref">Sail with camber</span></a>.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -558,6 +567,7 @@ Warining messages will disappear during second run of program.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 </ul>
   </nav></div>
 
