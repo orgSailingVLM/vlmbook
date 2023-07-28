@@ -1,11 +1,11 @@
 # Theory
 
-## Introduction
+## Background
 
 The Vortex Lattice Method (VLM) is a numerical method used in computational fluid dynamics.
 It is build on the Potential flow theory.
 Although viscous effects and turbulence cannot be modelled explicitly by VLM, selected flows can be well approximated.
-VLM allows to to estimate the lift, induced drag, and force distribution of an lifting surface such as aircraft's wing or sail.
+VLM allows to to estimate the aerodynamic force, composed of lift and induced drag, of an lifting surface such as aircraft's wing or sail.
 
 ## Potential flow theory
 
