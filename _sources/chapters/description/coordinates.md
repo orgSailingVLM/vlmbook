@@ -1,7 +1,9 @@
 # Coordinate System and Wind
 
 Figure {numref}`{number} <coord_sys>` shows wind and force vectors acting on a boat moving along x-axis with the $\overrightarrow{V}_{yacht}$ velocity. Apparent wind velocity for an 'finite' sail is described by vector $\overrightarrow{V}_{app\_wind\_fs}$ (with induced wind velocity).
-An aerodynamic force is generated and is perpendicular to the apparent wind velocity.
+
+An aerodynamic force is generated and is perpendicular to $\overrightarrow{V}_{app\_wind\_fs}$.
+
 
 ```{figure} ../../figures/coord_sys.png
 ---
@@ -23,7 +25,7 @@ Yacht coordinate system. Figure  from {cite}`llt_prom` p.18.
   - apparent wind velocity for an 'infinite sail' (without induced wind velocity) acting on k-th panel
 * - $\overrightarrow{V}_{app\_wind\_fs\_k}$
   -  apparent wind velocity for an 'finite sail' (with induced wind velocity) acting on k-th panel
-* - $\overrightarrow{V}\_{true\_wind\_k}$
+* - $\overrightarrow{V}_{true\_wind\_k}$
   - true wind velocity acting on k-th panel
 * - $\overrightarrow{w}\_{k}$
   - induced wind velocity acting on k-th panel
@@ -62,9 +64,10 @@ Profile of apparent wind on sails {cite}`north`.
 
 Due to tip vorticies (shown at figure {numref}`{number} <tip-vor>`)
 extra wind $\overrightarrow{w}$ is generated.
-As a consequence, total wind velocity $\overrightarrow{U}$ acting on a boat is different than free-stream and is the sum of the vectors $\overrightarrow{U}_{\infty}$ and $\overrightarrow{w}$.
+
+As a consequence, resulting wind velocity $\overrightarrow{U}$ acting on a lifting surface is different than free-stream and is the sum of the vectors $\overrightarrow{U}_{\infty}$ and $\overrightarrow{w}$.
 Therefore, induced wind causes additional drag $\overrightarrow{D}$.
-The total lift is the sum of $\overrightarrow{D}$ and $\overrightarrow{L}_{\infty}$ vectors (figure {numref}`{number} <induced_drag>`).
+Concluding, the resulting aerodynamic force, $L$, is the sum of $\overrightarrow{D}$ and $\overrightarrow{L}_{\infty}$ vectors (figure {numref}`{number} <induced_drag>`).
 
 ```{figure} ../../figures/Tip-vortices.png
 ---

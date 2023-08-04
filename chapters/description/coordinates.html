@@ -349,8 +349,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="coordinate-system-and-wind">
 <h1>Coordinate System and Wind<a class="headerlink" href="#coordinate-system-and-wind" title="Permalink to this heading">#</a></h1>
-<p>Figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">9</span></a> shows wind and force vectors acting on a boat moving along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity. Apparent wind velocity for an ‘finite’ sail is described by vector <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span> (with induced wind velocity).
-An aerodynamic force is generated and is perpendicular to the apparent wind velocity.</p>
+<p>Figure <a class="reference internal" href="#coord-sys"><span class="std std-numref">9</span></a> shows wind and force vectors acting on a boat moving along x-axis with the <span class="math notranslate nohighlight">\(\overrightarrow{V}_{yacht}\)</span> velocity. Apparent wind velocity for an ‘finite’ sail is described by vector <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span> (with induced wind velocity).</p>
+<p>An aerodynamic force is generated and is perpendicular to <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs}\)</span>.</p>
 <figure class="align-default" id="coord-sys">
 <a class="reference internal image-reference" href="../../_images/coord_sys.png"><img alt="../../_images/coord_sys.png" src="../../_images/coord_sys.png" style="height: 500px;" /></a>
 <figcaption>
@@ -374,7 +374,7 @@ An aerodynamic force is generated and is perpendicular to the apparent wind velo
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs\_k}\)</span></p></td>
 <td><p>apparent wind velocity for an ‘finite sail’ (with induced wind velocity) acting on k-th panel</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}\_{true\_wind\_k}\)</span></p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{V}_{true\_wind\_k}\)</span></p></td>
 <td><p>true wind velocity acting on k-th panel</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\overrightarrow{w}\_{k}\)</span></p></td>
@@ -421,10 +421,10 @@ As a consequence, the profile of apparent wind is twisted (see figure <a class="
 </figcaption>
 </figure>
 <p>Due to tip vorticies (shown at figure <a class="reference internal" href="#tip-vor"><span class="std std-numref">11</span></a>)
-extra wind <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span> is generated.
-As a consequence, total wind velocity <span class="math notranslate nohighlight">\(\overrightarrow{U}\)</span> acting on a boat is different than free-stream and is the sum of the vectors <span class="math notranslate nohighlight">\(\overrightarrow{U}_{\infty}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span>.
+extra wind <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span> is generated.</p>
+<p>As a consequence, resulting wind velocity <span class="math notranslate nohighlight">\(\overrightarrow{U}\)</span> acting on a lifting surface is different than free-stream and is the sum of the vectors <span class="math notranslate nohighlight">\(\overrightarrow{U}_{\infty}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{w}\)</span>.
 Therefore, induced wind causes additional drag <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span>.
-The total lift is the sum of <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{L}_{\infty}\)</span> vectors (figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">12</span></a>).</p>
+Concluding, the resulting aerodynamic force, <span class="math notranslate nohighlight">\(L\)</span>, is the sum of <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{L}_{\infty}\)</span> vectors (figure <a class="reference internal" href="#induced-drag"><span class="std std-numref">12</span></a>).</p>
 <figure class="align-default" id="tip-vor">
 <a class="reference internal image-reference" href="../../_images/Tip-vortices.png"><img alt="../../_images/Tip-vortices.png" src="../../_images/Tip-vortices.png" style="height: 200px;" /></a>
 <figcaption>

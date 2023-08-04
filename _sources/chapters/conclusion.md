@@ -4,7 +4,7 @@
 
 **pySailingVLM**
 
-- package for initial aerodynamic analysis of upwind sails
+- python package for initial aerodynamic analysis of upwind sails
 - for early stage design (run < 1min)
 - upwind sails only (no separation, no viscous drag)
 - easy to install & run locally or in a cloud environment (e.g. Binder)

@@ -366,12 +366,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="technology">
 <h1>Technology<a class="headerlink" href="#technology" title="Permalink to this heading">#</a></h1>
 <p>The initial version of pySailingVLM has been implemented in a Object Oriented (OO) way.
-Each panel has been represented by an instance of an object.
-Every one of them had many atributtes like cooridinates, force, pressure, pressure coefficient, span, normal vector, etc.
+Each panel has been represented by an instance of an object.</p>
+<p>Every one of them had many atributtes like cooridinates, force, pressure, pressure coefficient, span, normal vector, etc.
 Such arrangment is refereed as Array of Structures (AoS).</p>
 <p>To speed up the program, the Numba library has been employed.
-It provides a JIT (just in time) compiler which can complile the regular python script into a machine code.
-Moreover, parallel calculations for SIMD (single instruction multiple data) can be automatically applied.
+It provides a JIT (just in time) compiler which can complile the regular python script into a machine code.</p>
+<p>Moreover, parallel calculations for SIMD (single instruction multiple data) can be automatically applied.
 Unfortunately, Numba can not handle custom objects like panel.
 Therefore, the code has been rewritten to store the aforementioned attibutes as independend arrays instead of keeping them within objects.</p>
 <section id="memory-layout">
