@@ -2,17 +2,18 @@
 
 The initial version of pySailingVLM has been implemented in a Object Oriented (OO) way. 
 Each panel has been represented by an instance of an object.
+
 Every one of them had many atributtes like cooridinates, force, pressure, pressure coefficient, span, normal vector, etc. 
 Such arrangment is refereed as Array of Structures (AoS).
 
 To speed up the program, the Numba library has been employed.
 It provides a JIT (just in time) compiler which can complile the regular python script into a machine code.
+
 Moreover, parallel calculations for SIMD (single instruction multiple data) can be automatically applied. 
 Unfortunately, Numba can not handle custom objects like panel.
 Therefore, the code has been rewritten to store the aforementioned attibutes as independend arrays instead of keeping them within objects.
 
 ## Memory layout
-
 
 Array of Structures (AoS) and Structure of Arrays (SoA) are layouts arranging a sequence of records in memory. 
 Structure of Arrays (SoA) layout splits elements of a record into separate vectors of a given type, allowing coalesced memory access. 

@@ -1,7 +1,9 @@
 # Coordinate System and Wind
 
 Figure {numref}`{number} <coord_sys>` shows wind and force vectors acting on a boat moving along x-axis with the $\overrightarrow{V}_{yacht}$ velocity. Apparent wind velocity for an 'finite' sail is described by vector $\overrightarrow{V}_{app\_wind\_fs}$ (with induced wind velocity).
+
 An aerodynamic force is generated and is perpendicular to $\overrightarrow{V}_{app\_wind\_fs}$.
+
 
 ```{figure} ../../figures/coord_sys.png
 ---
@@ -62,6 +64,7 @@ Profile of apparent wind on sails {cite}`north`.
 
 Due to tip vorticies (shown at figure {numref}`{number} <tip-vor>`)
 extra wind $\overrightarrow{w}$ is generated.
+
 As a consequence, resulting wind velocity $\overrightarrow{U}$ acting on a lifting surface is different than free-stream and is the sum of the vectors $\overrightarrow{U}_{\infty}$ and $\overrightarrow{w}$.
 Therefore, induced wind causes additional drag $\overrightarrow{D}$.
 Concluding, the resulting aerodynamic force, $L$, is the sum of $\overrightarrow{D}$ and $\overrightarrow{L}_{\infty}$ vectors (figure {numref}`{number} <induced_drag>`).
