@@ -11,6 +11,8 @@ exclude_patterns: [_build, other, chapters/results_example_jib_and_mainsail_vlm,
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  timeout: 180
+
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
