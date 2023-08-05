@@ -1,4 +1,4 @@
-# Abstarct
+# Abstract
 
 Nowadays, the state-of-the-art CFD solvers (FEM, VOF, LBM) can provide incredibly accurate results for almost any geometry.
 However, the solution comes at the price of high amount of computational resources.
