@@ -365,7 +365,7 @@ document.write(`
 <h2>GPU<a class="headerlink" href="#gpu" title="Permalink to this heading">#</a></h2>
 <p>Apart form CPU programing, Numba library supports CUDA GPU programming.
 The library allows to directly compile a restricted subset of Python code into CUDA kernels and device functions using the CUDA execution model.
-Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id15" title="Numba documentation [access: 08.06.2023]. URL: https://numba.pydata.org/numba-doc/latest/index.html.">num</a>]</span>.
+Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id16" title="Numba documentation [access: 08.06.2023]. URL: https://numba.pydata.org/numba-doc/latest/index.html.">num</a>]</span>.
 The NumPy arrays are automatically shifted between the CPU and the GPU.
 To further increase performance of the code, pySailingVLM can be ported to GPU.</p>
 </section>
@@ -373,7 +373,7 @@ To further increase performance of the code, pySailingVLM can be ported to GPU.<
 <h2>All code as SoA<a class="headerlink" href="#all-code-as-soa" title="Permalink to this heading">#</a></h2>
 <p>Up to now, most of the data structures in pySailingVLM are represented as Structure of Arrays, except panels.
 To take full adventage of vectorization, the panels shall be also rewriten into SoA layout.
-This memory layout is especially recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id14" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span> due to parallel access to data units.</p>
+This memory layout is especially recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id15" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span> due to parallel access to data units.</p>
 </section>
 <section id="points-dupllicate">
 <h2>Points dupllicate<a class="headerlink" href="#points-dupllicate" title="Permalink to this heading">#</a></h2>
