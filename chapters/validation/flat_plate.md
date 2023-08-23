@@ -14,7 +14,7 @@ where:
 AR - aspect ratio
 $e_w$ - span efficiency factor
 
-```{list-table} Results from pySailingVLM code of the rectangular flat plate of a slope 
+```{list-table} Results from pySailingVLM code of the rectangular flat plate of a lift coefficient slope.
 :header-rows: 1
 :name: comp
 

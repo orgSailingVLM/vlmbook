@@ -1,5 +1,9 @@
 # Usage
 
+```{note}
+Recommended way to run pySailingVLM is by Jupyter Notebook which gives you more flexibility. See section {ref}`jn`.
+```
+
 ## Command line
 
 In order to run pySailingVLM from the command line, the input file called `variable.py` must be provided.
@@ -133,6 +137,7 @@ Example warning:
 /home/user/miniconda3/envs/sv_build_test_2/lib/python3.10/site-packages/numba/core/lowering.py:107: NumbaDebugInfoWarning: Could not find source for function: <function __numba_array_expr_0x7fbf333f1780 at 0x7fbf33361b40>. Debug line information may be inaccurate.
 ```
 
+(jn)=
 ## Jupyter Notebook
 
 Example notebooks: {ref}`rc44` and {ref}`sail-with-camber`.
