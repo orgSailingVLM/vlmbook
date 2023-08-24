@@ -24,6 +24,8 @@ parts:
     sections:
     - file: chapters/validation/flat_plate
     - file: chapters/validation/sweep
+    - file: chapters/validation/falkner
+    - file: chapters/validation/convergence
   - file: chapters/future
   - file: chapters/conclusion
   - file: chapters/bibliography
