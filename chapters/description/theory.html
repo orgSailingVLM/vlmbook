@@ -179,6 +179,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/falkner.html">Falkner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/convergence.html">Convergence</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlook</a></li>
@@ -386,7 +388,7 @@ VLM allows to to estimate the lift, induced drag, and force distribution of an l
 </section>
 <section id="potential-flow-theory">
 <h2>Potential flow theory<a class="headerlink" href="#potential-flow-theory" title="Permalink to this heading">#</a></h2>
-<p>The potential flow theory treats external flows around bodies as incompressible, inviscid and irrotational <span id="id1">[<a class="reference internal" href="../bibliography.html#id8" title="Prof. A.H. Techet. Potential flow theory. In Lecture: 2.016 Hydrodynamics. Massachusetts Institute of Technology, 2005. MIT. URL: https://web.mit.edu/2.016/www/handouts/2005Reading4.pdf.">Tec05</a>]</span> .
+<p>The potential flow theory treats external flows around bodies as incompressible, inviscid and irrotational <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Prof. A.H. Techet. Potential flow theory. In Lecture: 2.016 Hydrodynamics. Massachusetts Institute of Technology., 2005. MIT. URL: https://web.mit.edu/2.016/www/handouts/2005Reading4.pdf (visited on 2023-08-23).">Tec05</a>]</span> .
 For small angle of attack, the fluid flow does not separate abruptly, and the viscous effects are limitted to a thin layer next to the body known as boundary layer.
 In such case, the velocity field can be approximated by potential function.</p>
 <p>The Laplace equation is the qoverning equation in the theory of potential flows:</p>
@@ -409,17 +411,17 @@ To satisfy boundary conditions, VLM utilizes following elements to describe each
 </ul>
 <p>Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters.
 Such parameters are known after solving appropriate boundary condition equations.
-When singularity strengts are determinated, the pressure, velocity can be computed<span id="id2">[<a class="reference internal" href="../bibliography.html#id7" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
+When singularity strengts are determinated, the pressure, velocity can be computed<span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
 <figure class="align-default" id="panel-method">
 <a class="reference internal image-reference" href="../../_images/panels.png"><img alt="../../_images/panels.png" src="../../_images/panels.png" style="width: 494.40000000000003px; height: 216.8px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representation of an airplane flowfield by panel (or singularity) methods. Figure taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id7" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> (Fig. 7.22 page 350).</span><a class="headerlink" href="#panel-method" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representation of an airplane flowfield by panel (or singularity) methods. Figure taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> (Fig. 7.22 page 350).</span><a class="headerlink" href="#panel-method" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="vortices">
 <h2>Vortices<a class="headerlink" href="#vortices" title="Permalink to this heading">#</a></h2>
-<p>The vortex theorems for inviscid incompressible flows has been developed by German scientist Hermann von Helmholtz (1821-1894). The theory is based on the following assumptions <span id="id4">[<a class="reference internal" href="../bibliography.html#id5" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>:</p>
+<p>The vortex theorems for inviscid incompressible flows has been developed by German scientist Hermann von Helmholtz (1821-1894). The theory is based on the following assumptions <span id="id4">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>:</p>
 <ul class="simple">
 <li><p>Flow is inviscid and incompressible</p></li>
 <li><p>The strength of vortex filament is constant along its length</p></li>
@@ -430,11 +432,11 @@ When singularity strengts are determinated, the pressure, velocity can be comput
 <h3>Vortex element<a class="headerlink" href="#vortex-element" title="Permalink to this heading">#</a></h3>
 <p>Vortex element in 2D is presented on figure <a class="reference internal" href="#vortex"><span class="std std-numref">2</span></a>.
 It is created by placing a rotating cylindrical core in two dimentional flowfield.
-If the cylinder has a radius <span class="math notranslate nohighlight">\(R\)</span> and a constant angular velocity of <span class="math notranslate nohighlight">\(\omega_y\)</span>, then its motion results in a flow with circular streamlines <span id="id5">[<a class="reference internal" href="../bibliography.html#id5" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.</p>
+If the cylinder has a radius <span class="math notranslate nohighlight">\(R\)</span> and a constant angular velocity of <span class="math notranslate nohighlight">\(\omega_y\)</span>, then its motion results in a flow with circular streamlines <span id="id5">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.</p>
 <figure class="align-default" id="vortex">
 <a class="reference internal image-reference" href="../../_images/vort.png"><img alt="../../_images/vort.png" src="../../_images/vort.png" style="width: 292.0px; height: 387.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from <span id="id6">[<a class="reference internal" href="../bibliography.html#id5" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.11 page 34).</span><a class="headerlink" href="#vortex" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from <span id="id6">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.11 page 34).</span><a class="headerlink" href="#vortex" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The tangential velocity, induced by the vortex, can be calculated as:</p>
@@ -452,7 +454,7 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../../_images/vor_seg.png"><img alt="../../_images/vor_seg.png" src="../../_images/vor_seg.png" style="width: 179.0px; height: 210.5px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Vortex segment in three dimentions. Figure taken from <span id="id7">[<a class="reference internal" href="../bibliography.html#id5" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.16 page 40).</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Vortex segment in three dimentions. Figure taken from <span id="id7">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.16 page 40).</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The velocity induced at point <span class="math notranslate nohighlight">\(P(x,y,z)\)</span> by a straight vortex segement of strength <span class="math notranslate nohighlight">\(\Gamma\)</span> in three dimentions (figure <a class="reference internal" href="#id8"><span class="std std-numref">3</span></a>) is qiven by equation:</p>
@@ -472,7 +474,7 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 \overrightarrow{r_{1}} = P - (x_1, y_1, z_1)\\
 \overrightarrow{r_{2}} = P - (x_2, y_2, z_2)
 \end{gather*}\]</div>
-<p>In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula simplifies <span id="id9">[<a class="reference internal" href="../bibliography.html#id10" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org, doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
+<p>In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula simplifies <span id="id9">[<a class="reference internal" href="../bibliography.html#id12" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org (visited on 2023-08-23), doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
 <div class="math notranslate nohighlight" id="equation-q-infinite">
 <span class="eqno">(2)<a class="headerlink" href="#equation-q-infinite" title="Permalink to this equation">#</a></span>\[
 \overrightarrow{w}_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u}_{\infty} \times \overrightarrow{r}_{1}}{||\overrightarrow{r}_{1}||(||\overrightarrow{r}_{1}|| - \overrightarrow{u}_{\infty} \cdot \overrightarrow{r}_{1})}=\overrightarrow{\nu}\,\Gamma
@@ -481,13 +483,13 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 </section>
 <section id="the-kutta-condition">
 <h2>The Kutta Condition<a class="headerlink" href="#the-kutta-condition" title="Permalink to this heading">#</a></h2>
-<p>The Kutta Condition states that at a small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there <span id="id10">[<a class="reference internal" href="../bibliography.html#id5" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.
+<p>The Kutta Condition states that at a small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there <span id="id10">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.
 Because of this the normal component of velocity, from both sides of the airfoil, must vanish.
 Flow pattern with circulation consistent with the Kutta condition is shown on figure <a class="reference internal" href="#kutta"><span class="std std-numref">4</span></a>.</p>
 <figure class="align-default" id="kutta">
 <a class="reference internal image-reference" href="../../_images/kutta1.png"><img alt="../../_images/kutta1.png" src="../../_images/kutta1.png" style="width: 741.2px; height: 360.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Flow near cusped trailing edge. Upper figure: zero-lift flow around an airfoil. Lower figure: Upper and lower flows leave the trailing edge smoothly when Kutta condition is applied. Figure taken from <span id="id11">[<a class="reference internal" href="../bibliography.html#id6" title="Jr John D. Anderson. Fundamentals of Aerodynamics. McGraw Hill, Singapore, fourth edition edition, 2007.">JDA07</a>]</span>.</span><a class="headerlink" href="#kutta" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Flow near cusped trailing edge. Upper figure: zero-lift flow around an airfoil. Lower figure: Upper and lower flows leave the trailing edge smoothly when Kutta condition is applied. Figure taken from <span id="id11">[<a class="reference internal" href="../bibliography.html#id8" title="Jr John D. Anderson. Fundamentals of Aerodynamics. McGraw Hill, Singapore, fourth edition edition, 2007.">JDA07</a>]</span>.</span><a class="headerlink" href="#kutta" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="lifting-surface">
@@ -571,8 +573,8 @@ To fulfill no flow through the surface condition, the control point is defined a
 \underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
 \end{split}\]</div>
 <p>Which leads to a set of linear algebraic equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fba2a130-2ac2-41ae-a5cd-c1d5b32a5b5c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-fba2a130-2ac2-41ae-a5cd-c1d5b32a5b5c" title="Permalink to this equation">#</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-5c45e9e8-473f-4962-bd8b-0134766206c6">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5c45e9e8-473f-4962-bd8b-0134766206c6" title="Permalink to this equation">#</a></span>\[\begin{gather}
     \begin{bmatrix}
     a_{11} &amp; \dots  &amp; a_{1m}\\
     \vdots &amp; \ddots &amp; \vdots\\

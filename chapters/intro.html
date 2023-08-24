@@ -176,6 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/falkner.html">Falkner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/convergence.html">Convergence</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="future.html">Future outlook</a></li>
@@ -360,7 +362,7 @@ document.write(`
 <h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h1>
 <p>Nowadays, the state-of-the-art CFD solvers (FEM, VOF, LBM) can provide incredibly accurate results for almost any geometry.
 However, the solution comes at the price of high amount of computational resources.
-To circumvent this issue, the low fidelity approaches like Vortex Lattice Method (VLM)<span id="id1">[<a class="reference internal" href="bibliography.html#id11" title="Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. Pakistan Journal of Engineering and Technology, PakJET, 04(01):207- 211, 2021. URL: https://www.hpej.net/journals/pakjet/article/view/754/564, doi:DOI: 10.51846/vol4iss1pp207-211.">NJS+21</a>]</span> can be employed for particular types of computational problems.
+To circumvent this issue, the low fidelity approaches like Vortex Lattice Method (VLM)<span id="id1">[<a class="reference internal" href="bibliography.html#id13" title="Sheharyar Nasir, M Tariq Javaid, M. Usman Shahid, Asad Raza, Waseeq Siddiqui, and Shuaib Salamat. Applicability of vortex lattice method and its comparison with high fidelity tools. Pakistan Journal of Engineering and Technology, PakJET, 04(01):207- 211, 2021. URL: https://www.hpej.net/journals/pakjet/article/view/754/564 (visited on 2023-08-23), doi:DOI: 10.51846/vol4iss1pp207-211.">NJS+21</a>]</span> can be employed for particular types of computational problems.
 The VLM is an engineering standard in the conceptual design phase of aircrafts or sailing yachts as it allows designers to quickly estimate the performance of numerous different models.
 Due to the specifics of conditions in which a sailing yacht operates, the VLM solvers dedicated to aircraft design can not be adopted in a straightforward fashion.
 Here, we present the first open-source Python package which implements the

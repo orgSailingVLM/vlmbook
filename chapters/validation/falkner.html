@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sweep wing &#8212; pySailingVLM Documentation</title>
+    <title>Falkner &#8212; pySailingVLM Documentation</title>
   
   
   
@@ -62,13 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/validation/sweep';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/validation/falkner';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Falkner" href="falkner.html" />
-    <link rel="prev" title="Rectangular flat plate" href="flat_plate.html" />
+    <link rel="next" title="Convergence" href="convergence.html" />
+    <link rel="prev" title="Sweep wing" href="sweep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,8 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="validation.html">Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="flat_plate.html">Rectangular flat plate</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sweep wing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="falkner.html">Falkner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sweep.html">Sweep wing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Falkner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convergence.html">Convergence</a></li>
 </ul>
 </li>
@@ -255,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/chapters/validation/sweep.md" target="_blank"
+      <li><a href="../../_sources/chapters/validation/falkner.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,9 +322,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -337,19 +333,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sweep wing</h1>
+    <h1>Falkner</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -359,44 +347,41 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sweep-wing">
-<h1>Sweep wing<a class="headerlink" href="#sweep-wing" title="Permalink to this heading">#</a></h1>
-<p>Swept wing by Bertin <span id="id1">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>, is a flat plate with a <span class="math notranslate nohighlight">\(45^\circ\)</span> sweep angle.
-The span of wing is 1 unit and the chord is 0.2 unit.
-Model was discretized into 4 spanwise panels and 1 chordwise panel.
-The free stream is aligned with the x-axis and its magnitude is 1 unit.</p>
-<section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
-<table class="table" id="comp-sweep">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Comparison between swept wing by Bertin and pySailingVLM results. Calculated for <span class="math notranslate nohighlight">\(AoA=2^\circ\)</span></span><a class="headerlink" href="#comp-sweep" title="Permalink to this table">#</a></caption>
+  <section class="tex2jax_ignore mathjax_ignore" id="falkner">
+<h1>Falkner<a class="headerlink" href="#falkner" title="Permalink to this heading">#</a></h1>
+<p>In order to validate pySailingVLm software, comparison between swept and unswept rectangluar wings were done (according to Fig. 4 from <span id="id1">[<a class="reference internal" href="../bibliography.html#id2" title="J. Katz. Calculation of the aerodynamic forces on automotive lifting surfaces. Journal of Fluids Engineering, December, 1985. URL: https://www.researchgate.net/publication/245355607_Calculation_of_the_Aerodynamic_Forces_on_Automotive_Lifting_Surfaces (visited on 2023-08-23), doi:DOI: 10.1115/1.3242507.">Kat85</a>]</span>).
+Theoretical data was taken from <span id="id2">[<a class="reference internal" href="../bibliography.html#id3" title="V.M. Falkner. Calculated loadings due to incidence of a of straight and swept-back wings number. Aeronautical Reseach Council. Reports and Memoranda, June, 1948. URL: https://reports.aerade.cranfield.ac.uk/bitstream/handle/1826.2/3122/arc-rm-2596.pdf (visited on 2023-08-23).">Fal48</a>]</span> (table 25, 26 and 28) with following assumptions: aspect ratio equal to 2, 126-vortex solution, 0, 30 and 45 degree sweep angle.</p>
+<table class="table" id="flakner-results">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Results from pySailingVLM code of a lift coefficient slope for different sweep angle.</span><a class="headerlink" href="#flakner-results" title="Permalink to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>Bertin</p></th>
+<tr class="row-odd"><th class="head"><p>Sweep angle
+degree</p></th>
+<th class="head"><p>Falkner</p></th>
 <th class="head"><p>pySailingVLM</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C_{L,\alpha}\)</span></p></td>
-<td><p>3.443</p></td>
-<td><p>3.445</p></td>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>2.524</p></td>
+<td><p>2.520</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>2.480</p></td>
+<td><p>2.447</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>2.359</p></td>
+<td><p>2.308</p></td>
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="bertin-1">
-<a class="reference internal image-reference" href="../../_images/bertin_1.png"><img alt="../../_images/bertin_1.png" src="../../_images/bertin_1.png" style="width: 400px;" /></a>
+<figure class="align-default" id="falkner-comparison">
+<a class="reference internal image-reference" href="../../_images/falkner_comparison.png"><img alt="../../_images/falkner_comparison.png" src="../../_images/falkner_comparison.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Lift coefficient versus angle of attack. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Comparison between swept and unswept rectangluar wings. Figure generated by author.</span><a class="headerlink" href="#falkner-comparison" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In addition, the comparison of a spanwise lift distribution was obtained. Calculations were done for <span class="math notranslate nohighlight">\(AoA=4.2^\circ\)</span>.</p>
-<figure class="align-default" id="bertin-2">
-<a class="reference internal image-reference" href="../../_images/bertin_2.png"><img alt="../../_images/bertin_2.png" src="../../_images/bertin_2.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Comparison of spanwise lift distributionfor the Bertin wing. Figure generated by pySailingVLM.</span><a class="headerlink" href="#bertin-2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Results obtained by pySailingVLM are aligned with formulas derived in <span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
-</section>
+<p>The lift coefficient slope for calculated wings and spanwise lift distributions calculated by pySailingVLM are aligned with Falkner’s results.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -431,20 +416,20 @@ The free stream is aligned with the x-axis and its magnitude is 1 unit.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="flat_plate.html"
+       href="sweep.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Rectangular flat plate</p>
+        <p class="prev-next-title">Sweep wing</p>
       </div>
     </a>
     <a class="right-next"
-       href="falkner.html"
+       href="convergence.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Falkner</p>
+        <p class="prev-next-title">Convergence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -457,20 +442,6 @@ The free stream is aligned with the x-axis and its magnitude is 1 unit.</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -49,6 +49,10 @@ Yacht coordinate system. Figure  from {cite}`llt_prom` p.18.
   - lift
 * - $\overrightarrow{U}_{\infty}$
   - free-stream with uniform velocity
+* - COW
+  - Course over Water 
+* - COG
+  - Course over Ground (along x axis)
 ```
 
 Due to surface friction, the profile of the true wind is logarithmic.

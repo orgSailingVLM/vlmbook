@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Summary" href="conclusion.html" />
-    <link rel="prev" title="Sweep wing" href="validation/sweep.html" />
+    <link rel="prev" title="Convergence" href="validation/convergence.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validation/sweep.html">Sweep wing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/falkner.html">Falkner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation/convergence.html">Convergence</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Future outlook</a></li>
@@ -365,7 +367,7 @@ document.write(`
 <h2>GPU<a class="headerlink" href="#gpu" title="Permalink to this heading">#</a></h2>
 <p>Apart form CPU programing, Numba library supports CUDA GPU programming.
 The library allows to directly compile a restricted subset of Python code into CUDA kernels and device functions using the CUDA execution model.
-Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id16" title="Numba documentation [access: 08.06.2023]. URL: https://numba.pydata.org/numba-doc/latest/index.html.">num</a>]</span>.
+Kernels which are written in Numba appear to have direct access to NumPy arrays according to documantation <span id="id1">[<a class="reference internal" href="bibliography.html#id18" title="Numba documentation. URL: https://numba.pydata.org/numba-doc/latest/index.html (visited on 2023-06-08).">num</a>]</span>.
 The NumPy arrays are automatically shifted between the CPU and the GPU.
 To further increase performance of the code, pySailingVLM can be ported to GPU.</p>
 </section>
@@ -373,17 +375,17 @@ To further increase performance of the code, pySailingVLM can be ported to GPU.<
 <h2>All code as SoA<a class="headerlink" href="#all-code-as-soa" title="Permalink to this heading">#</a></h2>
 <p>Up to now, most of the data structures in pySailingVLM are represented as Structure of Arrays, except panels.
 To take full adventage of vectorization, the panels shall be also rewriten into SoA layout.
-This memory layout is especially recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id15" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt) [access: 08.06.2023]. In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf.">WP16</a>]</span> due to parallel access to data units.</p>
+This memory layout is especially recommended for CUDA acceleration <span id="id2">[<a class="reference internal" href="bibliography.html#id17" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt). In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf (visited on 2023-06-08).">WP16</a>]</span> due to parallel access to data units.</p>
 </section>
 <section id="points-dupllicate">
 <h2>Points dupllicate<a class="headerlink" href="#points-dupllicate" title="Permalink to this heading">#</a></h2>
-<p>Panels which are close to each other share same points (see figure <a class="reference internal" href="#future-panels"><span class="std std-numref">20</span></a>).
+<p>Panels which are close to each other share same points (see figure <a class="reference internal" href="#future-panels"><span class="std std-numref">24</span></a>).
 Current pySailingVLM implementation (legacy from OO implementation) does not take into account this fact and there are duplicates of points coordinates in the panel array.
 Reducing redundant points can improve memory consumption and code efficiency.</p>
 <figure class="align-default" id="future-panels">
 <a class="reference internal image-reference" href="../_images/future_drawio.png"><img alt="../_images/future_drawio.png" src="../_images/future_drawio.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -427,12 +429,12 @@ If you are interested in collaboration and further development of the pySailingV
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="validation/sweep.html"
+       href="validation/convergence.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sweep wing</p>
+        <p class="prev-next-title">Convergence</p>
       </div>
     </a>
     <a class="right-next"

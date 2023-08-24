@@ -177,6 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../validation/validation.html">Validation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../validation/flat_plate.html">Rectangular flat plate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../validation/sweep.html">Sweep wing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/falkner.html">Falkner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/convergence.html">Convergence</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future.html">Future outlook</a></li>
@@ -362,6 +364,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recommended way to run pySailingVLM is by Jupyter Notebook which gives you more flexibility. See section <a class="reference internal" href="#jn"><span class="std std-ref">Jupyter Notebook</span></a>.</p>
+</div>
 <section id="command-line">
 <h2>Command line<a class="headerlink" href="#command-line" title="Permalink to this heading">#</a></h2>
 <p>In order to run pySailingVLM from the command line, the input file called <code class="docutils literal notranslate"><span class="pre">variable.py</span></code> must be provided.
@@ -488,7 +494,7 @@ Warining messages will disappear during second run of program.</p>
 </section>
 </section>
 <section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<span id="jn"></span><h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
 <p>Example notebooks: <a class="reference internal" href="../examples/rc44.html#rc44"><span class="std std-ref">RC44 yacht</span></a> and <a class="reference internal" href="../examples/sailingvlm_example.html#sail-with-camber"><span class="std std-ref">Sail with camber</span></a>.</p>
 </section>
 <div class="toctree-wrapper compound">
