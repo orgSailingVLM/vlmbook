@@ -362,7 +362,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="future-outlook">
 <h1>Future outlook<a class="headerlink" href="#future-outlook" title="Permalink to this heading">#</a></h1>
-<p>Some improvements to pySailingVLM code can be conducted in order to decrease program time execution.</p>
+<p>Some improvements can be made to pySailingVLM to decrease the time execution of the program.</p>
 <section id="gpu">
 <h2>GPU<a class="headerlink" href="#gpu" title="Permalink to this heading">#</a></h2>
 <p>Apart form CPU programing, Numba library supports CUDA GPU programming.
@@ -379,13 +379,13 @@ This memory layout is especially recommended for CUDA acceleration <span id="id2
 </section>
 <section id="points-dupllicate">
 <h2>Points dupllicate<a class="headerlink" href="#points-dupllicate" title="Permalink to this heading">#</a></h2>
-<p>Panels which are close to each other share same points (see figure <a class="reference internal" href="#future-panels"><span class="std std-numref">24</span></a>).
+<p>Panels which are close to each other share same points (see Figure <a class="reference internal" href="#future-panels"><span class="std std-numref">25</span></a>).
 Current pySailingVLM implementation (legacy from OO implementation) does not take into account this fact and there are duplicates of points coordinates in the panel array.
 Reducing redundant points can improve memory consumption and code efficiency.</p>
 <figure class="align-default" id="future-panels">
 <a class="reference internal image-reference" href="../_images/future_drawio.png"><img alt="../_images/future_drawio.png" src="../_images/future_drawio.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Points on panels arragement. Figure created by author.</span><a class="headerlink" href="#future-panels" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

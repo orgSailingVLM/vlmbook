@@ -128,7 +128,7 @@ pySailingVLM --help
 pySailingVLM produces output files: data in xlsx file, matplotlib figures and pressure coefficient colormap in html extention (interactive plot). It is saved in the location specified in varaibles.py.
 
 ```{note}
-First usage of pySailingVLm will produce numba warining. 
+First usage of pySailingVLM will produce Numba warining. 
 This behaviour is correct. 
 Warining messages will disappear during second run of program.
 
@@ -140,4 +140,4 @@ Example warning:
 (jn)=
 ## Jupyter Notebook
 
-Example notebooks: {ref}`rc44` and {ref}`sail-with-camber`.
+Example notebooks: {ref}`rc44py` and {ref}`sail-with-camber`.

@@ -367,14 +367,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="technology">
 <h1>Technology<a class="headerlink" href="#technology" title="Permalink to this heading">#</a></h1>
-<p>The initial version of pySailingVLM has been implemented in a Object Oriented (OO) way.
+<p>The initial version of pySailingVLM has been implemented in an Object-Oriented (OO) way.
 Each panel has been represented by an instance of an object.</p>
-<p>Every one of them had many atributtes like cooridinates, force, pressure, pressure coefficient, span, normal vector, etc.
-Such arrangment is refereed as Array of Structures (AoS).</p>
+<p>Each one of them had many atributtes, such as cooridinates, force, pressure, pressure coefficient, span, normal vector, etc.
+Such arrangment is called an Array of Structures (AoS).</p>
 <p>To speed up the program, the Numba library has been employed.
-It provides a JIT (just in time) compiler which can complile the regular python script into a machine code.</p>
+It provides a JIT (just-in-time) compiler which can complile the regular Python script into a machine code.</p>
 <p>Moreover, parallel calculations for SIMD (single instruction multiple data) can be automatically applied.
-Unfortunately, Numba can not handle custom objects like panel.
+Unfortunately, Numba cannot handle custom objects such as panels.
 Therefore, the code has been rewritten to store the aforementioned attibutes as independend arrays instead of keeping them within objects.</p>
 <section id="memory-layout">
 <h2>Memory layout<a class="headerlink" href="#memory-layout" title="Permalink to this heading">#</a></h2>
@@ -382,18 +382,17 @@ Therefore, the code has been rewritten to store the aforementioned attibutes as 
 Structure of Arrays (SoA) layout splits elements of a record into separate vectors of a given type, allowing coalesced memory access.
 The AoS is the opposite layout.
 It is a collection of structures where each structure contains different records.
-Comparison between conceptual layout and memory layout is shown on figure <a class="reference internal" href="#id2"><span class="std std-numref">14</span></a>.</p>
+The comparison between conceptual layout and memory layout is shown in Figure <a class="reference internal" href="#id2"><span class="std std-numref">14</span></a>.</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../_images/memory_layout.png"><img alt="../../_images/memory_layout.png" src="../../_images/memory_layout.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 14 </span><span class="caption-text">Comparison of the Structure of Arrays (SoA) and Arrray of Structure (AoS). Figure 2 from <span id="id1">[<a class="reference internal" href="../bibliography.html#id15" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669 (visited on 2023-08-23), doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The AoS approach ensures that the five values <span class="math notranslate nohighlight">\(a_i, b_i, c_i, d_i, e_i\)</span> are next to one another in memory,
-providing good cache utilisation.
+<p>The AoS approach ensures that the five values <span class="math notranslate nohighlight">\(a_i, b_i, c_i, d_i, e_i\)</span> are next to one another in memory, providing good cache utilisation.
 The SoA approach makes sure that these values are split into five separate units, allowing access to corresponding elements in parallel <span id="id3">[<a class="reference internal" href="../bibliography.html#id15" title="S.J. Pennycooka, S.D. Hammondb, S.A. Wright, J.A. Herdmanc, I. Millerc, and S.A. Jarvis. An investigation of the performance portability of opencl. Journal of Parallel and Distributed Computing, 73:439-1450, November 2013. URL: https://www.sciencedirect.com/science/article/abs/pii/S0743731512001669 (visited on 2023-08-23), doi:0.1016/j.jpdc.2012.07.005.">PHW+13</a>]</span>.</p>
 <p>Simple values like pressure coefficients, forces, pressure acting on each panel were arranged into simple NumPy arrays (SoA). Panel coorditnates, span and normal vectors were kept as nested ones (AoS).
-Figure <a class="reference internal" href="#uklad"><span class="std std-numref">15</span></a> shows data layout implemented.</p>
+Figure <a class="reference internal" href="#uklad"><span class="std std-numref">15</span></a> shows the implemented data layout.</p>
 <figure class="align-default" id="uklad">
 <a class="reference internal image-reference" href="../../_images/panele.drawio.png"><img alt="../../_images/panele.drawio.png" src="../../_images/panele.drawio.png" style="height: 600px;" /></a>
 <figcaption>
@@ -403,7 +402,7 @@ Figure <a class="reference internal" href="#uklad"><span class="std std-numref">
 </section>
 <section id="benchmarks">
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this heading">#</a></h2>
-<p>To benchmark pySalingVLM, the time comparison tests were conducted. Three approaches was summaries in the table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a>: object oriented (OO) code, functional (FP) approach, object oriented with Numba and functional code compiled with Numba.  The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.</p>
+<p>To benchmark pySalingVLM, the time-comparison tests were conducted. Three approaches was summaries in the table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a>: object-oriented (OO) code, functional (FP) approach, object-oriented with Numba and functional code compiled with Numba. The tests were carried out on a laptop with the following parameters: AMD Ryzen 7 4800H with 8 CPU cores (16 threads), base clock: 2.9 GHz, max boost: 4.2GHz, 32 GB RAM. For 1600 panels more then thirty times acceleration was obtained.</p>
 <table class="table" id="benchs">
 <caption><span class="caption-number">Table 2 </span><span class="caption-text">Time execution comparison between different approaches of implementing pySailingVLM depending on sail shape.</span><a class="headerlink" href="#benchs" title="Permalink to this table">#</a></caption>
 <thead>
@@ -453,23 +452,23 @@ Figure <a class="reference internal" href="#uklad"><span class="std std-numref">
 </tr>
 </tbody>
 </table>
-<p>According to time results, using Numba is much more efficient when applied to the functional code. In order to explain such behaviour the SIMD term should be investigated.</p>
+<p>According to results in time, the use of  Numba is much more efficient when applied to the functional code. In order to explain such behaviour the SIMD term should be investigated.</p>
 <section id="simd-and-vectorization">
 <h3>SIMD and vectorization<a class="headerlink" href="#simd-and-vectorization" title="Permalink to this heading">#</a></h3>
-<p>SIMD stands for Single Instruction Multiple Data. Instead of performing a single instruction on every single data, SIMD uses wider data-width for similar computational operations <span id="id4">[<a class="reference internal" href="../bibliography.html#id16" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X (visited on 2023-08-23), doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>. A comparison between simple scalar operation and a SIMD computation is depicted in figure <a class="reference internal" href="#simd-fig"><span class="std std-numref">16</span></a>.</p>
+<p>SIMD stands for Single Instruction Multiple Data. Instead of performing a single instruction on all data, SIMD uses wider data width for similar computational operations <span id="id4">[<a class="reference internal" href="../bibliography.html#id16" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X (visited on 2023-08-23), doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>. A comparison between simple scalar operation and a SIMD computation is depicted in Figure <a class="reference internal" href="#simd-fig"><span class="std std-numref">16</span></a>.</p>
 <figure class="align-default" id="simd-fig">
 <a class="reference internal image-reference" href="../../_images/simd_fig.png"><img alt="../../_images/simd_fig.png" src="../../_images/simd_fig.png" style="height: 200px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 16 </span><span class="caption-text">Simple scalar operation (a) and a SIMD computation (b). Figure 1 from <span id="id5">[<a class="reference internal" href="../bibliography.html#id16" title="H. Amiri and A. Shahbahrami. Simd programming using intel vector extensions. Journal of Parallel and Distributed Computing, pages 83-100, 2020. URL: https://www.sciencedirect.com/science/article/pii/S074373151830813X (visited on 2023-08-23), doi:10.1016/j.jpdc.2019.09.012.">AS20</a>]</span>.</span><a class="headerlink" href="#simd-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Vectorization with AOS in memory data layout requires multiple load/shuffle/insert or gather instructions. Because of the reduced CPU frequency in SIMD mode its improvements are not sufficient. Increase in vector width demands more instructions for vector construction. A properly aligned memory data layout for vectorization which Numba uses, needs Structure of Arrays (SOA). It provides SIMD compatible memory accesses and results in efficiency and speedup <span id="id6">[<a class="reference internal" href="../bibliography.html#id17" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt). In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf (visited on 2023-06-08).">WP16</a>]</span>.</p>
+<p>Vectorization with AOS in memory data layout requires multiple load/shuffle/insert or gather instructions. Because of the reduced CPU frequency in SIMD mode, its improvements are not sufficient. The increase in vector width requires more instructions for vector construction. A properly aligned memory data layout for vectorization, which Numba uses, needs Structure of Arrays (SOA). It provides SIMD compatible memory accesses and results in efficiency and speedup <span id="id6">[<a class="reference internal" href="../bibliography.html#id17" title="A. Wells and A. M. Prabha. Improve vectorization efficiency using intel simd data layout template (intel sdlt). In INTEL HPC DEVELOPER CONFERENCE FUEL YOUR INSIGHT. Novenber 2016. URL: https://www.intel.com/content/dam/www/public/us/en/documents/presentation/improving-vectorization-efficiency.pdf (visited on 2023-06-08).">WP16</a>]</span>.</p>
 </section>
 <section id="programming-paradigms">
 <h3>Programming paradigms<a class="headerlink" href="#programming-paradigms" title="Permalink to this heading">#</a></h3>
-<p>Object Oriented and functional programming paradigms take a very different approach to how code is structured. In Object Oriented code objects are used to represent data, functions or methods are used to manipulate the given object <span id="id7">[<a class="reference internal" href="../bibliography.html#id20" title="Functional programming vs object oriented programming (oop) which is better….?. URL: https://medium.com/&#64;shaistha24/functional-programming-vs-object-oriented-programming-oop-which-is-better-82172e53a526 (visited on 2023-06-28).">med</a>]</span>. This apprach is used to perform a few operations with common behavior and different variants <span id="id8">[<a class="reference internal" href="../bibliography.html#id23" title="Functional programming vs oop. URL: https://www.educba.com/functional-programming-vs-oop/ (visited on 2023-08-23).">edu</a>]</span>.</p>
-<p>Functional programming uses functions for creating clean and maintainable software <span id="id9">[<a class="reference internal" href="../bibliography.html#id21" title="What is functional programming? a practical guide. URL: https://www.infoworld.com/article/3613715/what-is-functional-programming-a-practical-guide.html (visited on 2023-08-23).">inf</a>]</span>. FP should rely on pure functions which given the same inputs, always returns the same output and does not have any side effects. Side effects appears when function relies on, modifies, something outside its parameters to do something (e.g. function doing IO operations) <span id="id10">[<a class="reference internal" href="../bibliography.html#id22" title="The not-so-scary guide to functional programming. URL: https://www.yld.io/blog/the-not-so-scary-guide-to-functional-programming (visited on 2023-08-23).">yld</a>]</span>. Functional programming provides high performance in processing large data for applications <span id="id11">[<a class="reference internal" href="../bibliography.html#id23" title="Functional programming vs oop. URL: https://www.educba.com/functional-programming-vs-oop/ (visited on 2023-08-23).">edu</a>]</span>.</p>
-<p>According to table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a> pySailingVLM functional code is a little bit lower than Object Oriented approach. FP code implementation can gain some improvements to achieve better results:</p>
+<p>Object-Oriented and functional programming paradigms take a very different approach to how code is structured. In Object-Oriented code objects are used to represent data, functions or methods are used to manipulate the given object <span id="id7">[<a class="reference internal" href="../bibliography.html#id20" title="Functional programming vs object oriented programming (oop) which is better….?. URL: https://medium.com/&#64;shaistha24/functional-programming-vs-object-oriented-programming-oop-which-is-better-82172e53a526 (visited on 2023-06-28).">med</a>]</span>. This apprach is used to perform a few operations with common behavior and different variants <span id="id8">[<a class="reference internal" href="../bibliography.html#id23" title="Functional programming vs oop. URL: https://www.educba.com/functional-programming-vs-oop/ (visited on 2023-08-23).">edu</a>]</span>.</p>
+<p>Functional programming uses functions to create clean and maintainable software <span id="id9">[<a class="reference internal" href="../bibliography.html#id21" title="What is functional programming? a practical guide. URL: https://www.infoworld.com/article/3613715/what-is-functional-programming-a-practical-guide.html (visited on 2023-08-23).">inf</a>]</span>. FP should rely on pure functions which given the same inputs, always returns the same output and does not have any side effects. Side effects appears when function relies on, modifies, something outside its parameters to do something (e.g. function doing IO operations) <span id="id10">[<a class="reference internal" href="../bibliography.html#id22" title="The not-so-scary guide to functional programming. URL: https://www.yld.io/blog/the-not-so-scary-guide-to-functional-programming (visited on 2023-08-23).">yld</a>]</span>. Functional programming provides high performance in processing large data for applications <span id="id11">[<a class="reference internal" href="../bibliography.html#id23" title="Functional programming vs oop. URL: https://www.educba.com/functional-programming-vs-oop/ (visited on 2023-08-23).">edu</a>]</span>.</p>
+<p>According to table <a class="reference internal" href="#benchs"><span class="std std-numref">2</span></a> pySailingVLM functional code is a little bit slower than Object-Oriented approach. FP code implementation can gain some improvements to achieve better results:</p>
 <ul class="simple">
 <li><p>reducing the number of local variables inside functions</p></li>
 <li><p>vectorizing for-loops using np.vectorize() function from Numpy module</p></li>
@@ -479,11 +478,11 @@ Figure <a class="reference internal" href="#uklad"><span class="std std-numref">
 </section>
 <section id="other-improvements">
 <h2>Other improvements<a class="headerlink" href="#other-improvements" title="Permalink to this heading">#</a></h2>
-<p>Apart from code optimizations, the pySailingVLM has gained more features.
+<p>In addition to code optimizations, the pySailingVLM has gained more features.
 The possibility to calculate cambered sails and visualize pressure coefficients on colormap was introduced.
 Code has been packaged and now is available at Python Package Index (PyPI).
 It can be run locally from command line or in a cloud using Jupyter Notebook.
-pySailingVLM can be executed in a user defined script, which make it easy to calculate and compare many sailing cases.</p>
+pySailingVLM can be executed in a user-defined script, making it easy to calculate and compare many sailing cases.</p>
 </section>
 </section>
 

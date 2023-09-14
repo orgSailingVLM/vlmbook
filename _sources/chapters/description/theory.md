@@ -2,18 +2,20 @@
 
 ## Introduction
 
-The Vortex Lattice Method (VLM) is a numerical method used in computational fluid dynamics.
-It is build on the Potential flow theory.
-Although viscous effects and turbulence cannot be modelled explicitly by VLM, selected flows can be well approximated.
-VLM allows to to estimate the lift, induced drag, and force distribution of an lifting surface such as aircraft's wing or sail.
+The Vortex Lattice Method (VLM) is a numerical method used in computational fluid
+dynamics.
+It is built on the Potential Flow Theory.
+Although viscous effects and turbulence cannot be explicitly modelled by VLM, selected flows can be well approximated.
+VLM allows us to estimate the lift, induced drag, and force distribution of an lifting surface such as an aircraft wing or sail.
 
 ## Potential flow theory
 
-The potential flow theory treats external flows around bodies as incompressible, inviscid and irrotational {cite}`lecture` .
-For small angle of attack, the fluid flow does not separate abruptly, and the viscous effects are limitted to a thin layer next to the body known as boundary layer.
-In such case, the velocity field can be approximated by potential function.
+The potential flow theory treats external flows around bodies as incompressible, inviscid, and irrotational {cite}`lecture`.
+For a small angle of attack, the fluid flow does not separate abruptly, and the viscous effects are limited to a thin layer next to the body known as boundary layer.
+In this case, the velocity field can be approximated by a potential function.
 
-The Laplace equation is the qoverning equation in the theory of potential flows: 
+
+The Laplace equation is the qoverning equation in the theory of potential flows:
 
 $$
 \nabla^{2} \phi = 0
@@ -24,7 +26,7 @@ It satisfies the conservation of mass and momentum.
 
 ## Vortex Lattice Method
 
-In VLM, the lifting surface is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof. 
+In VLM, the lifting surface is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface or on some mean surface, or combination thereof.
 To satisfy boundary conditions, VLM utilizes following elements to describe each panel:
 
 * source - a point from which fluid issues and flows radially outward such that the continuity equation is satisfied everywhere but at the singularity that exists at the source's center
@@ -32,16 +34,16 @@ To satisfy boundary conditions, VLM utilizes following elements to describe each
 * doublet -  singularity resulting when a source or a sink of equal strength are made to approach each other such that the product of their strangths and their distance apart remains constant at a preselected finite value in the limit as a distance between them approaches zero
 * vortex - an element that generates a circulation, or tangential motion, around its origin
 
-Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters. 
+Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters.
 Such parameters are known after solving appropriate boundary condition equations.
-When singularity strengts are determinated, the pressure, velocity can be computed{cite}`bertin`.
+When singularity strengths are determinated, the pressure, velocity can be computed{cite}`bertin`.
 
 ```{figure} ../../figures/panels.png
 ---
 scale: 80%
 name: panel-method
 ---
-Representation of an airplane flowfield by panel (or singularity) methods. Figure taken from {cite}`bertin` (Fig. 7.22 page 350).
+Representation of an airplane flow field by panel (or singularity) methods. Figure taken from {cite}`bertin` (Fig. 7.22 page 350).
 ```
 
 ## Vortices
@@ -56,7 +58,7 @@ The vortex theorems for inviscid incompressible flows has been developed by Germ
 ### Vortex element
 
 Vortex element in 2D is presented on figure {numref}`{number} <vortex>`. 
-It is created by placing a rotating cylindrical core in two dimentional flowfield. 
+It is created by placing a rotating cylindrical core in two-dimentional flow field. 
 If the cylinder has a radius $R$ and a constant angular velocity of $\omega_y$, then its motion results in a flow with circular streamlines {cite}`katz`.
 
 ```{figure} ../../figures/vort.png
@@ -64,7 +66,7 @@ If the cylinder has a radius $R$ and a constant angular velocity of $\omega_y$, 
 name: vortex
 scale: 50%
 ---
-Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from {cite}`katz` (Fig. 2.11 page 34).
+Two-dimentional flow field around a cylindrical core rotating as a rigid body. Figure taken from {cite}`katz` (Fig. 2.11 page 34).
 ```
 
 The tangential velocity, induced by the vortex, can be calculated as:
@@ -75,7 +77,7 @@ $$
 
 where $r$ is the distance from the vortex core.
 
-If a vortex is located in free-stream with uniform velocity $u_\infty$, 
+If a vortex is located in free stream with uniform velocity $u_\infty$, 
 then the total velocity at the distance $r$ can be writtes as 
 $\overrightarrow{u_\infty} + \overrightarrow{w}_\theta(r)$.
 
@@ -86,10 +88,10 @@ $\overrightarrow{u_\infty} + \overrightarrow{w}_\theta(r)$.
 name: vortex-segment
 scale: 50%
 ---
-Vortex segment in three dimentions. Figure taken from {cite}`katz` (Fig. 2.16 page 40).
+Vortex segment in three dimensions. Figure taken from {cite}`katz` (Fig. 2.16 page 40).
 ```
 
-The velocity induced at point $P(x,y,z)$ by a straight vortex segement of strength $\Gamma$ in three dimentions (figure {numref}`{number} <vortex-segment>`) is qiven by equation:
+The velocity induced at point $P(x,y,z)$ by a straight vortex segement of strength $\Gamma$ in three dimensions (figure {numref}`{number} <vortex-segment>`) is qiven by equation:
 
 $$
 \overrightarrow{w}_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r}_{1} \times \overrightarrow{r}_{2}}{|\overrightarrow{r_1} \times \overrightarrow{r}_{2}|^2} \left(\frac{\overrightarrow{r}_{1}}{||\overrightarrow{r}_{1}||} - \frac{\overrightarrow{r}_{2}}{||\overrightarrow{r}_{2}||}\right) \cdot\overrightarrow{r}_{0}=\overrightarrow{\nu}\,\Gamma
@@ -109,7 +111,7 @@ and
 \overrightarrow{r_{2}} = P - (x_2, y_2, z_2)
 \end{gather*}
 
-In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula simplifies {cite}`modern`:
+In case of a semi-infinite vortex line, the point 2 is infinitely far away, thus formula simplifies {cite}`modern`:
 
 $$
 \overrightarrow{w}_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u}_{\infty} \times \overrightarrow{r}_{1}}{||\overrightarrow{r}_{1}||(||\overrightarrow{r}_{1}|| - \overrightarrow{u}_{\infty} \cdot \overrightarrow{r}_{1})}=\overrightarrow{\nu}\,\Gamma
@@ -117,9 +119,9 @@ $$ (q_infinite)
 
 ## The Kutta Condition
 
-The Kutta Condition states that at a small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there {cite}`katz`. 
-Because of this the normal component of velocity, from both sides of the airfoil, must vanish. 
-Flow pattern with circulation consistent with the Kutta condition is shown on figure {numref}`{number} <kutta>`.
+The Kutta Condition states that at a small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there {cite}`katz`.
+Because of this, the normal component of the velocity on both sides of the airfoil must disappear.
+The flow pattern with circulation consistent with the Kutta Condition is shown in Figure {numref}`{number} <kutta>`.
 
 ```{figure} ../../figures/kutta1.png
 ---
@@ -149,9 +151,9 @@ height: 300px
 Nomenclature of the lattice elements. Figure created by author.
 ```
 
-The surface of the object is divided into panels (gray rectanges on figure {numref}`{number} <siatka>` ). 
-The total amount of them is a product of spanwise and chordwise divisions. 
-Vortex element is associated to segment one of the panel (pink rectangles).
+The surface of the object is divided into panels ((black rectangles in Figure {numref}`{number} <siatka>` ).
+The total amount of them is the product of spanwise and chordwise divisions.
+The vortex element is associated to segment one of the panel (red rectangles).
 
 There are two types of vortex elements:
 
@@ -168,7 +170,7 @@ name: ring
 Nomenclature of the vortex ring. Figure created by author.
 ```
 
-Vortex ring (figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`.
+Vortex ring (Figure {numref}`{number} <ring>`) is created by four finite segments according to equation {eq}`q_finite`.
 
 #### Horseshoe vortex
 
@@ -181,17 +183,19 @@ Nomenclature of the vortex horseshoe. Figure created by author.
 ```
 
 Horseshoe vortex is attached to the trailing edge of lifting surface.
-It consists of three finite and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see figure {numref}`{number} <horseshoe>`).
+It consists of three finite segments and two semi-infinite segments following equation {eq}`q_finite` and {eq}`q_infinite` (see Figure {numref}`{number} <horseshoe>`).
 
-The bound vortex of the wing is considered bound to a "lifting line".  The lifting line theory considers the wing to be a single vortex filament.  The tip vortices are the "automatic" consequences of the lifting line and the circulation around a finite wing.
+The bound vortex of the wing is considered bound to a "lifting line". The lifting line theory considers the wing to be a single vortex filament.
+The tip vortices are the "automatic" consequences of the lifting line and the circulation around a finite wing.
 
 #### Vortex location
 
-The center of pressure is a point to which a resulting aerodynamic force is attached.
-It is located at the $1/4$ of a panel chord and at $1/2$ of the panel span (from panel leading edge). 
-To fulfill no flow through the surface condition, the control point is defined at $3/4$ of the chord from the panel leading edge and in the middle of the span.
+The centre of pressure (CP) is a point to which a resulting aerodynamic force is attached.
+It is located at the $1/4$ of a panel chord and at $1/2$ of the panel span (from the leading edge of the panel).
+To ensure there is no flow through the surface condition, the control point (CTRL) is defined at $3/4$ of the chord from the panel leading edge and in the middle of the span.
 
-Vortex vertices $B_k$ and $C_k$ are placed at $1/4$ of panel chord ($v_{k}$), $A_k$ and $D_k$ at $1/4$ of the next panel ($v_{k+1}$). The panel opposite corner points define two vectors $\overrightarrow{A}_{k}$ and $\overrightarrow{B}_{k}$, and their vector product will point in the direction of $\overrightarrow{n}_{k}$ (normal vector).
+Each panel has its own index $k$ (on Figures {numref}`{number} <siatka>`, {numref}`{number} <ring>` and {numref}`{number} <horseshoe>` symbol $v_k$ describes the
+k-th panel). The vortex vertices $B_k$ and $C_k$ are placed at $1/4$ of panel chord, $A_k$ and $D_k$ at $1/4$ of the next panel ($v_{k+1}$). The points in the panel opposite the corners define two vectors $\overrightarrow{A}_{k}$ and $\overrightarrow{B}_{k}$, and their vector product will point in the direction of $\overrightarrow{n}_{k}$ (normal vector).
 
 ### The Boundary Condition
 
@@ -212,14 +216,14 @@ $$
 ... +
 \underbrace{\overrightarrow{\nu_{1N}} \cdot \overrightarrow{n_1}}_{a_{1N}} \Gamma_N+
 =
-\underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_1}}_{RHS_1}
+\underbrace{- \overrightarrow{u_{\infty}} \cdot \overrightarrow{n_1}}_{RHS_1}
 \\
 \underbrace{\overrightarrow{\nu_{21}} \cdot \overrightarrow{n_k}}_{a_{21}} \Gamma_1+
 \underbrace{\overrightarrow{\nu_{22}} \cdot \overrightarrow{n_k}}_{a_{22}} \Gamma_2+
 ... +
 \underbrace{\overrightarrow{\nu_{2N}} \cdot \overrightarrow{n_k}}_{a_{2N}} \Gamma_N+
 =
-\underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
+\underbrace{- \overrightarrow{u_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
 $$
 
 Which leads to a set of linear algebraic equations
@@ -270,7 +274,7 @@ $$
 \sum{\overrightarrow{\nu_{jk}}\Gamma_{k}}) \times \overrightarrow{b_j}\Gamma_{j}
 $$
 
-where $b_j$ is a vector representing a finite vortex filement going through the center of pressure of the j-th section, $\overrightarrow{V}_{app\_wind\_infs\_j}$ is apparent wind velocity for an 'infinite sail' (without induced wind velocity) and $\overrightarrow{V}_{app\_wind\_fs\_j}$ is apparent wind velocity for a 'finite sail' (with induced wind velocity).
+where $b_j$ is a vector representing a finite vortex filement going through the centre of pressure of the j-th section, $\overrightarrow{V}_{app\_wind\_infs\_j}$ is apparent wind velocity for an 'infinite sail' (without induced wind velocity) and $\overrightarrow{V}_{app\_wind\_fs\_j}$ is apparent wind velocity for a 'finite sail' (with induced wind velocity).
 
 The pressure is computed as a normal component of a force divided by the area of a panel:
 
@@ -283,6 +287,47 @@ Pressure coefficient at k-th panel follows the formula:
 $$
 c_p=\frac{p_k}{\frac{1}{2}\, \rho {\left|\left|\overrightarrow{u}_{\infty_k}\right|\right|}^2}
 $$
+
+Lift $\overrightarrow{L}$ is the component of this force that is perpendicular to the oncoming flow direction. Total lift coefficient can be calculated from equation:
+
+$$
+    C_L = \frac{||\overrightarrow{L}||}{\frac{1}{2} \rho_\infty || \overrightarrow{u}_{\infty} ||^2 S }
+$$
+
+Drag $\overrightarrow{D}$ is a force that acts opposite to the relative motion of any object moving with respect to a surrounding fluid. The total drag coefficient is defined as:
+
+$$
+    C_D = \frac{||\overrightarrow{D}||}{\frac{1}{2} \rho_\infty || \overrightarrow{u}_{\infty} ||^2 S }
+$$
+
+The slope of a lift coefficient:
+
+$$
+    C_{L,\alpha} = \frac{dC_L}{d\alpha}
+$$
+
+The slope of a drag coefficient:
+
+$$
+    C_{D,\alpha} = \frac{dC_D}{d\alpha}
+$$
+
+where $S$ is total sail area,  $\rho$ is density of a fluid and $\alpha$ is angle of attack. \\
+
+The section lift coefficient for the chordwise strip is given by the equation (from leading edge to trailing edge):
+
+$$
+c_{l,sec} = \frac{\sum_{i} S_i c_{l,i} }{\sum_{i} S_i}
+$$
+
+The section drag coefficient for the chordwise strip is given by the equation (from leading edge to trailing edge):
+
+$$
+c_{d,sec} = \frac{\sum_{i} S_i c_{d,i} }{\sum_{i} S_i}
+$$
+
+where $i$ iterates through strip panels, $S_i$ is a i-th panel area in the strip, $c_{d,i}$ is drag coefficient per i-th panel in strip and $c_{l,i}$ is lift coefficient per i-th panel in strip.
+
 <!---
 Referencing do wyrazen matematycznych dziala w latexie, w htmlu nie, wiec rzeba tak pisac zdania zeby w latxie byly odnosniki a w html nie bylo to widoczne np tak jak w ostatnim wyrazeniu matematycznym{raw-latex}` \ref{eq:q12}`.
 -->

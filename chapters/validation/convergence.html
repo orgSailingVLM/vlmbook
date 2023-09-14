@@ -351,7 +351,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="convergence">
 <h1>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h1>
-<p>pySailingVLM software allows user to specify the number of panels in a spanwise and chordwise direction. The more panels are used during computations, the more precise solution will be obtained. Below the rc44 example is used to show the total force per sail (Course over Ground) convergance.</p>
+<p>pySailingVLM software allows user to specify the number of panels in a spanwise
+and chordwise direction.
+The more panels that are used during computations, the more precise solution will be obtained.
+Below the rc44 example is used to show the total force per sail (Course over Ground) convergence.
+The detailed program input values are describe in section <a class="reference internal" href="../examples/rc44.html#rc44py"><span class="std std-ref">RC44 yacht</span></a>. Geometry of a sails and rig is depicted in figure <a class="reference internal" href="#rc44-fig"><span class="std std-numref">24</span></a>. There is no leeway, heel is <span class="math notranslate nohighlight">\(13^\circ\)</span> , yacht speed over ground is <span class="math notranslate nohighlight">\(3.446 \frac{m}{s}\)</span> .
+The true wind speed is <span class="math notranslate nohighlight">\(3.086 \frac{m}{s}\)</span> with the angle of attack equal to 45 degrees. Simulations were performed sequentially for the following number of panels in spanwise direction per sail 6, 12, 24, 48, 96 and in chordwise direction: 2, 4, 8, 16, 32.</p>
 <figure class="align-default" id="fsx">
 <a class="reference internal image-reference" href="../../_images/fsx.png"><img alt="../../_images/fsx.png" src="../../_images/fsx.png" style="width: 500px;" /></a>
 <figcaption>
@@ -371,6 +376,13 @@ document.write(`
 </figcaption>
 </figure>
 <p>According to generated graphs, total force per sail (for all axises) converges to a certain value as the number of panels increases.</p>
+<figure class="align-default" id="rc44-fig">
+<a class="reference internal image-reference" href="../../_images/drw_new.png"><img alt="../../_images/drw_new.png" src="../../_images/drw_new.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Geometry of sails and rig. Mainsail girths and jib girts are horizontal, measured in meters and defined at percentage of the corresponding sail luff length of 0.25%
+0.50% and 0.75%. Figure based on template from G. Gruszczyński.</span><a class="headerlink" href="#rc44-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 
     <script type="text/x-thebe-config">

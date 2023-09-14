@@ -381,16 +381,17 @@ document.write(`
 <h1>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>The Vortex Lattice Method (VLM) is a numerical method used in computational fluid dynamics.
-It is build on the Potential flow theory.
-Although viscous effects and turbulence cannot be modelled explicitly by VLM, selected flows can be well approximated.
-VLM allows to to estimate the lift, induced drag, and force distribution of an lifting surface such as aircraft’s wing or sail.</p>
+<p>The Vortex Lattice Method (VLM) is a numerical method used in computational fluid
+dynamics.
+It is built on the Potential Flow Theory.
+Although viscous effects and turbulence cannot be explicitly modelled by VLM, selected flows can be well approximated.
+VLM allows us to estimate the lift, induced drag, and force distribution of an lifting surface such as an aircraft wing or sail.</p>
 </section>
 <section id="potential-flow-theory">
 <h2>Potential flow theory<a class="headerlink" href="#potential-flow-theory" title="Permalink to this heading">#</a></h2>
-<p>The potential flow theory treats external flows around bodies as incompressible, inviscid and irrotational <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Prof. A.H. Techet. Potential flow theory. In Lecture: 2.016 Hydrodynamics. Massachusetts Institute of Technology., 2005. MIT. URL: https://web.mit.edu/2.016/www/handouts/2005Reading4.pdf (visited on 2023-08-23).">Tec05</a>]</span> .
-For small angle of attack, the fluid flow does not separate abruptly, and the viscous effects are limitted to a thin layer next to the body known as boundary layer.
-In such case, the velocity field can be approximated by potential function.</p>
+<p>The potential flow theory treats external flows around bodies as incompressible, inviscid, and irrotational <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Prof. A.H. Techet. Potential flow theory. In Lecture: 2.016 Hydrodynamics. Massachusetts Institute of Technology., 2005. MIT. URL: https://web.mit.edu/2.016/www/handouts/2005Reading4.pdf (visited on 2023-08-23).">Tec05</a>]</span>.
+For a small angle of attack, the fluid flow does not separate abruptly, and the viscous effects are limited to a thin layer next to the body known as boundary layer.
+In this case, the velocity field can be approximated by a potential function.</p>
 <p>The Laplace equation is the qoverning equation in the theory of potential flows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -401,7 +402,7 @@ It satisfies the conservation of mass and momentum.</p>
 </section>
 <section id="vortex-lattice-method">
 <h2>Vortex Lattice Method<a class="headerlink" href="#vortex-lattice-method" title="Permalink to this heading">#</a></h2>
-<p>In VLM, the lifting surface is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface, or on some mean surface, or combination thereof.
+<p>In VLM, the lifting surface is modelled by a large number of elementary, quadrilateral panels lying either on the actual aircraft surface or on some mean surface, or combination thereof.
 To satisfy boundary conditions, VLM utilizes following elements to describe each panel:</p>
 <ul class="simple">
 <li><p>source - a point from which fluid issues and flows radially outward such that the continuity equation is satisfied everywhere but at the singularity that exists at the source’s center</p></li>
@@ -411,11 +412,11 @@ To satisfy boundary conditions, VLM utilizes following elements to describe each
 </ul>
 <p>Such singularities are defined by specifying functional variation across the panel and its value is set by determinating strength parameters.
 Such parameters are known after solving appropriate boundary condition equations.
-When singularity strengts are determinated, the pressure, velocity can be computed<span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
+When singularity strengths are determinated, the pressure, velocity can be computed<span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span>.</p>
 <figure class="align-default" id="panel-method">
 <a class="reference internal image-reference" href="../../_images/panels.png"><img alt="../../_images/panels.png" src="../../_images/panels.png" style="width: 494.40000000000003px; height: 216.8px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representation of an airplane flowfield by panel (or singularity) methods. Figure taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> (Fig. 7.22 page 350).</span><a class="headerlink" href="#panel-method" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Representation of an airplane flow field by panel (or singularity) methods. Figure taken from <span id="id3">[<a class="reference internal" href="../bibliography.html#id9" title="Russell M. Cummings John J. Bertin. Aerodynamics for engineers, Fifth Edition. Pearson Education International, 2009.">JJB09</a>]</span> (Fig. 7.22 page 350).</span><a class="headerlink" href="#panel-method" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -431,12 +432,12 @@ When singularity strengts are determinated, the pressure, velocity can be comput
 <section id="vortex-element">
 <h3>Vortex element<a class="headerlink" href="#vortex-element" title="Permalink to this heading">#</a></h3>
 <p>Vortex element in 2D is presented on figure <a class="reference internal" href="#vortex"><span class="std std-numref">2</span></a>.
-It is created by placing a rotating cylindrical core in two dimentional flowfield.
+It is created by placing a rotating cylindrical core in two-dimentional flow field.
 If the cylinder has a radius <span class="math notranslate nohighlight">\(R\)</span> and a constant angular velocity of <span class="math notranslate nohighlight">\(\omega_y\)</span>, then its motion results in a flow with circular streamlines <span id="id5">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.</p>
 <figure class="align-default" id="vortex">
 <a class="reference internal image-reference" href="../../_images/vort.png"><img alt="../../_images/vort.png" src="../../_images/vort.png" style="width: 292.0px; height: 387.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Two dimentional flowfield around a cylindrical core rotating as a rigid body. Figure taken from <span id="id6">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.11 page 34).</span><a class="headerlink" href="#vortex" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Two-dimentional flow field around a cylindrical core rotating as a rigid body. Figure taken from <span id="id6">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.11 page 34).</span><a class="headerlink" href="#vortex" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The tangential velocity, induced by the vortex, can be calculated as:</p>
@@ -445,7 +446,7 @@ If the cylinder has a radius <span class="math notranslate nohighlight">\(R\)</s
 \overrightarrow{w}_\theta(r) = \frac{\Gamma}{2\pi \cdot r}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the vortex core.</p>
-<p>If a vortex is located in free-stream with uniform velocity <span class="math notranslate nohighlight">\(u_\infty\)</span>,
+<p>If a vortex is located in free stream with uniform velocity <span class="math notranslate nohighlight">\(u_\infty\)</span>,
 then the total velocity at the distance <span class="math notranslate nohighlight">\(r\)</span> can be writtes as
 <span class="math notranslate nohighlight">\(\overrightarrow{u_\infty} + \overrightarrow{w}_\theta(r)\)</span>.</p>
 </section>
@@ -454,10 +455,10 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../../_images/vor_seg.png"><img alt="../../_images/vor_seg.png" src="../../_images/vor_seg.png" style="width: 179.0px; height: 210.5px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Vortex segment in three dimentions. Figure taken from <span id="id7">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.16 page 40).</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Vortex segment in three dimensions. Figure taken from <span id="id7">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span> (Fig. 2.16 page 40).</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The velocity induced at point <span class="math notranslate nohighlight">\(P(x,y,z)\)</span> by a straight vortex segement of strength <span class="math notranslate nohighlight">\(\Gamma\)</span> in three dimentions (figure <a class="reference internal" href="#id8"><span class="std std-numref">3</span></a>) is qiven by equation:</p>
+<p>The velocity induced at point <span class="math notranslate nohighlight">\(P(x,y,z)\)</span> by a straight vortex segement of strength <span class="math notranslate nohighlight">\(\Gamma\)</span> in three dimensions (figure <a class="reference internal" href="#id8"><span class="std std-numref">3</span></a>) is qiven by equation:</p>
 <div class="math notranslate nohighlight" id="equation-q-finite">
 <span class="eqno">(1)<a class="headerlink" href="#equation-q-finite" title="Permalink to this equation">#</a></span>\[
 \overrightarrow{w}_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{r}_{1} \times \overrightarrow{r}_{2}}{|\overrightarrow{r_1} \times \overrightarrow{r}_{2}|^2} \left(\frac{\overrightarrow{r}_{1}}{||\overrightarrow{r}_{1}||} - \frac{\overrightarrow{r}_{2}}{||\overrightarrow{r}_{2}||}\right) \cdot\overrightarrow{r}_{0}=\overrightarrow{\nu}\,\Gamma
@@ -474,7 +475,7 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 \overrightarrow{r_{1}} = P - (x_1, y_1, z_1)\\
 \overrightarrow{r_{2}} = P - (x_2, y_2, z_2)
 \end{gather*}\]</div>
-<p>In case of a semi-infinite vortex line, the point 2 is infinitely far away thus formula simplifies <span id="id9">[<a class="reference internal" href="../bibliography.html#id12" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org (visited on 2023-08-23), doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
+<p>In case of a semi-infinite vortex line, the point 2 is infinitely far away, thus formula simplifies <span id="id9">[<a class="reference internal" href="../bibliography.html#id12" title="W. F. Phillips and D. O. Snyder. Modern adaptation of prandtl's classic lifting-line theory. JOURNAL OF AIRCRAFT, 37(4):662-670, July - August 2000. URL: http://arc.aiaa.org (visited on 2023-08-23), doi:DOI: 10.2514/2.2649.">PS00</a>]</span>:</p>
 <div class="math notranslate nohighlight" id="equation-q-infinite">
 <span class="eqno">(2)<a class="headerlink" href="#equation-q-infinite" title="Permalink to this equation">#</a></span>\[
 \overrightarrow{w}_{1,2} = \frac{\Gamma}{4\pi}\frac{\overrightarrow{u}_{\infty} \times \overrightarrow{r}_{1}}{||\overrightarrow{r}_{1}||(||\overrightarrow{r}_{1}|| - \overrightarrow{u}_{\infty} \cdot \overrightarrow{r}_{1})}=\overrightarrow{\nu}\,\Gamma
@@ -484,8 +485,8 @@ then the total velocity at the distance <span class="math notranslate nohighligh
 <section id="the-kutta-condition">
 <h2>The Kutta Condition<a class="headerlink" href="#the-kutta-condition" title="Permalink to this heading">#</a></h2>
 <p>The Kutta Condition states that at a small angle of attack the flow leaves the sharp trailing edge of an airfoil smoothly and the velocity is finite there <span id="id10">[<a class="reference internal" href="../bibliography.html#id7" title="A. Plotkin J. Katz. Low-Speed Aerodynamics, Second Edition. Cambridge University Press, 2001.">JK01</a>]</span>.
-Because of this the normal component of velocity, from both sides of the airfoil, must vanish.
-Flow pattern with circulation consistent with the Kutta condition is shown on figure <a class="reference internal" href="#kutta"><span class="std std-numref">4</span></a>.</p>
+Because of this, the normal component of the velocity on both sides of the airfoil must disappear.
+The flow pattern with circulation consistent with the Kutta Condition is shown in Figure <a class="reference internal" href="#kutta"><span class="std std-numref">4</span></a>.</p>
 <figure class="align-default" id="kutta">
 <a class="reference internal image-reference" href="../../_images/kutta1.png"><img alt="../../_images/kutta1.png" src="../../_images/kutta1.png" style="width: 673.2px; height: 283.8px;" /></a>
 <figcaption>
@@ -507,9 +508,9 @@ Flow pattern with circulation consistent with the Kutta condition is shown on fi
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Nomenclature of the lattice elements. Figure created by author.</span><a class="headerlink" href="#siatka" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The surface of the object is divided into panels (gray rectanges on figure <a class="reference internal" href="#siatka"><span class="std std-numref">6</span></a> ).
-The total amount of them is a product of spanwise and chordwise divisions.
-Vortex element is associated to segment one of the panel (pink rectangles).</p>
+<p>The surface of the object is divided into panels ((black rectangles in Figure <a class="reference internal" href="#siatka"><span class="std std-numref">6</span></a> ).
+The total amount of them is the product of spanwise and chordwise divisions.
+The vortex element is associated to segment one of the panel (red rectangles).</p>
 <p>There are two types of vortex elements:</p>
 <ul class="simple">
 <li><p>vortex ring</p></li>
@@ -523,7 +524,7 @@ Vortex element is associated to segment one of the panel (pink rectangles).</p>
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Nomenclature of the vortex ring. Figure created by author.</span><a class="headerlink" href="#ring" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Vortex ring (figure <a class="reference internal" href="#ring"><span class="std std-numref">7</span></a>) is created by four finite segments according to equation <a class="reference internal" href="#equation-q-finite">(1)</a>.</p>
+<p>Vortex ring (Figure <a class="reference internal" href="#ring"><span class="std std-numref">7</span></a>) is created by four finite segments according to equation <a class="reference internal" href="#equation-q-finite">(1)</a>.</p>
 </section>
 <section id="horseshoe-vortex">
 <h4>Horseshoe vortex<a class="headerlink" href="#horseshoe-vortex" title="Permalink to this heading">#</a></h4>
@@ -534,15 +535,17 @@ Vortex element is associated to segment one of the panel (pink rectangles).</p>
 </figcaption>
 </figure>
 <p>Horseshoe vortex is attached to the trailing edge of lifting surface.
-It consists of three finite and two semi-infinite segments following equation <a class="reference internal" href="#equation-q-finite">(1)</a> and <a class="reference internal" href="#equation-q-infinite">(2)</a> (see figure <a class="reference internal" href="#horseshoe"><span class="std std-numref">8</span></a>).</p>
-<p>The bound vortex of the wing is considered bound to a “lifting line”.  The lifting line theory considers the wing to be a single vortex filament.  The tip vortices are the “automatic” consequences of the lifting line and the circulation around a finite wing.</p>
+It consists of three finite segments and two semi-infinite segments following equation <a class="reference internal" href="#equation-q-finite">(1)</a> and <a class="reference internal" href="#equation-q-infinite">(2)</a> (see Figure <a class="reference internal" href="#horseshoe"><span class="std std-numref">8</span></a>).</p>
+<p>The bound vortex of the wing is considered bound to a “lifting line”. The lifting line theory considers the wing to be a single vortex filament.
+The tip vortices are the “automatic” consequences of the lifting line and the circulation around a finite wing.</p>
 </section>
 <section id="vortex-location">
 <h4>Vortex location<a class="headerlink" href="#vortex-location" title="Permalink to this heading">#</a></h4>
-<p>The center of pressure is a point to which a resulting aerodynamic force is attached.
-It is located at the <span class="math notranslate nohighlight">\(1/4\)</span> of a panel chord and at <span class="math notranslate nohighlight">\(1/2\)</span> of the panel span (from panel leading edge).
-To fulfill no flow through the surface condition, the control point is defined at <span class="math notranslate nohighlight">\(3/4\)</span> of the chord from the panel leading edge and in the middle of the span.</p>
-<p>Vortex vertices <span class="math notranslate nohighlight">\(B_k\)</span> and <span class="math notranslate nohighlight">\(C_k\)</span> are placed at <span class="math notranslate nohighlight">\(1/4\)</span> of panel chord (<span class="math notranslate nohighlight">\(v_{k}\)</span>), <span class="math notranslate nohighlight">\(A_k\)</span> and <span class="math notranslate nohighlight">\(D_k\)</span> at <span class="math notranslate nohighlight">\(1/4\)</span> of the next panel (<span class="math notranslate nohighlight">\(v_{k+1}\)</span>). The panel opposite corner points define two vectors <span class="math notranslate nohighlight">\(\overrightarrow{A}_{k}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{B}_{k}\)</span>, and their vector product will point in the direction of <span class="math notranslate nohighlight">\(\overrightarrow{n}_{k}\)</span> (normal vector).</p>
+<p>The centre of pressure (CP) is a point to which a resulting aerodynamic force is attached.
+It is located at the <span class="math notranslate nohighlight">\(1/4\)</span> of a panel chord and at <span class="math notranslate nohighlight">\(1/2\)</span> of the panel span (from the leading edge of the panel).
+To ensure there is no flow through the surface condition, the control point (CTRL) is defined at <span class="math notranslate nohighlight">\(3/4\)</span> of the chord from the panel leading edge and in the middle of the span.</p>
+<p>Each panel has its own index <span class="math notranslate nohighlight">\(k\)</span> (on Figures <a class="reference internal" href="#siatka"><span class="std std-numref">6</span></a>, <a class="reference internal" href="#ring"><span class="std std-numref">7</span></a> and <a class="reference internal" href="#horseshoe"><span class="std std-numref">8</span></a> symbol <span class="math notranslate nohighlight">\(v_k\)</span> describes the
+k-th panel). The vortex vertices <span class="math notranslate nohighlight">\(B_k\)</span> and <span class="math notranslate nohighlight">\(C_k\)</span> are placed at <span class="math notranslate nohighlight">\(1/4\)</span> of panel chord, <span class="math notranslate nohighlight">\(A_k\)</span> and <span class="math notranslate nohighlight">\(D_k\)</span> at <span class="math notranslate nohighlight">\(1/4\)</span> of the next panel (<span class="math notranslate nohighlight">\(v_{k+1}\)</span>). The points in the panel opposite the corners define two vectors <span class="math notranslate nohighlight">\(\overrightarrow{A}_{k}\)</span> and <span class="math notranslate nohighlight">\(\overrightarrow{B}_{k}\)</span>, and their vector product will point in the direction of <span class="math notranslate nohighlight">\(\overrightarrow{n}_{k}\)</span> (normal vector).</p>
 </section>
 </section>
 <section id="the-boundary-condition">
@@ -563,18 +566,18 @@ To fulfill no flow through the surface condition, the control point is defined a
 ... +
 \underbrace{\overrightarrow{\nu_{1N}} \cdot \overrightarrow{n_1}}_{a_{1N}} \Gamma_N+
 =
-\underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_1}}_{RHS_1}
+\underbrace{- \overrightarrow{u_{\infty}} \cdot \overrightarrow{n_1}}_{RHS_1}
 \\
 \underbrace{\overrightarrow{\nu_{21}} \cdot \overrightarrow{n_k}}_{a_{21}} \Gamma_1+
 \underbrace{\overrightarrow{\nu_{22}} \cdot \overrightarrow{n_k}}_{a_{22}} \Gamma_2+
 ... +
 \underbrace{\overrightarrow{\nu_{2N}} \cdot \overrightarrow{n_k}}_{a_{2N}} \Gamma_N+
 =
-\underbrace{- \overrightarrow{Q_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
+\underbrace{- \overrightarrow{u_{\infty}} \cdot \overrightarrow{n_k}}_{RHS_2}
 \end{split}\]</div>
 <p>Which leads to a set of linear algebraic equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83a315fc-c5f2-43a8-a7af-80bdd899b71f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-83a315fc-c5f2-43a8-a7af-80bdd899b71f" title="Permalink to this equation">#</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-e83a145d-6452-407c-8eda-56cff7cdfb99">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e83a145d-6452-407c-8eda-56cff7cdfb99" title="Permalink to this equation">#</a></span>\[\begin{gather}
     \begin{bmatrix}
     a_{11} &amp; \dots  &amp; a_{1m}\\
     \vdots &amp; \ddots &amp; \vdots\\
@@ -615,7 +618,7 @@ To fulfill no flow through the surface condition, the control point is defined a
 \rho(\overrightarrow{V}_{app\_wind\_infs\_j} +
 \sum{\overrightarrow{\nu_{jk}}\Gamma_{k}}) \times \overrightarrow{b_j}\Gamma_{j}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(b_j\)</span> is a vector representing a finite vortex filement going through the center of pressure of the j-th section, <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_infs\_j}\)</span> is apparent wind velocity for an ‘infinite sail’ (without induced wind velocity) and <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs\_j}\)</span> is apparent wind velocity for a ‘finite sail’ (with induced wind velocity).</p>
+<p>where <span class="math notranslate nohighlight">\(b_j\)</span> is a vector representing a finite vortex filement going through the centre of pressure of the j-th section, <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_infs\_j}\)</span> is apparent wind velocity for an ‘infinite sail’ (without induced wind velocity) and <span class="math notranslate nohighlight">\(\overrightarrow{V}_{app\_wind\_fs\_j}\)</span> is apparent wind velocity for a ‘finite sail’ (with induced wind velocity).</p>
 <p>The pressure is computed as a normal component of a force divided by the area of a panel:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -626,6 +629,38 @@ p_k= \frac{\overrightarrow{F}_{k} \, \cdot \overrightarrow{n}_{k}}{S_k}
 \[
 c_p=\frac{p_k}{\frac{1}{2}\, \rho {\left|\left|\overrightarrow{u}_{\infty_k}\right|\right|}^2}
 \]</div>
+<p>Lift <span class="math notranslate nohighlight">\(\overrightarrow{L}\)</span> is the component of this force that is perpendicular to the oncoming flow direction. Total lift coefficient can be calculated from equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    C_L = \frac{||\overrightarrow{L}||}{\frac{1}{2} \rho_\infty || \overrightarrow{u}_{\infty} ||^2 S }
+\]</div>
+<p>Drag <span class="math notranslate nohighlight">\(\overrightarrow{D}\)</span> is a force that acts opposite to the relative motion of any object moving with respect to a surrounding fluid. The total drag coefficient is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+    C_D = \frac{||\overrightarrow{D}||}{\frac{1}{2} \rho_\infty || \overrightarrow{u}_{\infty} ||^2 S }
+\]</div>
+<p>The slope of a lift coefficient:</p>
+<div class="math notranslate nohighlight">
+\[
+    C_{L,\alpha} = \frac{dC_L}{d\alpha}
+\]</div>
+<p>The slope of a drag coefficient:</p>
+<div class="math notranslate nohighlight">
+\[
+    C_{D,\alpha} = \frac{dC_D}{d\alpha}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(S\)</span> is total sail area,  <span class="math notranslate nohighlight">\(\rho\)</span> is density of a fluid and <span class="math notranslate nohighlight">\(\alpha\)</span> is angle of attack. \</p>
+<p>The section lift coefficient for the chordwise strip is given by the equation (from leading edge to trailing edge):</p>
+<div class="math notranslate nohighlight">
+\[
+c_{l,sec} = \frac{\sum_{i} S_i c_{l,i} }{\sum_{i} S_i}
+\]</div>
+<p>The section drag coefficient for the chordwise strip is given by the equation (from leading edge to trailing edge):</p>
+<div class="math notranslate nohighlight">
+\[
+c_{d,sec} = \frac{\sum_{i} S_i c_{d,i} }{\sum_{i} S_i}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> iterates through strip panels, <span class="math notranslate nohighlight">\(S_i\)</span> is a i-th panel area in the strip, <span class="math notranslate nohighlight">\(c_{d,i}\)</span> is drag coefficient per i-th panel in strip and <span class="math notranslate nohighlight">\(c_{l,i}\)</span> is lift coefficient per i-th panel in strip.</p>
 <!---
 Referencing do wyrazen matematycznych dziala w latexie, w htmlu nie, wiec rzeba tak pisac zdania zeby w latxie byly odnosniki a w html nie bylo to widoczne np tak jak w ostatnim wyrazeniu matematycznym{raw-latex}` \ref{eq:q12}`.
 --></section>
