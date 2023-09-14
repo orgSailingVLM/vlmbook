@@ -1,9 +1,9 @@
 # Rectangular flat plate
 
-Using pySailingVLm a rectangular flat plate was modeled with a span of 10 units and a constant chord of 1 unit.
-The geomery of sail is discretized into 16 spanwise and 8 chordwise panels.
-The free-stream strength is 1 unit and the angle of attack is $10^\circ$.
-Then the lift coefficient slope $C_{L,\alpha}$ was compared with {cite}`mgr` and analitically derived results (using equation {eq}`anal`) in the table below.
+Using pySailingVLM a rectangular flat plate was modelled with a span of 10 units and a constant chord of 1 unit.
+The geomery of sail is discretised into 16 spanwise and 8 chordwise panels.
+The free stream strength is 1 unit and the angle of attack is $10^\circ$.
+Then the lift coefficient slope $C_{L,\alpha}$ was compared with the results derived from {cite}`mgr` and analitically derived results (using equation {eq}`anal`) in the table below.
 
 ```{math}
 :label: anal

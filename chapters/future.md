@@ -1,6 +1,6 @@
 # Future outlook
 
-Some improvements to pySailingVLM code can be conducted in order to decrease program time execution.
+Some improvements can be made to pySailingVLM to decrease the time execution of the program.
 
 ## GPU
 
@@ -18,7 +18,7 @@ This memory layout is especially recommended for CUDA acceleration {cite}`intel`
 
 ## Points dupllicate
 
-Panels which are close to each other share same points (see figure {numref}`{number} <future_panels>`).
+Panels which are close to each other share same points (see Figure {numref}`{number} <future_panels>`).
 Current pySailingVLM implementation (legacy from OO implementation) does not take into account this fact and there are duplicates of points coordinates in the panel array.
 Reducing redundant points can improve memory consumption and code efficiency.
 

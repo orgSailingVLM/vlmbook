@@ -1,5 +1,8 @@
 # Installation
 
+In order to install the pySailingVLM, follow the instructions below. Commands are
+presented only for Linux users. For Windows or macOS, they should be modified, respectively.
+
 ## For Users
 
 pySailingVLM package is available at PyPI:
